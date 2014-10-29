@@ -11,4 +11,12 @@
 
 @interface ItemSwipeViewController : TemplateViewController
 
+@property UIImageView* itemView;
+
+@property NSMutableArray* items;
+
+@property (weak, nonatomic) IBOutlet UILabel* itemName;
+
+@property NSInteger itemIndex;
+
 @end

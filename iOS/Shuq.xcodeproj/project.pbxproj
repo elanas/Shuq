@@ -24,6 +24,11 @@
 		0B77748119FD9CD600D2A696 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748019FD9CD600D2A696 /* TemplateViewController.m */; };
 		0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */; };
 		0BA0B06B1A00A8900087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B06A1A00A8900087DDA5 /* iphone.png */; };
+		0BA0B06D1A00B35B0087DDA5 /* bike.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B06C1A00B35B0087DDA5 /* bike.png */; };
+		0BA0B0701A00BF710087DDA5 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA0B06F1A00BF710087DDA5 /* Item.m */; };
+		0BA0B0D91A0149DE0087DDA5 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0D81A0149DE0087DDA5 /* glasses.png */; };
+		0BA0B0DB1A014A400087DDA5 /* flask.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0DA1A014A3F0087DDA5 /* flask.png */; };
+		0BA0B0DD1A0150650087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0DC1A0150650087DDA5 /* hat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,12 @@
 		0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSwipeViewController.h; sourceTree = "<group>"; };
 		0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSwipeViewController.m; sourceTree = "<group>"; };
 		0BA0B06A1A00A8900087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
+		0BA0B06C1A00B35B0087DDA5 /* bike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike.png; sourceTree = "<group>"; };
+		0BA0B06E1A00BF710087DDA5 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		0BA0B06F1A00BF710087DDA5 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		0BA0B0D81A0149DE0087DDA5 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glasses.png; sourceTree = "<group>"; };
+		0BA0B0DA1A014A3F0087DDA5 /* flask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flask.png; sourceTree = "<group>"; };
+		0BA0B0DC1A0150650087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,13 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				0B77745419FD856B00D2A696 /* AppDelegate.h */,
+				0BA0B0D71A0149BA0087DDA5 /* images */,
 				0B77745519FD856B00D2A696 /* AppDelegate.m */,
 				0B77747419FD866400D2A696 /* Main.storyboard */,
-				0B77748919FDA39800D2A696 /* views */,
 				0B77745719FD856B00D2A696 /* Images.xcassets */,
 				0B77744C19FD856B00D2A696 /* Supporting Files */,
-				0B77748519FDA25C00D2A696 /* images */,
 				0B77748619FDA26200D2A696 /* view controllers */,
+				0BA0B06E1A00BF710087DDA5 /* Item.h */,
+				0BA0B06F1A00BF710087DDA5 /* Item.m */,
 			);
 			path = Shuq;
 			sourceTree = "<group>";
@@ -161,13 +173,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0B77748519FDA25C00D2A696 /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = images;
-			sourceTree = "<group>";
-		};
 		0B77748619FDA26200D2A696 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,12 +186,16 @@
 			name = "view controllers";
 			sourceTree = "<group>";
 		};
-		0B77748919FDA39800D2A696 /* views */ = {
+		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0BA0B0DC1A0150650087DDA5 /* hat.png */,
+				0BA0B0DA1A014A3F0087DDA5 /* flask.png */,
+				0BA0B0D81A0149DE0087DDA5 /* glasses.png */,
+				0BA0B06C1A00B35B0087DDA5 /* bike.png */,
 				0BA0B06A1A00A8900087DDA5 /* iphone.png */,
 			);
-			name = views;
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +256,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 0B77743919FD856B00D2A696;
 			productRefGroup = 0B77744319FD856B00D2A696 /* Products */;
@@ -265,9 +275,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B77747519FD866400D2A696 /* Main.storyboard in Resources */,
+				0BA0B06D1A00B35B0087DDA5 /* bike.png in Resources */,
+				0BA0B0D91A0149DE0087DDA5 /* glasses.png in Resources */,
 				0BA0B06B1A00A8900087DDA5 /* iphone.png in Resources */,
 				0B77745019FD856B00D2A696 /* InfoPlist.strings in Resources */,
+				0BA0B0DB1A014A400087DDA5 /* flask.png in Resources */,
 				0B77745819FD856B00D2A696 /* Images.xcassets in Resources */,
+				0BA0B0DD1A0150650087DDA5 /* hat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,
 				0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */,
 				0B77745619FD856B00D2A696 /* AppDelegate.m in Sources */,
