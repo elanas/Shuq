@@ -29,8 +29,8 @@
     // Do any additional setup after loading the view.
     
     UIImageView *itemView = [[UIImageView alloc] initWithFrame:CGRectMake(
-                                [UIScreen mainScreen].bounds.size.width/2,
-                                [UIScreen mainScreen].bounds.size.height/2, 40, 40)];
+                                [UIScreen mainScreen].bounds.size.width/6 + 7,
+                                [UIScreen mainScreen].bounds.size.height/3, 200, 200)];
     [itemView setImage:[UIImage imageNamed:@"iphone.png"]];
     
     [self.view addSubview:itemView];

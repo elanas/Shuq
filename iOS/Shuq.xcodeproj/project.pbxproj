@@ -23,7 +23,7 @@
 		0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77747D19FD95A000D2A696 /* LoginViewController.m */; };
 		0B77748119FD9CD600D2A696 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748019FD9CD600D2A696 /* TemplateViewController.m */; };
 		0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */; };
-		0BE0354F19FEBF7400A7DE2F /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE0354E19FEBF7400A7DE2F /* iphone.png */; };
+		0BA0B06B1A00A8900087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B06A1A00A8900087DDA5 /* iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 		0B77748019FD9CD600D2A696 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
 		0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSwipeViewController.h; sourceTree = "<group>"; };
 		0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSwipeViewController.m; sourceTree = "<group>"; };
-		0BE0354E19FEBF7400A7DE2F /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone.png; path = ../../../../../../iphone.png; sourceTree = "<group>"; };
+		0BA0B06A1A00A8900087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 		0B77748919FDA39800D2A696 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				0BE0354E19FEBF7400A7DE2F /* iphone.png */,
+				0BA0B06A1A00A8900087DDA5 /* iphone.png */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B77747519FD866400D2A696 /* Main.storyboard in Resources */,
-				0BE0354F19FEBF7400A7DE2F /* iphone.png in Resources */,
+				0BA0B06B1A00A8900087DDA5 /* iphone.png in Resources */,
 				0B77745019FD856B00D2A696 /* InfoPlist.strings in Resources */,
 				0B77745819FD856B00D2A696 /* Images.xcassets in Resources */,
 			);
