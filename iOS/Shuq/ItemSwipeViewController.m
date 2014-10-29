@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view.
     
     _itemIndex = 0;
+    _itemDesc.textColor = [UIColor whiteColor];
     
     [self loadItemsArray];
     [self loadItemsImageView];
