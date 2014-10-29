@@ -59,8 +59,7 @@
 
     }
     
-    [_itemView setImage:[UIImage imageNamed:[[_items objectAtIndex:_itemIndex] getPath]]];
-    [itemName setText:[[_items objectAtIndex:_itemIndex] getName]];
+    [self setItem];
 }
 
 -(void) loadItemsArray {
@@ -69,25 +68,35 @@
     _items = [[NSMutableArray alloc] init];
     
     Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
-//    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png"];
-//    Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png"];
-//    Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png"];
+    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky."];
+    Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png" andDesc:@"Really great sunglasses, block the sun and make you look like a player."];
+    Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png" andDesc:@"Super warm and comfy. Get all the guys if you wear it out at night."];
     
     [_items addObject:i1];
-//    [_items addObject:i2];
-//    [_items addObject:i3];
-//    [_items addObject:i4];
+    [_items addObject:i2];
+    [_items addObject:i3];
+    [_items addObject:i4];
 
 
+}
+
+-(void) setItem {
+    Item *item = [_items objectAtIndex:_itemIndex];
+    
+    [_itemView setImage:[UIImage imageNamed:[item getPath]]];
+    [itemName setText:[item getName]];
+    [_itemDesc setText:[item getDesc]];
 }
 
 -(void) loadItemsImageView {
     _itemView = [[UIImageView alloc] initWithFrame:CGRectMake(
                                                               [UIScreen mainScreen].bounds.size.width/6 + 7,
                                                               [UIScreen mainScreen].bounds.size.height/4, 200, 200)];
-    [_itemView setImage:[UIImage imageNamed:[[_items objectAtIndex:_itemIndex] getPath]]];
+//    [_itemView setImage:[UIImage imageNamed:[[_items objectAtIndex:_itemIndex] getPath]]];
+//    
+//    [itemName setText:[[_items objectAtIndex:_itemIndex] getName]];
     
-    [itemName setText:[[_items objectAtIndex:_itemIndex] getName]];
+    [self setItem];
     
     _itemView.layer.masksToBounds = YES;
     _itemView.layer.cornerRadius = 10;
