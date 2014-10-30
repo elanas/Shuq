@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
 		0B77744A19FD856B00D2A696 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744919FD856B00D2A696 /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0B77744719FD856B00D2A696 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -189,6 +191,7 @@
 		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0B6D84251A01E272004F3F26 /* menu.png */,
 				0BA0B0E61A017D310087DDA5 /* iphone.png */,
 				0BA0B0DE1A0159C60087DDA5 /* bike.png */,
 				0BA0B0DF1A0159C60087DDA5 /* flask.png */,
@@ -276,6 +279,7 @@
 			files = (
 				0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */,
 				0B77747519FD866400D2A696 /* Main.storyboard in Resources */,
+				0B6D84261A01E272004F3F26 /* menu.png in Resources */,
 				0BA0B0E21A0159C60087DDA5 /* bike.png in Resources */,
 				0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */,
 				0B77745019FD856B00D2A696 /* InfoPlist.strings in Resources */,
