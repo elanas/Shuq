@@ -169,7 +169,6 @@
                     <connections>
                         <outlet property="itemDesc" destination="T5L-7f-j93" id="mNX-j4-Exo"/>
                         <outlet property="itemName" destination="bSF-Sz-Y5H" id="qhy-XY-q1U"/>
-                        <outlet property="view" destination="T5L-7f-j93" id="mmG-F5-UzC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWw-HC-sbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
