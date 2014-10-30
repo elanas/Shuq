@@ -12,7 +12,6 @@
     NSString* title;
     NSString* pathname;
     NSString* desc;
-    
 }
 
 

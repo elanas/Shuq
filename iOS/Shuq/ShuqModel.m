@@ -10,4 +10,12 @@
 
 @implementation ShuqModel
 
+-(id)init {
+    self = [super init];
+    if (self) {
+        users = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end

@@ -1,14 +1,14 @@
 //
-//  Wishlist.m
+//  Inventory.m
 //  Shuq
 //
-//  Created by Joseph Min on 10/29/14.
+//  Created by Joseph Min on 10/30/14.
 //  Copyright (c) 2014 com.cape. All rights reserved.
 //
 
-#import "Wishlist.h"
+#import "Inventory.h"
 
-@implementation Wishlist
+@implementation Inventory
 
 -(id)init {
     self = [super init];
@@ -18,7 +18,7 @@
     return self;
 }
 
--(NSMutableArray*) getWishlistItems {
+-(NSMutableArray*) getInventoryItems {
     return items;
 }
 

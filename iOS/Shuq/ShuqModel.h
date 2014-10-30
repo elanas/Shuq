@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
-@interface ShuqModel : NSObject
+@interface ShuqModel : NSObject {
+    User *primaryUser;
+    NSMutableArray *users;
+}
 
 @end

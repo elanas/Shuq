@@ -1,23 +1,22 @@
 //
-//  Wishlist.h
+//  Inventory.h
 //  Shuq
 //
-//  Created by Joseph Min on 10/29/14.
+//  Created by Joseph Min on 10/30/14.
 //  Copyright (c) 2014 com.cape. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "Item.h"
 
-@interface Wishlist : NSObject {
+@interface Inventory : NSObject {
     NSMutableArray* items;
 }
 
 
 -(id)init;
--(NSMutableArray*) getWishlistItems;
+-(NSMutableArray*) getInventoryItems;
 -(void) addItem;
 -(Item*) getItem;
-
 
 @end
