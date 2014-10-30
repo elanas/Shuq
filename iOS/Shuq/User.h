@@ -16,7 +16,7 @@
 }
 
 
--(id)initWithName:(NSString *)name;
+-(id)initWithName:(NSString*)n andUsername:(NSString*)u andWishlist:(Wishlist*)w;
 -(NSString*) getName;
 -(NSString*) getUsername;
 -(Wishlist*) getWishlist;

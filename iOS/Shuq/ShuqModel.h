@@ -13,5 +13,6 @@
     User *primaryUser;
     NSMutableArray *users;
 }
+-(id)init;
 
 @end
