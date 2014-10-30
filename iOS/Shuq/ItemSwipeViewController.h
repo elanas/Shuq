@@ -16,6 +16,7 @@
 @property NSMutableArray* items;
 
 @property (weak, nonatomic) IBOutlet UILabel* itemName;
+@property (weak, nonatomic) IBOutlet UITextView* itemDesc;
 
 @property NSInteger itemIndex;
 

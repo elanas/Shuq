@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
 		0B77744A19FD856B00D2A696 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744919FD856B00D2A696 /* UIKit.framework */; };
@@ -23,12 +24,12 @@
 		0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77747D19FD95A000D2A696 /* LoginViewController.m */; };
 		0B77748119FD9CD600D2A696 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748019FD9CD600D2A696 /* TemplateViewController.m */; };
 		0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */; };
-		0BA0B06B1A00A8900087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B06A1A00A8900087DDA5 /* iphone.png */; };
-		0BA0B06D1A00B35B0087DDA5 /* bike.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B06C1A00B35B0087DDA5 /* bike.png */; };
 		0BA0B0701A00BF710087DDA5 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA0B06F1A00BF710087DDA5 /* Item.m */; };
-		0BA0B0D91A0149DE0087DDA5 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0D81A0149DE0087DDA5 /* glasses.png */; };
-		0BA0B0DB1A014A400087DDA5 /* flask.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0DA1A014A3F0087DDA5 /* flask.png */; };
-		0BA0B0DD1A0150650087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0DC1A0150650087DDA5 /* hat.png */; };
+		0BA0B0E21A0159C60087DDA5 /* bike.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0DE1A0159C60087DDA5 /* bike.png */; };
+		0BA0B0E31A0159C60087DDA5 /* flask.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0DF1A0159C60087DDA5 /* flask.png */; };
+		0BA0B0E41A0159C60087DDA5 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E01A0159C60087DDA5 /* glasses.png */; };
+		0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E11A0159C60087DDA5 /* hat.png */; };
+		0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E61A017D310087DDA5 /* iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0B77744719FD856B00D2A696 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,13 +67,13 @@
 		0B77748019FD9CD600D2A696 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
 		0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSwipeViewController.h; sourceTree = "<group>"; };
 		0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSwipeViewController.m; sourceTree = "<group>"; };
-		0BA0B06A1A00A8900087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
-		0BA0B06C1A00B35B0087DDA5 /* bike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike.png; sourceTree = "<group>"; };
 		0BA0B06E1A00BF710087DDA5 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		0BA0B06F1A00BF710087DDA5 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		0BA0B0D81A0149DE0087DDA5 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glasses.png; sourceTree = "<group>"; };
-		0BA0B0DA1A014A3F0087DDA5 /* flask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flask.png; sourceTree = "<group>"; };
-		0BA0B0DC1A0150650087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
+		0BA0B0DE1A0159C60087DDA5 /* bike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bike.png; path = images/bike.png; sourceTree = "<group>"; };
+		0BA0B0DF1A0159C60087DDA5 /* flask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flask.png; path = images/flask.png; sourceTree = "<group>"; };
+		0BA0B0E01A0159C60087DDA5 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glasses.png; path = images/glasses.png; sourceTree = "<group>"; };
+		0BA0B0E11A0159C60087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hat.png; path = images/hat.png; sourceTree = "<group>"; };
+		0BA0B0E61A017D310087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,11 +191,12 @@
 		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				0BA0B0DC1A0150650087DDA5 /* hat.png */,
-				0BA0B0DA1A014A3F0087DDA5 /* flask.png */,
-				0BA0B0D81A0149DE0087DDA5 /* glasses.png */,
-				0BA0B06C1A00B35B0087DDA5 /* bike.png */,
-				0BA0B06A1A00A8900087DDA5 /* iphone.png */,
+				0B6D84251A01E272004F3F26 /* menu.png */,
+				0BA0B0E61A017D310087DDA5 /* iphone.png */,
+				0BA0B0DE1A0159C60087DDA5 /* bike.png */,
+				0BA0B0DF1A0159C60087DDA5 /* flask.png */,
+				0BA0B0E01A0159C60087DDA5 /* glasses.png */,
+				0BA0B0E11A0159C60087DDA5 /* hat.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -274,14 +277,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */,
 				0B77747519FD866400D2A696 /* Main.storyboard in Resources */,
-				0BA0B06D1A00B35B0087DDA5 /* bike.png in Resources */,
-				0BA0B0D91A0149DE0087DDA5 /* glasses.png in Resources */,
-				0BA0B06B1A00A8900087DDA5 /* iphone.png in Resources */,
+				0B6D84261A01E272004F3F26 /* menu.png in Resources */,
+				0BA0B0E21A0159C60087DDA5 /* bike.png in Resources */,
+				0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */,
 				0B77745019FD856B00D2A696 /* InfoPlist.strings in Resources */,
-				0BA0B0DB1A014A400087DDA5 /* flask.png in Resources */,
+				0BA0B0E31A0159C60087DDA5 /* flask.png in Resources */,
 				0B77745819FD856B00D2A696 /* Images.xcassets in Resources */,
-				0BA0B0DD1A0150650087DDA5 /* hat.png in Resources */,
+				0BA0B0E41A0159C60087DDA5 /* glasses.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
