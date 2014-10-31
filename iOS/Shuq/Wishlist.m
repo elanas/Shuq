@@ -42,4 +42,10 @@
     return nil;
 }
 
+-(void) emptyWishlist {
+    for (NSUInteger i = 0; i < [items count]; i++) {
+        [items removeObjectAtIndex:i];
+    }
+}
+
 @end

@@ -18,4 +18,8 @@
     return self;
 }
 
+-(NSMutableArray*)getUsers {
+    return users;
+}
+
 @end

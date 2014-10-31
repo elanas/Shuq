@@ -19,6 +19,7 @@
 -(void) addItem:(Item*)i;
 -(Item*) getItem:(NSUInteger*)i;
 -(Item*) removeItem:(NSUInteger*)i;
+-(void) emptyWishlist;
 
 
 

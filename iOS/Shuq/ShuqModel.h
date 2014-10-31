@@ -14,5 +14,6 @@
     NSMutableArray *users;
 }
 -(id)init;
+-(NSMutableArray*)getUsers;
 
 @end
