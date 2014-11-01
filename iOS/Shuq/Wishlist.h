@@ -16,8 +16,11 @@
 
 -(id)init;
 -(NSMutableArray*) getWishlistItems;
--(void) addItem;
--(Item*) getItem;
+-(void) addItem:(Item*)i;
+-(Item*) getItem:(NSUInteger*)i;
+-(Item*) removeItem:(NSUInteger*)i;
+-(void) emptyWishlist;
+
 
 
 @end

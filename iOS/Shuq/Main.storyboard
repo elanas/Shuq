@@ -145,7 +145,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vws-Yq-Wb2">
-                                <rect key="frame" x="76" y="442" width="169" height="30"/>
+                                <rect key="frame" x="59" y="438" width="202" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.43824133209999999" green="0.46532846719999998" blue="0.66583029199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Match">

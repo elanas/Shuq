@@ -8,17 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "Wishlist.h"
+#import "Inventory.h"
 
 @interface User : NSObject {
     NSString* name;
     NSString* username;
     Wishlist* wishlist;
+    Inventory* inventory;
 }
 
 
--(id)initWithName:(NSString *)name;
+-(id)initWithName:(NSString*)n andUsername:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i;
 -(NSString*) getName;
 -(NSString*) getUsername;
 -(Wishlist*) getWishlist;
+-(Inventory*) getInventory;
 
 @end
