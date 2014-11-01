@@ -1,3 +1,7 @@
+/**
+ * @fileOverview app javascript code determines functionality of localhost:3000, with error handling
+ */
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
