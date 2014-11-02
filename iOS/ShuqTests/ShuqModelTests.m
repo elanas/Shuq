@@ -13,24 +13,36 @@
 #import "Inventory.h"
 #import "ShuqModel.h"
 
+/**
+    This files contains the methods to Unit Test the Shuq Model
+ */
 @interface ShuqModelTests : XCTestCase
 
 @end
 
 @implementation ShuqModelTests
 
+/**
+    Sets up the tests
+ */
 - (void)setUp
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
+/**
+  Called after tests have been run
+ */
 - (void)tearDown
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
+/**
+    Unit test for Item Class
+ */
 - (void)testItem
 {
     Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
@@ -39,6 +51,9 @@
     XCTAssertEqual(@"Brand new, just bought from Amazon. Comes with wall attachment.", [i1 getDesc], @"Descriptions should be equal");
 }
 
+/**
+ Unit test for User Class
+ */
 - (void)testUser
 {
     User *u1 = [[User alloc] initWithName:@"Joshua" andUsername:@"Jcool98" andWishlist:nil andInventory:nil];
@@ -46,6 +61,9 @@
     XCTAssertEqual(@"Jcool98", [u1 getUsername],@"Usernames should be equal");
 }
 
+/**
+ Unit test for Wishlist Class
+ */
 - (void) testWishlist
 {
     Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
@@ -69,6 +87,9 @@
     XCTAssertEqual(0, [items count], @"Testing Size reduction after empty");
 }
 
+/**
+ Unit test for Inventory Class
+ */
 - (void) testInventory
 {
     Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
@@ -89,13 +110,14 @@
     
 }
 
+/**
+ Unit test for ShuqModel Class
+ */
 - (void) testShuqModel
 {
     ShuqModel *model = [[ShuqModel alloc]init];
     NSMutableArray* users = [model getUsers];
     
     XCTAssertEqual(0, [users count], @"Testing getUsers");
-
-    
 }
 @end
