@@ -10,13 +10,14 @@
 
 @implementation User
 
--(id)initWithName:(NSString*)n andUsername:(NSString*)u andWishlist:(Wishlist*)w {
+-(id)initWithName:(NSString*)n andUsername:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i {
     self = [super init];
     
     if (self) {
         name = n;
         username = u;
         wishlist = w;
+        inventory = i;
     }
     return self;
 }
@@ -31,6 +32,10 @@
 
 -(Wishlist*) getWishlist {
     return wishlist;
+}
+
+-(Inventory*) getInventory {
+    return inventory;
 }
 
 @end

@@ -19,7 +19,6 @@
 		0B77746019FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77746119FD856B00D2A696 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744919FD856B00D2A696 /* UIKit.framework */; };
 		0B77746919FD856B00D2A696 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B77746719FD856B00D2A696 /* InfoPlist.strings */; };
-		0B77746B19FD856B00D2A696 /* ShuqTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77746A19FD856B00D2A696 /* ShuqTests.m */; };
 		0B77747519FD866400D2A696 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B77747419FD866400D2A696 /* Main.storyboard */; };
 		0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77747D19FD95A000D2A696 /* LoginViewController.m */; };
 		0B77748119FD9CD600D2A696 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748019FD9CD600D2A696 /* TemplateViewController.m */; };
@@ -30,6 +29,11 @@
 		0BA0B0E41A0159C60087DDA5 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E01A0159C60087DDA5 /* glasses.png */; };
 		0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E11A0159C60087DDA5 /* hat.png */; };
 		0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E61A017D310087DDA5 /* iphone.png */; };
+		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
+		32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F41A02DB6C000CDE5B /* ShuqModel.m */; };
+		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
+		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
+		32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56FE1A02E353000CDE5B /* Inventory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +63,6 @@
 		0B77745E19FD856B00D2A696 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0B77746619FD856B00D2A696 /* ShuqTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShuqTests-Info.plist"; sourceTree = "<group>"; };
 		0B77746819FD856B00D2A696 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0B77746A19FD856B00D2A696 /* ShuqTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShuqTests.m; sourceTree = "<group>"; };
 		0B77747419FD866400D2A696 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0B77747C19FD95A000D2A696 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0B77747D19FD95A000D2A696 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -74,6 +77,15 @@
 		0BA0B0E01A0159C60087DDA5 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glasses.png; path = images/glasses.png; sourceTree = "<group>"; };
 		0BA0B0E11A0159C60087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hat.png; path = images/hat.png; sourceTree = "<group>"; };
 		0BA0B0E61A017D310087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
+		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
+		32BE56F31A02DB6C000CDE5B /* ShuqModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuqModel.h; sourceTree = "<group>"; };
+		32BE56F41A02DB6C000CDE5B /* ShuqModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModel.m; sourceTree = "<group>"; };
+		32BE56F51A02DB6C000CDE5B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		32BE56F61A02DB6C000CDE5B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		32BE56F71A02DB6C000CDE5B /* Wishlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wishlist.h; sourceTree = "<group>"; };
+		32BE56F81A02DB6C000CDE5B /* Wishlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wishlist.m; sourceTree = "<group>"; };
+		32BE56FD1A02E353000CDE5B /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
+		32BE56FE1A02E353000CDE5B /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +152,7 @@
 				0B77745719FD856B00D2A696 /* Images.xcassets */,
 				0B77744C19FD856B00D2A696 /* Supporting Files */,
 				0B77748619FDA26200D2A696 /* view controllers */,
-				0BA0B06E1A00BF710087DDA5 /* Item.h */,
-				0BA0B06F1A00BF710087DDA5 /* Item.m */,
+				32BE56FC1A02DB73000CDE5B /* ShuqModel */,
 			);
 			path = Shuq;
 			sourceTree = "<group>";
@@ -160,8 +171,8 @@
 		0B77746419FD856B00D2A696 /* ShuqTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B77746A19FD856B00D2A696 /* ShuqTests.m */,
 				0B77746519FD856B00D2A696 /* Supporting Files */,
+				302C75AE1A05AE2400572902 /* ShuqModelTests.m */,
 			);
 			path = ShuqTests;
 			sourceTree = "<group>";
@@ -199,6 +210,23 @@
 				0BA0B0E11A0159C60087DDA5 /* hat.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		32BE56FC1A02DB73000CDE5B /* ShuqModel */ = {
+			isa = PBXGroup;
+			children = (
+				0BA0B06E1A00BF710087DDA5 /* Item.h */,
+				0BA0B06F1A00BF710087DDA5 /* Item.m */,
+				32BE56F31A02DB6C000CDE5B /* ShuqModel.h */,
+				32BE56F41A02DB6C000CDE5B /* ShuqModel.m */,
+				32BE56F51A02DB6C000CDE5B /* User.h */,
+				32BE56F61A02DB6C000CDE5B /* User.m */,
+				32BE56F71A02DB6C000CDE5B /* Wishlist.h */,
+				32BE56F81A02DB6C000CDE5B /* Wishlist.m */,
+				32BE56FD1A02E353000CDE5B /* Inventory.h */,
+				32BE56FE1A02E353000CDE5B /* Inventory.m */,
+			);
+			name = ShuqModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,8 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
+				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,
+				32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */,
+				32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */,
 				0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */,
 				0B77745619FD856B00D2A696 /* AppDelegate.m in Sources */,
 				0B77748119FD9CD600D2A696 /* TemplateViewController.m in Sources */,
@@ -317,7 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B77746B19FD856B00D2A696 /* ShuqTests.m in Sources */,
+				302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
