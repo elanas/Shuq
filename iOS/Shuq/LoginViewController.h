@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TemplateViewController.h"
-
+/**
+ The Class LoginScreen. This class represents the screen that handles login, and can move to related screens as shown in the GUI sketches.
+ */
 @interface LoginViewController : TemplateViewController
 
 @end

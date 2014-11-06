@@ -14,6 +14,26 @@ var users = require('./routes/users');
 
 var app = express();
 
+var MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+    if (err) { return console.dir(err); }
+
+    //db.collection('test', function(err,collection) {});
+    //db.collection('test', {w:1}, function(err, collection) {});
+    //db.createCollection('test', function(err, collection) {});
+    db.createCollection('test', {w:1}, function(err, collection) {});
+    var doc1 = {'hello': 'doc1'};
+    var collection = db.collection('test');
+    collection.insert(doc1, function(err,result) {});
+    var returned;
+    collection.findOne(function(err, result) {
+        console.log(result);
+        returned = result;
+    });
+    console.log(returned);
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

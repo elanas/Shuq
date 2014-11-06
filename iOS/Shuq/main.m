@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
-
+/**
+ Main method used to start the program
+ */
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
