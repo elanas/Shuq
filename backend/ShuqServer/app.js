@@ -1,5 +1,5 @@
 /**
- * @fileOverview app javascript code determines functionality of localhost:3000, with error handling
+ * @fileOverview app javascript code determines functionality of localhost:3000, with error handlinggit
  */
 
 var express = require('express');
