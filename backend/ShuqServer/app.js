@@ -15,19 +15,18 @@ var users = require('./routes/users');
 var app = express();
 
 var MongoClient = require('mongodb').MongoClient;
-
+var collection;
 MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
     if (err) { return console.dir(err); }
 
     //db.collection('test', function(err,collection) {});
     //db.collection('test', {w:1}, function(err, collection) {});
     //db.createCollection('test', function(err, collection) {});
-    db.createCollection('test', {w:1}, function(err, collection) {});
-    var doc1 = {'hello': 'doc1'};
-    var collection = db.collection('test');
+    var doc1 = {'aaaa': 'doc2'};
+    collection = db.collection('test');
     collection.insert(doc1, function(err,result) {});
     var returned;
-    collection.findOne(function(err, result) {
+    collection.find().toArray(function(err, result) {
         console.log(result);
         returned = result;
     });
@@ -81,4 +80,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports.app = app;
+module.exports.collection = collection;
