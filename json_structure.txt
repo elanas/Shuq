@@ -7,7 +7,7 @@ User Database JSON Format
 	"password" : Hash,
 	
 	"wishlist" : {
-		"items" : [{"name" : String, "value" : Int, "taglist" : [{"tagname" : String}] }]
+		"items" : [{"name" : String, "taglist" : [{"tagname" : String}] }]
 	}
 
 	"inventory" : {

@@ -1,0 +1,47 @@
+{
+	"username" : "Graham",
+	"userID"   : "1",
+	"location" : "Standing",
+	"password" : "5138008",
+
+	"wishlist" : { 
+		"items" : 
+			[
+				{
+					"name" : "Dildo", 
+					"taglist" : 
+					[
+						{"tagname" : "Black"},
+						{"tagname" : "Large"}
+					]
+				},
+				{
+					"name" : "Frisbee",
+					"taglist" : []
+				}
+			]
+	},
+
+	"inventory" : {
+		"items" : 
+			[
+				{
+					"name" : "Charizard", 
+					"album" : 
+					[
+						{"URI" : "charzard69jpg"}
+					],
+					"value" : 10, 
+					"taglist" : 
+					[
+						{"tagname" : "erotica"}
+					], 
+					"description" : "This majestic beast has fire in his loins"
+				}
+			]
+	},
+
+	"settings" : {
+		"privacy" : 3
+	}
+}
