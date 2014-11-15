@@ -45,7 +45,8 @@
  */
 - (void)testItem
 {
-    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
+    NSUInteger num = 1;
+    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue: &num];
     XCTAssertEqual(@"iPhone Charger", [i1 getName], @"Names should be equal");
     XCTAssertEqual(@"iphone.png", [i1 getPath], @"Path to image should be equal");
     XCTAssertEqual(@"Brand new, just bought from Amazon. Comes with wall attachment.", [i1 getDesc], @"Descriptions should be equal");
@@ -56,9 +57,10 @@
  */
 - (void)testUser
 {
-    User *u1 = [[User alloc] initWithName:@"Joshua" andUsername:@"Jcool98" andWishlist:nil andInventory:nil];
-    XCTAssertEqual(@"Joshua", [u1 getName],@"Names should be equal");
+    User *u1 = [[User alloc] initWithUserName:@"Jcool98" andWishlist:nil andInventory:nil andSettings:nil andLocation:@"Baltimore" andPassWord:@"OOSEisLove"];
     XCTAssertEqual(@"Jcool98", [u1 getUsername],@"Usernames should be equal");
+    XCTAssertEqual(@"Baltimore", [u1 getLocation], @"Locations Should be equal");
+    XCTAssertEqual(true, [u1 checkPassword:@"OOSEisLove"], @"CheckingPassword");
 }
 
 /**
@@ -66,14 +68,14 @@
  */
 - (void) testWishlist
 {
-    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
-    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky."];
+    NSUInteger num = 1;
+    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue: &num];
+    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue: &num];
 
     Wishlist *w = [[Wishlist alloc] init];
     [w addItem:i1];
     [w addItem:i2];
     
-    NSUInteger num = 1;
     
     XCTAssertEqual(i2, [w getItem:&num], @"Testing getItem method");
     XCTAssertEqual(i2, [w removeItem:&num], @"Testing RemoveItem method");
@@ -92,14 +94,14 @@
  */
 - (void) testInventory
 {
-    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
-    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky."];
+        NSUInteger num = 1;
+    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue: &num];
+    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue: &num];
     
     Inventory *inv = [[Inventory alloc] init];
     [inv addItem:i1];
     [inv addItem:i2];
     
-    NSUInteger num = 1;
     
     XCTAssertEqual(i2, [inv getItem:&num], @"Testing getItem method");
     XCTAssertEqual(i2, [inv removeItem:&num], @"Testing RemoveItem method");
