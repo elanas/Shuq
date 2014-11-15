@@ -72,7 +72,7 @@ static NSString* const kLocations = @"user";
             NSLog(@"Worked");
         }
         else {
-            NSLog(@"Fuck");
+            NSLog(@"Did Not Worked");
         }
     }];
     NSLog(@"heelp");
@@ -90,15 +90,19 @@ static NSString* const kLocations = @"user";
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    NSLog(@"reached");
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
             //[self parseAndAddLocations:responseArray toArray:self.objects]; //7
+            NSLog(@"here");
+            
         }
     }];
     
     [dataTask resume];
+    
 }
 
 @end

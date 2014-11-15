@@ -47,7 +47,7 @@
     [model persist:user];
 }
 
-- (void) testGet
+- (void) testGetConnection
 {
     NSURL* url = [NSURL URLWithString:@"http://localhost:3000"]; //1
     
@@ -61,8 +61,11 @@
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
-            NSLog(@"Correct");
+            XCTAssertTrue(true, @"Connection should be established");
             //[self parseAndAddLocations:responseArray toArray:self.objects]; //7
+        }
+        else {
+            XCTAssertTrue(false, @"Connection should be established");
         }
     }];
     

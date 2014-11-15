@@ -20,7 +20,6 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
     ShuqModel *model = [ShuqModel getModel];
-    
 
     return YES;
 }
