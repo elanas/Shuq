@@ -48,7 +48,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cre-zQ-kbs" kind="modal" identifier="loginSuccess" id="bbb-NU-3uM"/>
+                                    <action selector="attemptLogin:" destination="1sZ-an-KTF" eventType="touchUpInside" id="BJa-Wd-esh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TB-mk-dma">
@@ -74,6 +74,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="uGo-LQ-Eji" id="fJj-rh-Lz6"/>
                         <outlet property="usernameTextField" destination="Uju-PF-YDF" id="DfO-OW-30r"/>
+                        <segue destination="cre-zQ-kbs" kind="modal" identifier="loginSuccess" id="BTI-c2-VKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PM-cS-xjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,6 +369,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bbb-NU-3uM"/>
+        <segue reference="BTI-c2-VKA"/>
     </inferredMetricsTieBreakers>
 </document>

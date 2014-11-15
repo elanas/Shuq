@@ -24,5 +24,6 @@
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+- (IBAction)attemptLogin:(id)sender;
 
 @end

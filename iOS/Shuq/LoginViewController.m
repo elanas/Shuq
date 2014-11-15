@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     if (self) {
-
+        
     }
     return self;
 }
@@ -38,22 +38,26 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (IBAction)attemptLogin:(id)sender {
     model = [ShuqModel getModel];
     NSString* username = _usernameTextField.text;
     NSString* password = _passwordTextField.text;
-//    NSLog(password);
+    NSLog(@"%@", username);
     if ([model authenticateUser:username andPassword: password]) {
-        if([segue.identifier isEqualToString:@"loginSuccess"]){
-            model = [ShuqModel getModel];
-        
-            //make proper model
-        
-        } else if([segue.identifier isEqualToString:@"newUser"]){
-            ItemSwipeViewController *controller = (ItemSwipeViewController *    )segue.destinationViewController;
-            controller.model = model;
-        }
+        [self performSegueWithIdentifier:@"loginSuccess" sender:sender];
+//        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];
+//        [self presentModalViewController:isvc animated:YES];
+    } else {
+        NSLog(@"No segue");
+    }
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"newUser"]){
+        ItemSwipeViewController *controller = (ItemSwipeViewController *    )segue.destinationViewController;
+        controller.model = model;
     }
 }
 
@@ -67,5 +71,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end
