@@ -30,6 +30,8 @@
 		0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E11A0159C60087DDA5 /* hat.png */; };
 		0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E61A017D310087DDA5 /* iphone.png */; };
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
+		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
+		30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FD1A17D4D200CAF2FB /* Tag.m */; };
 		32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F41A02DB6C000CDE5B /* ShuqModel.m */; };
 		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
 		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
@@ -78,6 +80,10 @@
 		0BA0B0E11A0159C60087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hat.png; path = images/hat.png; sourceTree = "<group>"; };
 		0BA0B0E61A017D310087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
 		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
+		30C059F91A17D48300CAF2FB /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		30C059FA1A17D48300CAF2FB /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		30C059FC1A17D4D200CAF2FB /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		30C059FD1A17D4D200CAF2FB /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		32BE56F31A02DB6C000CDE5B /* ShuqModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuqModel.h; sourceTree = "<group>"; };
 		32BE56F41A02DB6C000CDE5B /* ShuqModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModel.m; sourceTree = "<group>"; };
 		32BE56F51A02DB6C000CDE5B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -215,12 +221,16 @@
 		32BE56FC1A02DB73000CDE5B /* ShuqModel */ = {
 			isa = PBXGroup;
 			children = (
+				30C059F91A17D48300CAF2FB /* Settings.h */,
+				30C059FA1A17D48300CAF2FB /* Settings.m */,
 				0BA0B06E1A00BF710087DDA5 /* Item.h */,
 				0BA0B06F1A00BF710087DDA5 /* Item.m */,
 				32BE56F31A02DB6C000CDE5B /* ShuqModel.h */,
 				32BE56F41A02DB6C000CDE5B /* ShuqModel.m */,
 				32BE56F51A02DB6C000CDE5B /* User.h */,
 				32BE56F61A02DB6C000CDE5B /* User.m */,
+				30C059FC1A17D4D200CAF2FB /* Tag.h */,
+				30C059FD1A17D4D200CAF2FB /* Tag.m */,
 				32BE56F71A02DB6C000CDE5B /* Wishlist.h */,
 				32BE56F81A02DB6C000CDE5B /* Wishlist.m */,
 				32BE56FD1A02E353000CDE5B /* Inventory.h */,
@@ -332,9 +342,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
+				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,
 				32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */,
 				32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */,

@@ -52,9 +52,21 @@
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
     NSMutableArray* itemJSON =[[NSMutableArray alloc] init];
+    
     for (NSUInteger i = 0; i < [items count]; i++) {
         
+        NSMutableDictionary* item = [NSMutableDictionary dictionary];
+        item[@"name"] = [[items objectAtIndex:i] getName];
+        
+        NSMutableArray* tagList = [[items objectAtIndex:i]getTags];
+        NSMutableArray* tagJSON =[[NSMutableArray alloc] init];
+        for(NSUInteger n = 0; i < [tagList count]; i++) {
+            [tagJSON addObject: [[tagList objectAtIndex:n] toDictionary]];
+        }
+        item[@"taglist"] = tagJSON;
+        [itemJSON addObject:item];
     }
+    safeSet(jsonable, @"items", itemJSON);
     return jsonable;
 }
 
