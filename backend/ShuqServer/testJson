@@ -1,4 +1,3 @@
-/**@fileoverview a file containing a json that represents an example user, in correct format. For use as a reference or for testing purposes.*/
 {
 	"username" : "Graham",
 	"userID"   : "1",
