@@ -33,7 +33,6 @@
     dispatch_once(&onceToken, ^{
         model = [[self alloc] init];
     });
-    NSLog(@"creating new model!");
     return model;
 }
 
