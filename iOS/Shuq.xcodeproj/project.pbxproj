@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B046F641A1816E40040CC9E /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B046F631A1816E40040CC9E /* NewUserViewController.m */; };
 		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B046F621A1816E40040CC9E /* NewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserViewController.h; sourceTree = "<group>"; };
+		0B046F631A1816E40040CC9E /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
 		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -214,6 +217,8 @@
 				0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */,
 				0B77747F19FD9CD600D2A696 /* TemplateViewController.h */,
 				0B77748019FD9CD600D2A696 /* TemplateViewController.m */,
+				0B046F621A1816E40040CC9E /* NewUserViewController.h */,
+				0B046F631A1816E40040CC9E /* NewUserViewController.m */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
+				0B046F641A1816E40040CC9E /* NewUserViewController.m in Sources */,
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
 				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,

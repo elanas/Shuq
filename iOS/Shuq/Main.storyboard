@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-1376" y="-455"/>
         </scene>
-        <!--View Controller-->
+        <!--New User View Controller-->
         <scene sceneID="0qI-Nw-Ksl">
             <objects>
-                <viewController id="JNs-m5-VyZ" sceneMemberID="viewController">
+                <viewController id="JNs-m5-VyZ" customClass="NewUserViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wuS-II-QXx"/>
                         <viewControllerLayoutGuide type="bottom" id="7A9-TB-ubE"/>
@@ -129,6 +129,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.48235297203063965" green="0.67450982332229614" blue="0.95294123888015747" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="newpassTextField" destination="uF3-Vt-nKJ" id="TLu-RG-GMG"/>
+                        <outlet property="newuserTextField" destination="pfm-LI-dQA" id="lAa-zP-7yh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgm-7I-R8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

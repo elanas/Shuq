@@ -40,7 +40,7 @@ static NSString* const kLocations = @"user";
 
 -(Boolean)authenticateUser:(NSString*)username andPassword:(NSString*)password {
 
-    [self addNewUserToServerWithUsername:username andPassword:password];
+//    [self addNewUserToServerWithUsername:username andPassword:password];
     
     
     //checking if in database
