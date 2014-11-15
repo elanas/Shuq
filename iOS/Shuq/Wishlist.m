@@ -7,6 +7,7 @@
 //
 
 #import "Wishlist.h"
+#define safeSet(d,k,v) if (v) d[k] = v;
 
 @implementation Wishlist
 
@@ -47,5 +48,15 @@
         [items removeObjectAtIndex:i];
     }
 }
+- (NSDictionary*) toDictionary
+{
+    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    
+    for (NSUInteger i = 0; i < [items count]; i++) {
+        
+    }
+    return jsonable;
+}
+
 
 @end

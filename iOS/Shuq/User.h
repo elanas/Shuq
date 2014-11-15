@@ -78,6 +78,9 @@
  @return location
  */
 -(NSString*) getLocation;
-
+/**
+ Convert to JSONable object
+ */
+- (NSDictionary*) toDictionary;
 
 @end

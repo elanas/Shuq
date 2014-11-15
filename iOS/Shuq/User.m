@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#define safeSet(d,k,v) if (v) d[k] = v;
 
 @implementation User
 
@@ -43,6 +44,18 @@
 -(Boolean) checkPassword: (NSString*) p {
     return password == p;
 }
-
+- (NSDictionary*) toDictionary
+{
+    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    safeSet(jsonable, @"username", username);
+    safeSet(jsonable, @"userID", unid);
+    safeSet(jsonable, @"location", location);
+    safeSet(jsonable, @"password", password);
+    safeSet(jsonable, @"wishlist", [wishlist toDictionary]);
+    safeSet(jsonable, @"inventory", [inventory toDictionary]);
+    safeSet(jsonable, @"settings", [settings toDictionary]);
+    
+    return jsonable;
+}
 
 @end

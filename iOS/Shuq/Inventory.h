@@ -43,5 +43,9 @@
  @return the removed item
  */
 -(Item*) removeItem:(NSUInteger*)i;
+/**
+ Convert to JSONable object
+ */
+- (NSDictionary*) toDictionary;
 
 @end

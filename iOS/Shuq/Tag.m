@@ -21,5 +21,13 @@
 -(NSString*) getTagName {
     return name;
 }
+- (NSDictionary*) toDictionary
+{
+    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    safeSet(jsonable, @"tagname", name);
+    
+    return jsonable;
+}
+
 
 @end

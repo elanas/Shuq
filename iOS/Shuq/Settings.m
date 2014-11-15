@@ -7,13 +7,23 @@
 //
 
 #import "Settings.h"
+#define safeSet(d,k,v) if (v) d[k] = v;
 
 @implementation Settings
 -(id)init {
     self = [super init];
     if (self) {
-        *privacy = 1;
+        privacy = @"1";
     }
     return self;
 }
+
+- (NSDictionary*) toDictionary
+{
+    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    safeSet(jsonable, @"privacy", privacy);
+
+    return jsonable;
+}
+
 @end
