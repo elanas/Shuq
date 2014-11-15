@@ -30,5 +30,10 @@
  @return list of other users
  */
 -(NSMutableArray*)getUsers;
+/**
+ Returns the primary user
+ @return the primary user
+ */
+-(User*)getPrimaryUser;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ItemSwipeViewController.h"
 #import "Item.h"
+#import "InventoryViewController.h"
 
 
 @interface ItemSwipeViewController ()
@@ -117,6 +118,15 @@
     [_itemView addGestureRecognizer:swipeLeft];
     [_itemView addGestureRecognizer:swipeRight];
 
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"toInventory"]){
+        InventoryViewController *controller = (InventoryViewController *)segue.destinationViewController;
+        controller.model = _model;
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
