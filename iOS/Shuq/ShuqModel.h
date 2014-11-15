@@ -36,4 +36,6 @@
  */
 -(User*)getPrimaryUser;
 
++(id)getModel;
+
 @end
