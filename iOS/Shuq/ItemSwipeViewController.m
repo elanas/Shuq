@@ -68,7 +68,7 @@
     //read file/json
     
     _items = [[NSMutableArray alloc] init];
-        NSUInteger num = 1;
+    NSUInteger num = 1;
     
     Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue:&num];
     Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue:&num];
