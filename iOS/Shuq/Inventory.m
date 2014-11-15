@@ -7,6 +7,7 @@
 //
 
 #import "Inventory.h"
+#define safeSet(d,k,v) if (v) d[k] = v;
 
 @implementation Inventory
 
@@ -41,5 +42,12 @@
     }
     return nil;
 }
-
+- (NSDictionary*) toDictionary
+{
+    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+     for (NSUInteger i = 0; i < [items count]; i++) {
+         //Add item to JSON
+     }
+    return jsonable;
+}
 @end

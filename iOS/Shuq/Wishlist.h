@@ -48,7 +48,10 @@
  Removes all items in the wishlist
  */
 -(void) emptyWishlist;
-
+/**
+ Convert to JSONable object
+ */
+- (NSDictionary*) toDictionary;
 
 
 @end

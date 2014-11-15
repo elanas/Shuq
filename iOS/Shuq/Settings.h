@@ -15,11 +15,15 @@
     /**
      Represents the privacy setting of the user, to be implemented later.
      */
-    NSUInteger* privacy;
+    NSString* privacy;
 }
 
 /**
  create new settings group
  */
 -(id)init;
+/**
+ Convert to JSONable object
+ */
+- (NSDictionary*) toDictionary;
 @end
