@@ -18,6 +18,14 @@
     return self;
 }
 
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self) {
+        privacy = dictionary[@"privacy"];
+    }
+    return self;
+}
+
 - (NSDictionary*) toDictionary
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];

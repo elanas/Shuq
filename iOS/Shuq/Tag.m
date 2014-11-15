@@ -20,6 +20,14 @@
     return self;
 }
 
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self) {
+        name = dictionary[@"tagname"];
+    }
+    return self;
+}
+
 -(NSString*) getTagName {
     return name;
 }

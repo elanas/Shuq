@@ -23,6 +23,10 @@
  */
 -(id)init;
 /**
+ Iniatiates the object from a JSON
+ */
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
+/**
  Convert to JSONable object
  */
 - (NSDictionary*) toDictionary;

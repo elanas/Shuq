@@ -19,6 +19,27 @@
     return self;
 }
 
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self)
+    {
+        NSMutableArray* itemJSON = dictionary[@"items"];
+        for (NSUInteger i=0; i< [itemJSON count]; i++)
+        {
+            Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
+            [item setDesc:[itemJSON objectAtIndex:i][@"description"]];
+            NSMutableArray* tagJSON = dictionary[@"taflist"];
+            for(NSUInteger n=0; n< [tagJSON count]; n++)
+            {
+                [item addTag:[tagJSON objectAtIndex:n][@"tagname"]];
+            }
+            [self addItem:item];
+        }
+    }
+    return self;
+}
+
+
 -(NSMutableArray*) getInventoryItems {
     return items;
 }
@@ -61,7 +82,7 @@
              
              NSMutableArray* tagList = [[items objectAtIndex:i]getTags];
              NSMutableArray* tagJSON =[[NSMutableArray alloc] init];
-             for(NSUInteger n = 0; i < [tagList count]; i++) {
+             for(NSUInteger n = 0; n < [tagList count]; n++) {
                  [tagJSON addObject: [[tagList objectAtIndex:n] toDictionary]];
              }
              item[@"taglist"] = tagJSON;

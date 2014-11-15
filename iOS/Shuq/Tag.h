@@ -22,6 +22,10 @@
  @n name of the tag
  */
 -(id)initWithName: (NSString*) n;
+/**
+ Iniatiates the object from a JSON
+ */
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
 
 /**
  Returns the name of the tag

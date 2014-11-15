@@ -25,6 +25,20 @@
     return self;
 }
 
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self) {
+        username = dictionary[@"username"];
+        unid = dictionary[@"userID"];
+        location = dictionary[@"location"];
+        password = dictionary[@"password"];
+        wishlist = [[Wishlist alloc] initWithDictionary: dictionary[@"wishlist"]];
+        inventory = [[Inventory alloc] initWithDictionary: dictionary[@"wishlist"]];
+        settings = [[Settings alloc] initWithDictionary: dictionary[@"wishlist"]];
+    }
+    return self;
+}
+
 -(NSString*) getUsername {
     return username;
 }
@@ -60,5 +74,6 @@
 -(NSString*) getUniqueID {
     return unid;
 }
+
 
 @end
