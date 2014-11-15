@@ -13,6 +13,7 @@
 -(id)init {
     self = [super init];
     if (self) {
+        primaryUser = [[User alloc] initWithName:@"Primary" andUsername:@"BestUserEver" andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init]];
         users = [[NSMutableArray alloc] init];
     }
     return self;
@@ -20,6 +21,10 @@
 
 -(NSMutableArray*)getUsers {
     return users;
+}
+
+-(User*)getPrimaryUser {
+    return primaryUser;
 }
 
 @end

@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     if (self) {
-        // Custom initialization
+        model = [[ShuqModel alloc] init];
     }
     return self;
 }
@@ -36,6 +36,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"loginSuccess"]){
+        ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
+        controller.model = model;
+        
+    }
 }
 
 /*
