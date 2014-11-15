@@ -26,6 +26,17 @@
     return self;
 }
 
+-(id)initWithName:(NSString*)name {
+    self = [super init];
+    
+    if (self) {
+        title = name;
+        tags = [[NSMutableArray alloc] init];
+    }
+    return self;
+
+}
+
 -(NSString*) getName {
     return title;
 }
@@ -37,6 +48,11 @@
 -(NSString*) getDesc {
     return desc;
 }
+
+-(void) setDesc: (NSString*) d {
+    desc = d;
+}
+
 
 -(NSUInteger*) getValue {
     return value;

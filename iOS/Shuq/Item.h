@@ -43,6 +43,11 @@
  */
 -(id)initWithName:(NSString *)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSUInteger*) v;
 /**
+ Creates a new item
+ @param name name of the item
+ */
+-(id)initWithName:(NSString *)name;
+/**
  Resturns the file path to the photo
  @return file path to photo
  */
@@ -56,6 +61,10 @@
  @return description
  */
 -(NSString*) getDesc;
+/** Sets the description of item
+ @param
+ */
+-(void) setDesc: (NSString*) d;
 /** Returns value of item
  @return value
  */

@@ -53,6 +53,10 @@
  @param i inventory
  */
 -(id)initWithUsername:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i andSettings:(Settings*)s andLocation:(NSString*) l andPassword:(NSString*)p;
+/** 
+ Iniatiates the object from a JSON
+ */
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
 /**
  Returns the username
  @return username
