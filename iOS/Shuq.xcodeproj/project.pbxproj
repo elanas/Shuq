@@ -33,6 +33,7 @@
 		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
 		30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FD1A17D4D200CAF2FB /* Tag.m */; };
 		3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3216340D1A17F41B0092B785 /* InventoryViewController.m */; };
+		321634141A1806510092B785 /* WishlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321634131A1806510092B785 /* WishlistTableViewController.m */; };
 		32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F41A02DB6C000CDE5B /* ShuqModel.m */; };
 		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
 		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
@@ -87,6 +88,8 @@
 		30C059FD1A17D4D200CAF2FB /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		3216340C1A17F41B0092B785 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
 		3216340D1A17F41B0092B785 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
+		321634121A1806510092B785 /* WishlistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewController.h; sourceTree = "<group>"; };
+		321634131A1806510092B785 /* WishlistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewController.m; sourceTree = "<group>"; };
 		32BE56F31A02DB6C000CDE5B /* ShuqModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuqModel.h; sourceTree = "<group>"; };
 		32BE56F41A02DB6C000CDE5B /* ShuqModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModel.m; sourceTree = "<group>"; };
 		32BE56F51A02DB6C000CDE5B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 		0B77748619FDA26200D2A696 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				321634121A1806510092B785 /* WishlistTableViewController.h */,
+				321634131A1806510092B785 /* WishlistTableViewController.m */,
 				3216340C1A17F41B0092B785 /* InventoryViewController.h */,
 				3216340D1A17F41B0092B785 /* InventoryViewController.m */,
 				0B77747C19FD95A000D2A696 /* LoginViewController.h */,
@@ -355,6 +360,7 @@
 				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,
 				32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */,
+				321634141A1806510092B785 /* WishlistTableViewController.m in Sources */,
 				32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */,
 				0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */,
 				0B77745619FD856B00D2A696 /* AppDelegate.m in Sources */,

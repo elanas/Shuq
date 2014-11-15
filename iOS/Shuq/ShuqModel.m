@@ -36,4 +36,16 @@
     return model;
 }
 
+-(Boolean)authenticateUser:(NSString*)username andPassword:(NSString*)password {
+
+    NSLog(@"username: %@", username);
+
+    if ([username length] == 0) {
+        NSLog(@"False");
+        return false;
+    }
+    NSLog(@"True");
+    return true;
+}
+
 @end

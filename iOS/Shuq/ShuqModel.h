@@ -35,6 +35,11 @@
  @return the primary user
  */
 -(User*)getPrimaryUser;
+/**
+ Authenticate the given username/password combo
+ @return a boolean whether or not it was valid
+ */
+-(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password;
 
 +(id)getModel;
 

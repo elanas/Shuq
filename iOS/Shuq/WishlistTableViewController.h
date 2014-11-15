@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShuqModel.h"
 
 @interface WishlistTableViewController : UITableViewController
+
+@property ShuqModel* model;
 
 @end

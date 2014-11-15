@@ -40,15 +40,20 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"loginSuccess"]){
-        model = [ShuqModel getModel];
+    model = [ShuqModel getModel];
+    NSString* username = _usernameTextField.text;
+    NSString* password = _passwordTextField.text;
+//    NSLog(password);
+    if ([model authenticateUser:username andPassword: password]) {
+        if([segue.identifier isEqualToString:@"loginSuccess"]){
+            model = [ShuqModel getModel];
         
-        //make proper model
+            //make proper model
         
-    } else if([segue.identifier isEqualToString:@"newUser"]){
-        ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
-        controller.model = model;
-        
+        } else if([segue.identifier isEqualToString:@"newUser"]){
+            ItemSwipeViewController *controller = (ItemSwipeViewController *    )segue.destinationViewController;
+            controller.model = model;
+        }
     }
 }
 
