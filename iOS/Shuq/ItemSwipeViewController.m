@@ -9,6 +9,7 @@
 #import "ItemSwipeViewController.h"
 #import "Item.h"
 #import "InventoryViewController.h"
+#import "WishlistTableViewController.h"
 
 
 @interface ItemSwipeViewController ()
@@ -125,6 +126,10 @@
 {
     if([segue.identifier isEqualToString:@"toInventory"]){
         InventoryViewController *controller = (InventoryViewController *)segue.destinationViewController;
+        controller.model = _model;
+        
+    } else if([segue.identifier isEqualToString:@"toWishlist"]){
+        WishlistTableViewController *controller = (WishlistTableViewController *)segue.destinationViewController;
         controller.model = _model;
         
     }

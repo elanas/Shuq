@@ -43,7 +43,6 @@
     if([segue.identifier isEqualToString:@"loginSuccess"]){
         ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
         controller.model = model;
-        
     }
 }
 
