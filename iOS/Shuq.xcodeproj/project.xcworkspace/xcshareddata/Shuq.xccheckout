@@ -10,29 +10,29 @@
 	<string>Shuq</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FE29ECE1-CD48-4454-9B04-07E171CEEA28</key>
+		<key>15F5BF06461A99AB25742E9A3805DCC23FE43849</key>
 		<string>https://github.com/elanas/Shuq.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Shuq.xcodeproj/project.xcworkspace</string>
+	<string>iOS/Shuq.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FE29ECE1-CD48-4454-9B04-07E171CEEA28</key>
-		<string>../..</string>
+		<key>15F5BF06461A99AB25742E9A3805DCC23FE43849</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/elanas/Shuq.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FE29ECE1-CD48-4454-9B04-07E171CEEA28</string>
+	<string>15F5BF06461A99AB25742E9A3805DCC23FE43849</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FE29ECE1-CD48-4454-9B04-07E171CEEA28</string>
+			<string>15F5BF06461A99AB25742E9A3805DCC23FE43849</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Shuq</string>
 		</dict>
