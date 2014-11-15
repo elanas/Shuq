@@ -36,6 +36,20 @@
  */
 -(User*)getPrimaryUser;
 
+/**
+ gets the global varable of the model
+ */
 +(id)getModel;
+
+/**
+ Posts User to the server
+ user to post.
+ */
+- (void) persist:(User*)user;
+/**
+ imports users from server
+ */
+- (void) import;
+
 
 @end

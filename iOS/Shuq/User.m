@@ -57,5 +57,8 @@
     
     return jsonable;
 }
+-(NSString*) getUniqueID {
+    return unid;
+}
 
 @end

@@ -82,5 +82,10 @@
  Convert to JSONable object
  */
 - (NSDictionary*) toDictionary;
+/**
+ Returns the ID of user
+ @return id
+ */
+-(NSString*) getUniqueID;
 
 @end
