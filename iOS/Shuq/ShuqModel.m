@@ -49,6 +49,7 @@ static NSString* const kLocations = @"user";
     }
     NSLog(@"True");
     return true;
+}
 - (void) persist:(User*)user
 {
     if (!user ) {
