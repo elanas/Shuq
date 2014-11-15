@@ -32,6 +32,7 @@
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
 		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
 		30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FD1A17D4D200CAF2FB /* Tag.m */; };
+		3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3216340D1A17F41B0092B785 /* InventoryViewController.m */; };
 		32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F41A02DB6C000CDE5B /* ShuqModel.m */; };
 		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
 		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
@@ -84,6 +85,8 @@
 		30C059FA1A17D48300CAF2FB /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		30C059FC1A17D4D200CAF2FB /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		30C059FD1A17D4D200CAF2FB /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		3216340C1A17F41B0092B785 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
+		3216340D1A17F41B0092B785 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
 		32BE56F31A02DB6C000CDE5B /* ShuqModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuqModel.h; sourceTree = "<group>"; };
 		32BE56F41A02DB6C000CDE5B /* ShuqModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModel.m; sourceTree = "<group>"; };
 		32BE56F51A02DB6C000CDE5B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 		0B77748619FDA26200D2A696 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3216340C1A17F41B0092B785 /* InventoryViewController.h */,
+				3216340D1A17F41B0092B785 /* InventoryViewController.m */,
 				0B77747C19FD95A000D2A696 /* LoginViewController.h */,
 				0B77747D19FD95A000D2A696 /* LoginViewController.m */,
 				0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */,
@@ -344,6 +349,7 @@
 			files = (
 				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
+				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
 				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
