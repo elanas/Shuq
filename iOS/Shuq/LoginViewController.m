@@ -41,6 +41,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"loginSuccess"]){
+//        ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
+//        controller.model = model;
+        
+    } else if([segue.identifier isEqualToString:@"newUser"]){
         ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
         controller.model = model;
         

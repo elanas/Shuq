@@ -27,4 +27,13 @@
     return primaryUser;
 }
 
++(id)getModel {
+    static ShuqModel *model = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        model = [[self alloc] init];
+    });
+    return model;
+}
+
 @end
