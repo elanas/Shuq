@@ -57,7 +57,7 @@
  */
 - (void)testUser
 {
-    User *u1 = [[User alloc] initWithUserName:@"Jcool98" andWishlist:nil andInventory:nil andSettings:nil andLocation:@"Baltimore" andPassWord:@"OOSEisLove"];
+    User *u1 = [[User alloc] initWithUsername:@"Jcool98" andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init] andSettings:0 andLocation:@"Baltimore" andPassword:@"OOSEisLove"];
     XCTAssertEqual(@"Jcool98", [u1 getUsername],@"Usernames should be equal");
     XCTAssertEqual(@"Baltimore", [u1 getLocation], @"Locations Should be equal");
     XCTAssertEqual(true, [u1 checkPassword:@"OOSEisLove"], @"CheckingPassword");
