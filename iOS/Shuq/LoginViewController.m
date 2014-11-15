@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     if (self) {
-        model = [[ShuqModel alloc] init];
+
     }
     return self;
 }
@@ -41,12 +41,14 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"loginSuccess"]){
-//        ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
-//        controller.model = model;
+        model = [ShuqModel getModel];
+        
+        //make proper model
         
     } else if([segue.identifier isEqualToString:@"newUser"]){
         ItemSwipeViewController *controller = (ItemSwipeViewController *)segue.destinationViewController;
         controller.model = model;
+        
     }
 }
 
