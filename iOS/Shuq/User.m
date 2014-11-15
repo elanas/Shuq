@@ -10,20 +10,18 @@
 
 @implementation User
 
--(id)initWithName:(NSString*)n andUsername:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i {
+-(id)initWithUserName:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i andSettings:(Settings*)s andLocation:(NSString*) l andPassWord:(NSString*)p {
     self = [super init];
     
     if (self) {
-        name = n;
         username = u;
         wishlist = w;
         inventory = i;
+        settings = s;
+        location = l;
+        password = p;
     }
     return self;
-}
-
--(NSString*) getName {
-    return name;
 }
 
 -(NSString*) getUsername {
@@ -37,5 +35,14 @@
 -(Inventory*) getInventory {
     return inventory;
 }
+
+-(NSString*) getLocation {
+    return location;
+}
+
+-(Boolean) checkPassword: (NSString*) p {
+    return password == p;
+}
+
 
 @end

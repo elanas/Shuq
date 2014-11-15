@@ -13,13 +13,15 @@
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 
 
--(id)initWithName:(NSString*)name andPath:(NSString*) path andDesc:(NSString*) d{
+-(id)initWithName:(NSString*)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSUInteger *)v{
     self = [super init];
     
     if (self) {
         title = name;
         pathname = path;
         desc = d;
+        value = v;
+        tags = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -36,7 +38,17 @@
     return desc;
 }
 
+-(NSUInteger*) getValue {
+    return value;
+}
 
+-(NSMutableArray*) getTags {
+    return tags;
+}
+-(void) addTag: (NSString *) t{
+    Tag* tag = [[Tag alloc] initWithName:t];
+    [tags addObject:tag];
+}
 
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Tag.h"
 /**
-    This class represents an inventory or wishlist item.
+ This class represents an inventory or wishlist item.
  */
 @interface Item : NSObject {
     /**
@@ -23,6 +24,14 @@
      Description of the item
      */
     NSString* desc;
+    /**
+     Tags of the item
+     */
+    NSMutableArray* tags;
+    /**
+     Ranking of the value of the item, from 1-4
+     */
+    NSUInteger* value;
 }
 
 
@@ -32,7 +41,7 @@
  @param path file path to a photo
  @param d description of the item
  */
--(id)initWithName:(NSString *)name andPath:(NSString*) path andDesc:(NSString*) d;
+-(id)initWithName:(NSString *)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSUInteger*) v;
 /**
  Resturns the file path to the photo
  @return file path to photo
@@ -47,5 +56,18 @@
  @return description
  */
 -(NSString*) getDesc;
+/** Returns value of item
+ @return value
+ */
+-(NSUInteger*) getValue;
+/** Returns description of item
+ @return tags
+ */
+-(NSMutableArray*) getTags;
+/**
+ Add a tag to the item
+ @param t name of tag to add
+ */
+-(void) addTag: (NSString *) t;
 
 @end
