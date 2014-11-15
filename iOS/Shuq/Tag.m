@@ -7,6 +7,8 @@
 //
 
 #import "Tag.h"
+#define safeSet(d,k,v) if (v) d[k] = v;
+
 
 @implementation Tag
 

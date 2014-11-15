@@ -51,7 +51,7 @@
 - (NSDictionary*) toDictionary
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
-    
+    NSMutableArray* itemJSON =[[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < [items count]; i++) {
         
     }
