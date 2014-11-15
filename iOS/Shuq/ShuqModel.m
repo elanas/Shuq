@@ -41,6 +41,7 @@ static NSString* const kLocations = @"user";
 
 -(Boolean)authenticateUser:(NSString*)username andPassword:(NSString*)password {
 
+    NSLog(@"HERE");
     NSLog(@"username: %@", username);
 
     if ([username length] == 0) {
