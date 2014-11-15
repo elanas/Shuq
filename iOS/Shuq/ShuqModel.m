@@ -13,7 +13,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        primaryUser = [[User alloc] initWithName:@"Primary" andUsername:@"BestUserEver" andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init]];
+        primaryUser = [[User alloc] initWithUsername:@"BestUserEver" andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init] andSettings:0 andLocation:@"Baltimore" andPassword:@"hello"];
         users = [[NSMutableArray alloc] init];
     }
     return self;
