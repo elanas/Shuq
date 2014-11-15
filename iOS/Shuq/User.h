@@ -9,18 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "Wishlist.h"
 #import "Inventory.h"
+#import "Settings.h"
 /**
-    This class that represents a user in the program. The user will have data associated with it, such as name, address, location, etc.. Users will also have ratings. User will have an inventory, which contains items that they want to trade. They will also have an wish list containing items that they want to trade for.
+ This class that represents a user in the program. The user will have data associated with it, such as name, address, location, etc.. Users will also have ratings. User will have an inventory, which contains items that they want to trade. They will also have an wish list containing items that they want to trade for.
  */
 @interface User : NSObject {
-    /**
-     Name of the user
-     */
-    NSString* name;
+    
     /**
      username os the user, used for logging in
      */
     NSString* username;
+    /**
+     Unique id for the user on the database
+     */
+    NSString* unid;
+    /**
+     Location of the user
+     */
+    NSString* location;
     /**
      wishlist of the user
      */
@@ -29,6 +35,14 @@
      inventory of the user
      */
     Inventory* inventory;
+    /**
+     Settings group
+     */
+    Settings *settings;
+    /**
+     Password of the user
+     */
+    NSString* password;
 }
 
 /**
@@ -38,12 +52,7 @@
  @param w wishlist
  @param i inventory
  */
--(id)initWithName:(NSString*)n andUsername:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i;
-/**
-Returns the name of the user
- @return name
- */
--(NSString*) getName;
+-(id)initWithUserName:(NSString*)u andWishlist:(Wishlist*)w andInventory:(Inventory*)i andSettings:(Settings*)s andLocation:(NSString*) l andPassWord:(NSString*)p;
 /**
  Returns the username
  @return username
@@ -59,5 +68,16 @@ Returns the name of the user
  @return inventory
  */
 -(Inventory*) getInventory;
+/**
+ Checks the see if the passed password is equal to the users
+ @return true if the password matches
+ */
+-(Boolean) checkPassword: (NSString*) p;
+/**
+ Returns the location of the user
+ @return location
+ */
+-(NSString*) getLocation;
+
 
 @end

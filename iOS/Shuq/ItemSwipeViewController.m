@@ -68,11 +68,12 @@
     //read file/json
     
     _items = [[NSMutableArray alloc] init];
+        NSUInteger num = 1;
     
-    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment."];
-    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky."];
-    Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png" andDesc:@"Really great sunglasses, block the sun and make you look like a player."];
-    Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png" andDesc:@"Super warm and comfy. Get all the guys if you wear it out at night."];
+    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue:&num];
+    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue:&num];
+    Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png" andDesc:@"Really great sunglasses, block the sun and make you look like a player." andValue:&num];
+    Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png" andDesc:@"Super warm and comfy. Get all the guys if you wear it out at night." andValue:&num];
     
     [_items addObject:i1];
     [_items addObject:i2];

@@ -1,4 +1,3 @@
-/**@fileoverview the json that specifies the details of this package, including dependencies.*/
 {
   "name": "mongo-server",
   "version": "0.0.1",
