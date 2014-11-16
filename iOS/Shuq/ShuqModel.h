@@ -39,7 +39,7 @@
  Authenticate the given username/password combo
  @return a boolean whether or not it was valid
  */
--(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password;
+-(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password isNewUser:(BOOL)newUser;
 
 /**
  gets the global varable of the model

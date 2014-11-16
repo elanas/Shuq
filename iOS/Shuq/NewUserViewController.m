@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //    self.view.backgroundColor = [UIColor clearColor];
+    [_continueButton addTarget:self action:@selector(checkUsername) forControlEvents:UIControlEventTouchDown];
     
 }
 
@@ -38,23 +39,22 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+-(void)checkUsername {
     model = [ShuqModel getModel];
     NSString* username = _newuserTextField.text;
     NSString* password = _newpassTextField.text;
     //    NSLog(password);
-    if ([model authenticateUser:username andPassword: password]) {
-        if([segue.identifier isEqualToString:@"loginSuccess"]){
-            model = [ShuqModel getModel];
-            
-            //make proper model
-            
-        } else if([segue.identifier isEqualToString:@"newUser"]){
-            ItemSwipeViewController *controller = (ItemSwipeViewController *    )segue.destinationViewController;
-            controller.model = model;
-        }
+    if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
+        //segue
+    } else {
+        //aware user
+        //don't segue
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
 }
 
 /*

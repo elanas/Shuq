@@ -43,7 +43,8 @@
     NSString* username = _usernameTextField.text;
     NSString* password = _passwordTextField.text;
     NSLog(@"%@", username);
-    if ([model authenticateUser:username andPassword: password]) {
+    if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
+//    if ([model authenticateUser:username andPassword: password]) {
         [self performSegueWithIdentifier:@"loginSuccess" sender:sender];
 //        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];
 //        [self presentModalViewController:isvc animated:YES];
