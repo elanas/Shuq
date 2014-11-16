@@ -45,7 +45,6 @@
     model = [ShuqModel getModel];
     NSString* username = _usernameTextField.text;
     NSString* password = _passwordTextField.text;
-    NSLog(@"%@", username);
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
         
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
@@ -62,8 +61,6 @@
         [self performSegueWithIdentifier:@"loginSuccess" sender:sender];
 //        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];
 //        [self presentModalViewController:isvc animated:YES];
-    } else {
-        NSLog(@"No segue");
     }
 }
 

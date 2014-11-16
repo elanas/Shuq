@@ -44,13 +44,8 @@ static NSString* const kLocations = @"user";
     
     //checking if in database
     if ([username length] == 0) {
-        //        NSLog(@"False");
         return false;
-    }
-    
-//    NSLog(@"HERE");
-//    NSLog(@"username: %@", username);
-    if(newUser) {
+    }    if(newUser) {
         isValid = [self addNewUserToServerWithUsername:username andPassword:password];
     } else {
         isValid = [self getUserFromServerWithUsername:username andPassword:password];
@@ -84,7 +79,6 @@ static NSString* const kLocations = @"user";
     
     NSData* data = [NSJSONSerialization dataWithJSONObject:[user toDictionary] options:0 error:NULL]; //3
     request.HTTPBody = data;
-//    NSLog(@"%@", data);
     
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; //4
     
@@ -92,19 +86,12 @@ static NSString* const kLocations = @"user";
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-//        NSLog(@"testing?");
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
             [self parseAndGetUsers:responseArray toArray:users];
-//            NSLog(@"Worked");
-        }
-        else {
-            NSLog(@"Did Not Worked");
         }
     }];
-//    NSLog(@"heelp");
     [dataTask resume];
-//    NSLog(@"stop");
 }
 
 - (void)import
@@ -117,13 +104,11 @@ static NSString* const kLocations = @"user";
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
-//    NSLog(@"reached");
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
             [self parseAndGetUsers:responseArray toArray:users]; //7
-//            NSLog(@"here");
             
         }
     }];
@@ -141,7 +126,6 @@ static NSString* const kLocations = @"user";
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
-//    NSLog(@"reached");
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
@@ -149,8 +133,6 @@ static NSString* const kLocations = @"user";
             
             //Parse users
 //            [self parseAndGetUsers:responseArray toArray:users];
-            NSLog(@"here");
-            NSLog(@"%@",[responseArray objectAtIndex:0]);
             
         }
     }];
@@ -181,7 +163,6 @@ static NSString* const kLocations = @"user";
     
     NSData* data = [NSJSONSerialization dataWithJSONObject:[user toDictionary] options:0 error:NULL]; //3
     request.HTTPBody = data;
-//    NSLog(@"%@", data);
     
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"]; //4
     
@@ -189,7 +170,6 @@ static NSString* const kLocations = @"user";
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-//        NSLog(@"testing?");
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
 
@@ -197,19 +177,13 @@ static NSString* const kLocations = @"user";
             [self parseAndGetUsers:responseArray toArray:users];
 
         }
-        else {
-            NSLog(@"Did Not Worked");
-        }
     }];
-//    NSLog(@"heelp");
     [dataTask resume];
-//    NSLog(@"stop");
     return TRUE;
 }
 
 -(void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray
 {
-//        NSLog(@"%lu",(unsigned long)[us count]);
         for (NSDictionary* item in us) {
             User* user = [[User alloc] initWithDictionary:item];
             [destinationArray addObject:user];
@@ -220,14 +194,10 @@ static NSString* const kLocations = @"user";
     if([us count] !=1) {
         return;
     }
-     NSLog(@"before");
-    //NSLog(primaryUser);
     for (NSDictionary* item in us) {
         User* user = [[User alloc] initWithDictionary:item];
         primaryUser = user;
     }
-     NSLog(@"after");
-    NSLog(@"%lu",(unsigned long)[[[primaryUser getInventory] getInventoryItems] count]);
 }
 
 @end
