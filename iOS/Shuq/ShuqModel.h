@@ -55,6 +55,12 @@
  imports users from server
  */
 - (void) import;
+/**
+ Gets the users objects from a JSON object
+ @param users array of json user items
+ @param destinationArray arrray to store users
+ */
+- (void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray;
 
 
 @end

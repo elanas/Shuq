@@ -87,7 +87,7 @@ static NSString* const kLocations = @"user";
         NSLog(@"testing?");
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
-            //UPDATE with return
+            [self parseAndGetUsers:responseArray toArray:users];
             NSLog(@"Worked");
         }
         else {
@@ -114,7 +114,7 @@ static NSString* const kLocations = @"user";
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
-            //[self parseAndAddLocations:responseArray toArray:self.objects]; //7
+            [self parseAndGetUsers:responseArray toArray:users]; //7
             NSLog(@"here");
             
         }
@@ -138,7 +138,8 @@ static NSString* const kLocations = @"user";
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
-            //[self parseAndAddLocations:responseArray toArray:self.objects]; //7
+            //Parse users
+            [self parseAndGetUsers:responseArray toArray:users];
             NSLog(@"here");
             
         }
@@ -179,7 +180,8 @@ static NSString* const kLocations = @"user";
         NSLog(@"testing?");
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
-            //UPDATE with return
+            //parse users
+            [self parseAndGetUsers:responseArray toArray:users];
             NSLog(@"Worked");
         }
         else {
@@ -190,6 +192,15 @@ static NSString* const kLocations = @"user";
     [dataTask resume];
     NSLog(@"stop");
     return TRUE;
+}
+
+-(void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray
+{
+        NSLog(@"%lu",(unsigned long)[us count]);
+        for (NSDictionary* item in us) {
+            User* user = [[User alloc] initWithDictionary:item];
+            [destinationArray addObject:user];
+        }
 }
 
 @end
