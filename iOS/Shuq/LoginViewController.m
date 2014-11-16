@@ -46,7 +46,7 @@
     NSString* username = _usernameTextField.text;
     NSString* password = _passwordTextField.text;
     NSLog(@"%@", username);
-    if ([model authenticateUser:username andPassword: password]) {
+    if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
         
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
         
