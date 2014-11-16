@@ -138,8 +138,8 @@ static NSString* const kLocations = @"user";
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
-            //Parse users
-            [self parseAndGetUsers:responseArray toArray:users];
+            //Parse user
+            [self parseAndSetPrimaryUser:responseArray];
             NSLog(@"here");
             
         }
@@ -180,8 +180,8 @@ static NSString* const kLocations = @"user";
         NSLog(@"testing?");
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
-            //parse users
-            [self parseAndGetUsers:responseArray toArray:users];
+            //parse user
+            [self parseAndSetPrimaryUser:responseArray];
             NSLog(@"Worked");
         }
         else {
@@ -201,6 +201,20 @@ static NSString* const kLocations = @"user";
             User* user = [[User alloc] initWithDictionary:item];
             [destinationArray addObject:user];
         }
+}
+-(void) parseAndSetPrimaryUser:(NSArray*) us
+{
+    if([us count] !=1) {
+        return;
+    }
+     NSLog(@"before");
+    //NSLog(primaryUser);
+    for (NSDictionary* item in us) {
+        User* user = [[User alloc] initWithDictionary:item];
+        primaryUser = user;
+    }
+     NSLog(@"after");
+    NSLog(@"%lu",(unsigned long)[[[primaryUser getInventory] getInventoryItems] count]);
 }
 
 @end

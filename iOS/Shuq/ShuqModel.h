@@ -61,6 +61,11 @@
  @param destinationArray arrray to store users
  */
 - (void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray;
+/**
+ Gets the user objects from a JSON object and sets it to primary user
+ @param users array of json user items
+ */
+- (void) parseAndGetUsers:(NSArray*) us;
 
 
 @end
