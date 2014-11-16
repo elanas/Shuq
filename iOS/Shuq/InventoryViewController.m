@@ -19,17 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    inventory = [[_model getPrimaryUser] getInventory];
-    items = [[NSMutableArray alloc] init];
-    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue:1];
-    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue:1];
-    Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png" andDesc:@"Really great sunglasses, block the sun and make you look like a player." andValue:1];
-    Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png" andDesc:@"Super warm and comfy. Get all the guys if you wear it out at night." andValue:1];
-    
-    [items addObject:i1];
-    [items addObject:i2];
-    [items addObject:i3];
-    [items addObject:i4];
+    Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
+    items = [inventory getInventoryItems];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,4 +47,6 @@
     return cell;
 }
 
+- (IBAction)addItem:(id)sender {
+}
 @end

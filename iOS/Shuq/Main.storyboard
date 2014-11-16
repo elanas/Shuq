@@ -311,6 +311,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="mVr-mx-5JE">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Inventory" id="Rmw-iR-Onh">
+                                    <barButtonItem key="rightBarButtonItem" style="plain" id="nw0-X2-6lZ">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1fi-rr-XJd">
+                                            <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Add Item">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="HEB-pQ-1YT" kind="modal" identifier="addNewItem" id="Qtg-GK-0js"/>
+                                            </connections>
+                                        </button>
+                                        <connections>
+                                            <action selector="addItem:" destination="dXY-3A-aXL" id="ebC-iC-Xij"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryItemCell" id="cxx-kQ-wSo">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -332,6 +355,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXJ-oB-j76" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-358" y="-455"/>
+        </scene>
+        <!--New Inventory Item View Controller-->
+        <scene sceneID="HAc-dn-6g2">
+            <objects>
+                <viewController id="HEB-pQ-1YT" customClass="NewInventoryItemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bIf-Re-Ph0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wje-8L-S6b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xvy-kO-K3g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-A9-aYW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.1229712687" green="0.75685307359999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Add Item" id="JZu-WH-FKT">
+                                        <barButtonItem key="backBarButtonItem" title="Back" id="lhj-K0-lvF"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8g-Et-4sf">
+                                <rect key="frame" x="83" y="172" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-Zy-3h0">
+                                <rect key="frame" x="83" y="215" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Rf-uS-Vld">
+                                <rect key="frame" x="112" y="264" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBe-Is-dDL">
+                                <rect key="frame" x="137" y="388" width="63" height="30"/>
+                                <state key="normal" title="Add Item">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dXY-3A-aXL" kind="modal" identifier="backToInventory" id="KQA-JK-hdH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.38785587189999998" green="0.59097851170000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="ey7-Zy-3h0" id="Eza-6f-vFw"/>
+                        <outlet property="nameTextField" destination="s8g-Et-4sf" id="is1-G7-BYO"/>
+                        <outlet property="valueTextField" destination="6Rf-uS-Vld" id="Nn3-m8-dJj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tSr-Va-eB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="-455"/>
         </scene>
         <!--Inventory View Controller-->
         <scene sceneID="fny-99-8sV">
@@ -375,5 +457,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="BTI-c2-VKA"/>
+        <segue reference="KQA-JK-hdH"/>
     </inferredMetricsTieBreakers>
 </document>
