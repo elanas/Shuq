@@ -122,19 +122,6 @@
 
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"toInventory"]){
-        InventoryViewController *controller = (InventoryViewController *)segue.destinationViewController;
-        controller.model = _model;
-        
-    } else if([segue.identifier isEqualToString:@"toWishlist"]){
-        WishlistTableViewController *controller = (WishlistTableViewController *)segue.destinationViewController;
-        controller.model = _model;
-        
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
