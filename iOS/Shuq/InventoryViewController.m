@@ -47,6 +47,29 @@
     return cell;
 }
 
-- (IBAction)addItem:(id)sender {
-}
+//- (void)import
+//{
+//    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:kLocations]]; //1
+//    
+//    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+//    request.HTTPMethod = @"GET"; //2
+//    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+//    
+//    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+//    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+//    NSLog(@"reached");
+//    
+//    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+//        if (error == nil) {
+//            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
+//            [self parseAndGetUsers:responseArray toArray:users]; //7
+//            NSLog(@"here");
+//            
+//        }
+//    }];
+//    
+//    [dataTask resume];
+//    
+//}
+
 @end
