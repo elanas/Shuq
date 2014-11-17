@@ -52,6 +52,11 @@
  */
 - (void) persist:(User*)user;
 /**
+ put PrimaryUser to the server
+ user to post.
+ */
+- (void) putPrimary;
+/**
  imports users from server
  */
 - (void) import;

@@ -88,10 +88,17 @@ static NSString* const kLocations = @"user";
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
-            [self parseAndGetUsers:responseArray toArray:users];
+            
+            //Response
+            //[self parseAndGetUsers:responseArray toArray:users];
         }
     }];
     [dataTask resume];
+}
+
+- (void) putPrimary
+{
+    [self persist:primaryUser];
 }
 
 - (void)import
