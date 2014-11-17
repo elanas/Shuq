@@ -120,7 +120,9 @@ static NSString* const kLocations = @"user";
 }
 
 -(BOOL)getUserFromServerWithUsername:(NSString*)user andPassword:(NSString*)pass {
-    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:@"user"]]; //1
+    NSString* test = [@"user" stringByAppendingPathComponent:user];
+    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:test]]; //1
     
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
@@ -132,10 +134,11 @@ static NSString* const kLocations = @"user";
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
-            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //
             
+            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //
+            //NSLog(@"%@", responseArray);
             //Parse users
-//            [self parseAndGetUsers:responseArray toArray:users];
+            [self getParsePrimaryUser:responseArray];
             
         }
     }];
@@ -200,7 +203,14 @@ static NSString* const kLocations = @"user";
     for (NSDictionary* item in us) {
         User* user = [[User alloc] initWithDictionary:item];
         primaryUser = user;
+        //NSLog(@"%@", [primaryUser getUniqueID]);
     }
+}
+-(void) getParsePrimaryUser:(NSArray*) us
+{
+        User* user = [[User alloc] initWithDictionary:us];
+        primaryUser = user;
+       // NSLog(@"%@", [primaryUser getUniqueID]);
 }
 
 @end
