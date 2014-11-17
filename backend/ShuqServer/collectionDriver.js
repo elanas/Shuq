@@ -55,7 +55,7 @@ CollectionDriver.prototype.get = function(collectionName, id, callback) { //A
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
         else {
-            the_collection.findOne({'_id':ObjectID(id)}, function(error,doc) { //C
+            the_collection.findOne({'_id':id}, function(error,doc) { //C
                 if (error) callback(error)
                 else callback(null, doc);
             });
@@ -94,7 +94,7 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
         else {
-	        obj._id = ObjectID(entityId); //A convert to a real obj id
+	        obj._id = entityId; //A convert to a real obj id
 	        obj.updated_at = new Date(); //B
             the_collection.save(obj, function(error,doc) { //C
             	if (error) callback(error)
