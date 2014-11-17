@@ -84,7 +84,30 @@ app.get('/:collection/:entity', function(req, res) {
    var params = req.params;
    var entity = params.entity;
    var collection = params.collection;
-   if (entity) {
+
+   //  auth url path to verify username password
+   if (collection == "auth") {
+       if (entity) {
+           var userAndPass = entity.split(":");
+           if (userAndPass.length != 2) {
+               res.send(400, {error: 'Illegal colon in username or password', url: req.url});
+               return;
+           }
+           collectionDriver.get("user", userAndPass[0], function(error, objs) {
+               if (error) { res.send(400, error);}
+               else if (objs.password != userAndPass[1]) {
+                   res.send(3, {error: 'Incorrect username password combination', url: req.url});
+                   return;
+               } else {res.send(200, objs);}
+           });
+
+       } else {
+           res.send(400, {error: 'misuse of auth url', url: req.url});
+       }
+   }
+
+   // normal url path /collection/itemInCollection
+   else if (entity) {
        collectionDriver.get(collection, entity, function(error, objs) {
           if (error) { res.send(400, error); }
           else { res.send(200, objs); }

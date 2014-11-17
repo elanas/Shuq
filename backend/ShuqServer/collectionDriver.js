@@ -1,9 +1,24 @@
+/**
+ * @fileoverview the helper class that handles a lot of interactions with the mongodb database
+ * @type {exports.ObjectID|*}
+ */
+
 var ObjectID = require('mongodb').ObjectID;
 
+/**
+ * The constructor for a collection driver object
+ * @param db the database this collectiondriver deals with
+ * @constructor
+ */
 CollectionDriver = function(db) {
   this.db = db;
 };
 
+/**
+ * The function that gets a collection
+ * @param collectionName the name of the collction to get
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.getCollection = function(collectionName, callback) {
   this.db.collection(collectionName, function(error, the_collection) {
     if( error ) callback(error);
@@ -11,7 +26,12 @@ CollectionDriver.prototype.getCollection = function(collectionName, callback) {
   });
 };
 
-//find all objects for a collection
+
+/**
+ * Finds all the objects in the specified collection
+ * @param collectionName the name of the collection whose objects you want
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.findAll = function(collectionName, callback) {
     this.getCollection(collectionName, function(error, the_collection) { //A
       if( error ) callback(error)
@@ -24,22 +44,32 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
     });
 };
 
-//find a specific object
+
+/**
+ * Grabs an specific object from a collection
+ * @param collectionName the name of the collection
+ * @param id the id of the entity you want to get
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.get = function(collectionName, id, callback) { //A
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
         else {
-            var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$"); //B
-            if (!checkForHexRegExp.test(id)) callback({error: "invalid id"});
-            else the_collection.findOne({'_id':ObjectID(id)}, function(error,doc) { //C
-            	if (error) callback(error)
-            	else callback(null, doc);
+            the_collection.findOne({'_id':ObjectID(id)}, function(error,doc) { //C
+                if (error) callback(error)
+                else callback(null, doc);
             });
         }
     });
 }
 
-//save new object
+
+/**
+ * Post an object to the desired collection
+ * @param collectionName the name of the collection
+ * @param obj the object to put into the collection
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.save = function(collectionName, obj, callback) {
     this.getCollection(collectionName, function(error, the_collection) { //A
       if( error ) callback(error)
@@ -52,7 +82,14 @@ CollectionDriver.prototype.save = function(collectionName, obj, callback) {
     });
 };
 
-//update a specific object
+
+/**
+ * Put/update. Replace an entity in a collection with the given object
+ * @param collectionName the name of the collection
+ * @param obj the object to put in place of the specified entity
+ * @param entityId the id of the entity to be overwritten/updated
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.update = function(collectionName, obj, entityId, callback) {
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
@@ -67,7 +104,13 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
     });
 }
 
-//delete a specific object
+
+/**
+ * Delete an entity from a collection
+ * @param collectionName the name of the collection
+ * @param entityId the id of the entity to delete
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.delete = function(collectionName, entityId, callback) {
     this.getCollection(collectionName, function(error, the_collection) { //A
         if (error) callback(error)
