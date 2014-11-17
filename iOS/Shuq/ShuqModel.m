@@ -77,8 +77,7 @@ static NSString* const kLocations = @"user";
     [NSURL URLWithString:locations]; //1
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-//    request.HTTPMethod = isExistingLocation ? @"PUT" : @"POST"; //2
-    request.HTTPMethod = @"POST";
+    request.HTTPMethod = isExistingLocation ? @"PUT" : @"POST"; //2
     
     NSData* data = [NSJSONSerialization dataWithJSONObject:[user toDictionary] options:0 error:NULL]; //3
     request.HTTPBody = data;
