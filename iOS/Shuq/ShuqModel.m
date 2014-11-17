@@ -61,7 +61,7 @@ static NSString* const kLocations = @"user";
     }
     
 }
-- (void) persist:(User*)user
+- (void) updateUser:(User*)user
 {
     if (!user ) {
         return; //input safety check
@@ -125,7 +125,8 @@ static NSString* const kLocations = @"user";
 }
 
 -(BOOL)getUserFromServerWithUsername:(NSString*)user andPassword:(NSString*)pass {
-    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:kLocations]]; //1
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:@"user"]]; //1
+    
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"GET"; //2
