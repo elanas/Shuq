@@ -31,6 +31,10 @@
     //    self.view.backgroundColor = [UIColor clearColor];
     [_continueButton addTarget:self action:@selector(checkUsername) forControlEvents:UIControlEventTouchDown];
     
+    [_continueButton addTarget:self action:@selector(addLocation) forControlEvents:UIControlEventTouchDown];
+    
+    model = [ShuqModel getModel];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,7 +44,7 @@
 }
 
 -(void)checkUsername {
-    model = [ShuqModel getModel];
+//    model = [ShuqModel getModel];
     NSString* username = _newuserTextField.text;
     NSString* password = _newpassTextField.text;
     //    NSLog(password);
@@ -50,6 +54,18 @@
         //aware user
         //don't segue
     }
+}
+
+-(void)addLocation {
+//    model = [ShuqModel getModel];
+    NSString *loc = _locationField.text;
+    
+    //check location is valod
+    
+    [[model getPrimaryUser] setLocation:loc];
+    [model updateUser:[model getPrimaryUser]];
+    
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

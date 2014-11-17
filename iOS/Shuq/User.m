@@ -59,6 +59,10 @@
     return location;
 }
 
+-(void) setLocation:(NSString*)loc {
+    location = loc;
+}
+
 -(Boolean) checkPassword: (NSString*) p {
     return password == p;
 }

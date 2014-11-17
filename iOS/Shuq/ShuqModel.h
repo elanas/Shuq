@@ -41,6 +41,9 @@
  */
 -(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password isNewUser:(BOOL)newUser;
 
+-(void)updateUser:(User*)user;
+
+
 /**
  gets the global varable of the model
  */
