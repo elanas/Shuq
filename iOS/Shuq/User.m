@@ -32,8 +32,8 @@
         //for(id key in dictionary)
           //  NSLog(@"key=%@ value=%@", key, [dictionary objectForKey:key]);
         
-        username = dictionary[@"username"];
-        unid = dictionary[@"_ID"];
+        username = dictionary[@"_id"];
+        unid = username;
         location = dictionary[@"location"];
         password = dictionary[@"password"];
         wishlist = [[Wishlist alloc] initWithDictionary: dictionary[@"wishlist"]];
@@ -65,8 +65,8 @@
 - (NSDictionary*) toDictionary
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    safeSet(jsonable, @"_id", username);
     safeSet(jsonable, @"username", username);
-    safeSet(jsonable, @"_ID", unid);
     safeSet(jsonable, @"location", location);
     safeSet(jsonable, @"password", password);
     safeSet(jsonable, @"wishlist", [wishlist toDictionary]);
