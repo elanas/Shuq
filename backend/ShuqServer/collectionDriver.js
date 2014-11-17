@@ -3,7 +3,7 @@
  * @type {exports.ObjectID|*}
  */
 
-var ObjectID = require('mongodb').ObjectID;
+//var ObjectID = require('mongodb').ObjectID;
 
 /**
  * The constructor for a collection driver object
@@ -33,10 +33,10 @@ CollectionDriver.prototype.getCollection = function(collectionName, callback) {
  * @param callback the callback response
  */
 CollectionDriver.prototype.findAll = function(collectionName, callback) {
-    this.getCollection(collectionName, function(error, the_collection) { //A
+    this.getCollection(collectionName, function(error, the_collection) {
       if( error ) callback(error)
       else {
-        the_collection.find().toArray(function(error, results) { //B
+        the_collection.find().toArray(function(error, results) {
           if( error ) callback(error)
           else callback(null, results)
         });
@@ -51,11 +51,11 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
  * @param id the id of the entity you want to get
  * @param callback the callback response
  */
-CollectionDriver.prototype.get = function(collectionName, id, callback) { //A
+CollectionDriver.prototype.get = function(collectionName, id, callback) {
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
         else {
-            the_collection.findOne({'_id':id}, function(error,doc) { //C
+            the_collection.findOne({'_id':id}, function(error,doc) {
                 if (error) callback(error)
                 else callback(null, doc);
             });
@@ -71,11 +71,11 @@ CollectionDriver.prototype.get = function(collectionName, id, callback) { //A
  * @param callback the callback response
  */
 CollectionDriver.prototype.save = function(collectionName, obj, callback) {
-    this.getCollection(collectionName, function(error, the_collection) { //A
+    this.getCollection(collectionName, function(error, the_collection) {
       if( error ) callback(error)
       else {
-        obj.created_at = new Date(); //B
-        the_collection.insert(obj, function() { //C
+        obj.created_at = new Date();
+        the_collection.insert(obj, function() {
           callback(null, obj);
         });
       }
@@ -94,9 +94,9 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
         else {
-	        obj._id = entityId; //A convert to a real obj id
-	        obj.updated_at = new Date(); //B
-            the_collection.save(obj, function(error,doc) { //C
+	        obj._id = entityId;
+	        obj.updated_at = new Date();
+            the_collection.save(obj, function(error,doc) {
             	if (error) callback(error)
             	else callback(null, obj);
             });
@@ -112,10 +112,10 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
  * @param callback the callback response
  */
 CollectionDriver.prototype.delete = function(collectionName, entityId, callback) {
-    this.getCollection(collectionName, function(error, the_collection) { //A
+    this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error)
         else {
-            the_collection.remove({'_id':ObjectID(entityId)}, function(error,doc) { //B
+            the_collection.remove({'_id': entityId}, function(error,doc) {
             	if (error) callback(error)
             	else callback(null, doc);
             });
