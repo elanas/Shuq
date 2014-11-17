@@ -142,7 +142,7 @@ static NSString* const kLocations = @"user";
             //NSLog(@"%@", responseArray);
             //Parse users
             
-            [self parseAndGetUsers:responseArray toArray:users];
+            [self getParsePrimaryUser:responseArray];
 
             
         }
