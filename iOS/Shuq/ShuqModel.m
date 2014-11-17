@@ -67,6 +67,8 @@ static NSString* const kLocations = @"user";
         return; //input safety check
     }
     
+    
+    
     NSString* locations = [kBaseURL stringByAppendingPathComponent:kLocations];
     
     BOOL isExistingLocation = [user getUniqueID] != nil;
@@ -87,10 +89,11 @@ static NSString* const kLocations = @"user";
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (!error) {
-            NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
-            
-            //Response
-            //[self parseAndGetUsers:responseArray toArray:users];
+//            NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
+//            NSLog(@"%@", responseArray);
+//            [self parseAndGetUsers:responseArray toArray:users];
+        } else {
+            NSLog(@"ERROR");
         }
     }];
     [dataTask resume];
@@ -138,7 +141,9 @@ static NSString* const kLocations = @"user";
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //
             //NSLog(@"%@", responseArray);
             //Parse users
-            [self getParsePrimaryUser:responseArray];
+            
+            [self parseAndGetUsers:responseArray toArray:users];
+
             
         }
     }];

@@ -31,7 +31,7 @@
     //    self.view.backgroundColor = [UIColor clearColor];
     [_continueButton addTarget:self action:@selector(checkUsername) forControlEvents:UIControlEventTouchDown];
     
-    [_continueButton addTarget:self action:@selector(addLocation) forControlEvents:UIControlEventTouchDown];
+    [_createAccountButton addTarget:self action:@selector(addLocation) forControlEvents:UIControlEventTouchDown];
     
     model = [ShuqModel getModel];
     
@@ -63,6 +63,9 @@
     //check location is valod
     
     [[model getPrimaryUser] setLocation:loc];
+    
+    NSLog(@"%@", [[model getPrimaryUser]getLocation]);
+    
     [model updateUser:[model getPrimaryUser]];
     
     
