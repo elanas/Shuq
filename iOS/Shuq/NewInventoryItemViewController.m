@@ -10,6 +10,7 @@
 #import "InventoryViewController.h"
 #import "Inventory.h"
 #import "Item.h"
+#import "ShuqModel.h"
 
 @interface NewInventoryItemViewController ()
 
@@ -33,6 +34,9 @@
         Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
         [inventory addItem:newInventoryItem];
+        ShuqModel *model = [ShuqModel getModel];
+        //PUT the primary user
+        [model updateUser:[model getPrimaryUser]];
     }
 }
 
