@@ -96,11 +96,6 @@ static NSString* const kLocations = @"user";
     [dataTask resume];
 }
 
-- (void) putPrimary
-{
-    [self persist:primaryUser];
-}
-
 - (void)import
 {
     NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:kLocations]]; //1
@@ -182,7 +177,7 @@ static NSString* const kLocations = @"user";
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
 
             //parse users
-            [self parseAndGetUsers:responseArray toArray:users];
+            [self parseAndSetPrimaryUser:responseArray];
 
         }
     }];

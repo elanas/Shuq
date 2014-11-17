@@ -35,7 +35,8 @@
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
         [inventory addItem:newInventoryItem];
         ShuqModel *model = [ShuqModel getModel];
-        [model putPrimary];
+        //PUT the primary user
+        [model updateUser:[model getPrimaryUser]];
     }
 }
 
