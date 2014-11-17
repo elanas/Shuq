@@ -1,0 +1,27 @@
+var annotated =
+[
+    [ "AppDelegate", "interface_app_delegate.html", "interface_app_delegate" ],
+    [ "Inventory", "interface_inventory.html", "interface_inventory" ],
+    [ "InventoryViewController", "interface_inventory_view_controller.html", "interface_inventory_view_controller" ],
+    [ "InventoryViewController()", "category_inventory_view_controller_07_08.html", null ],
+    [ "Item", "interface_item.html", "interface_item" ],
+    [ "ItemSwipeViewController", "interface_item_swipe_view_controller.html", "interface_item_swipe_view_controller" ],
+    [ "ItemSwipeViewController()", "category_item_swipe_view_controller_07_08.html", null ],
+    [ "LoginViewController", "interface_login_view_controller.html", "interface_login_view_controller" ],
+    [ "LoginViewController()", "category_login_view_controller_07_08.html", null ],
+    [ "NewInventoryItemViewController", "interface_new_inventory_item_view_controller.html", "interface_new_inventory_item_view_controller" ],
+    [ "NewInventoryItemViewController()", "category_new_inventory_item_view_controller_07_08.html", null ],
+    [ "NewUserViewController", "interface_new_user_view_controller.html", "interface_new_user_view_controller" ],
+    [ "NewUserViewController()", "category_new_user_view_controller_07_08.html", null ],
+    [ "Settings", "interface_settings.html", "interface_settings" ],
+    [ "ShuqModel", "interface_shuq_model.html", "interface_shuq_model" ],
+    [ "ShuqModelTests", "interface_shuq_model_tests.html", null ],
+    [ "ShuqSeverConnectionTest", "interface_shuq_sever_connection_test.html", null ],
+    [ "Tag", "interface_tag.html", "interface_tag" ],
+    [ "TemplateViewController", "interface_template_view_controller.html", null ],
+    [ "TemplateViewController()", "category_template_view_controller_07_08.html", null ],
+    [ "User", "interface_user.html", "interface_user" ],
+    [ "Wishlist", "interface_wishlist.html", "interface_wishlist" ],
+    [ "WishlistTableViewController", "interface_wishlist_table_view_controller.html", "interface_wishlist_table_view_controller" ],
+    [ "WishlistTableViewController()", "category_wishlist_table_view_controller_07_08.html", null ]
+];

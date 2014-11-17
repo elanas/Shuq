@@ -39,7 +39,10 @@
  Authenticate the given username/password combo
  @return a boolean whether or not it was valid
  */
--(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password;
+-(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password isNewUser:(BOOL)newUser;
+
+-(void)updateUser:(User*)user;
+
 
 /**
  gets the global varable of the model
@@ -55,6 +58,17 @@
  imports users from server
  */
 - (void) import;
+/**
+ Gets the users objects from a JSON object
+ @param users array of json user items
+ @param destinationArray arrray to store users
+ */
+- (void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray;
+/**
+ Gets the user objects from a JSON object and sets it to primary user
+ @param users array of json user items
+ */
+- (void) parseAndGetUsers:(NSArray*) us;
 
 
 @end

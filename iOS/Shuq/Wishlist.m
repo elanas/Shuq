@@ -23,6 +23,7 @@
     self = [super init];
     if (self)
     {
+        items = [[NSMutableArray alloc] init];
         NSMutableArray* itemJSON = dictionary[@"items"];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {

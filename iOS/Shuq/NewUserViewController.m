@@ -29,6 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //    self.view.backgroundColor = [UIColor clearColor];
+    [_continueButton addTarget:self action:@selector(checkUsername) forControlEvents:UIControlEventTouchDown];
+    
+    [_continueButton addTarget:self action:@selector(addLocation) forControlEvents:UIControlEventTouchDown];
+    
+    model = [ShuqModel getModel];
     
 }
 
@@ -38,23 +43,34 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    model = [ShuqModel getModel];
+-(void)checkUsername {
+//    model = [ShuqModel getModel];
     NSString* username = _newuserTextField.text;
     NSString* password = _newpassTextField.text;
     //    NSLog(password);
-    if ([model authenticateUser:username andPassword: password]) {
-        if([segue.identifier isEqualToString:@"loginSuccess"]){
-            model = [ShuqModel getModel];
-            
-            //make proper model
-            
-        } else if([segue.identifier isEqualToString:@"newUser"]){
-            ItemSwipeViewController *controller = (ItemSwipeViewController *    )segue.destinationViewController;
-            controller.model = model;
-        }
+    if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
+        //segue
+    } else {
+        //aware user
+        //don't segue
     }
+}
+
+-(void)addLocation {
+//    model = [ShuqModel getModel];
+    NSString *loc = _locationField.text;
+    
+    //check location is valod
+    
+    [[model getPrimaryUser] setLocation:loc];
+    [model updateUser:[model getPrimaryUser]];
+    
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
 }
 
 /*

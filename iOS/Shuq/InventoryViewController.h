@@ -12,9 +12,9 @@
 @interface InventoryViewController : UITableViewController
 {
     /**
-     The inventory this view will represent
+     The user whose inventory this view will represent
      */
-    Inventory* inventory;
+    User* user;
     /**
     The array of items to populate the cells of the table
     */

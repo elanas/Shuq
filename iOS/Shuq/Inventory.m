@@ -23,6 +23,9 @@
     self = [super init];
     if (self)
     {
+        items = [[NSMutableArray alloc] init];
+        //for(id key in dictionary)
+          //  NSLog(@"key=%@ value=%@", key, [dictionary objectForKey:key]);
         NSMutableArray* itemJSON = dictionary[@"items"];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {

@@ -7,6 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import "Inventory.h"
+#import "ShuqModel.h"
+#import "Item.h"
 
 @interface LoginViewController ()
 
@@ -42,13 +45,22 @@
     model = [ShuqModel getModel];
     NSString* username = _usernameTextField.text;
     NSString* password = _passwordTextField.text;
-    NSLog(@"%@", username);
-    if ([model authenticateUser:username andPassword: password]) {
+    if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
+        
+        Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
+        
+        Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue:1];
+        Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue:1];
+        Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png" andDesc:@"Really great sunglasses, block the sun and make you look like a player." andValue:1];
+        Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png" andDesc:@"Super warm and comfy. Get all the guys if you wear it out at night." andValue:1];
+        [inventory addItem:i1];
+        [inventory addItem:i2];
+        [inventory addItem:i3];
+        [inventory addItem:i4];
+        
         [self performSegueWithIdentifier:@"loginSuccess" sender:sender];
 //        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];
 //        [self presentModalViewController:isvc animated:YES];
-    } else {
-        NSLog(@"No segue");
     }
 }
 

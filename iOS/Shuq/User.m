@@ -28,13 +28,17 @@
 - (instancetype) initWithDictionary:(NSDictionary*)dictionary {
     self = [super init];
     if (self) {
-        username = dictionary[@"username"];
-        unid = dictionary[@"userID"];
+        
+        //for(id key in dictionary)
+          //  NSLog(@"key=%@ value=%@", key, [dictionary objectForKey:key]);
+        
+        username = dictionary[@"_id"];
+        unid = username;
         location = dictionary[@"location"];
         password = dictionary[@"password"];
         wishlist = [[Wishlist alloc] initWithDictionary: dictionary[@"wishlist"]];
-        inventory = [[Inventory alloc] initWithDictionary: dictionary[@"wishlist"]];
-        settings = [[Settings alloc] initWithDictionary: dictionary[@"wishlist"]];
+        inventory = [[Inventory alloc] initWithDictionary: dictionary[@"inventory"]];
+        settings = [[Settings alloc] initWithDictionary: dictionary[@"settings"]];
     }
     return self;
 }
@@ -55,14 +59,18 @@
     return location;
 }
 
+-(void) setLocation:(NSString*)loc {
+    location = loc;
+}
+
 -(Boolean) checkPassword: (NSString*) p {
     return password == p;
 }
 - (NSDictionary*) toDictionary
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    safeSet(jsonable, @"_id", username);
     safeSet(jsonable, @"username", username);
-    safeSet(jsonable, @"userID", unid);
     safeSet(jsonable, @"location", location);
     safeSet(jsonable, @"password", password);
     safeSet(jsonable, @"wishlist", [wishlist toDictionary]);

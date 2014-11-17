@@ -82,6 +82,7 @@
  @return location
  */
 -(NSString*) getLocation;
+-(void) setLocation:(NSString*)loc;
 /**
  Convert to JSONable object
  */
