@@ -77,15 +77,18 @@ app.get('/:collection', function(req, res) {
 /**
  * This code determines what express shows when you navigate to a subfolder of a collection.
  * The entity field should be an _id of an entry in that collection.
- * A well-fromatted representation of that entry's json is displayed in the browser if the _id is valid.
+ * A well-formatted representation of that entry's json is displayed in the browser if the _id is valid.
  * If the _id is invalid, the display appears as the json: {"error":"invalid _id"}.
+ *
+ * This code is also used to verify username/password combos. In this case, collection is auth and
+ * entity is username:password
  */
 app.get('/:collection/:entity', function(req, res) {
    var params = req.params;
    var entity = params.entity;
    var collection = params.collection;
 
-   //  auth url path to verify username password
+   //  auth url path to verify username password (used "Port/auth/username:password)
    if (collection == "auth") {
        if (entity) {
            var userAndPass = entity.split(":");
