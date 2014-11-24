@@ -105,6 +105,39 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
 };
 
 
+CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityId, callback) {
+    this.getCollection(collectionName, function(error, the_collection) {
+        if (error) callback(error);
+        else {
+            obj._id = entityId;
+            obj.updated_at = new Date();
+
+
+            if (obj.to_add) {
+                console.log(obj.to_add);
+            } else {
+                console.log("Nothing to add\n");
+            }
+
+
+            if (obj.to_remove) {
+                console.log(obj.to_remove);
+            } else {
+                console.log("Nothing to remove\n");
+            }
+
+
+            if (obj.to_replace) {
+                the_collection.save(obj.to_replace, function (error, doc) {
+                    if (error) callback(error)
+                    else callback(null, obj.to_replace);
+                });
+            }
+        }
+    });
+};
+
+
 /**
  * Delete an entity from a collection
  * @param collectionName the name of the collection

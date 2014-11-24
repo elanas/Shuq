@@ -153,6 +153,21 @@ app.put('/:collection/:entity', function(req, res) {
    }
 });
 
+app.put('/partial/:collection/:entity', function(req, res) {
+    var params = req.params;
+    var entity = params.entity;
+    var collection = params.collection;
+    if (entity) {
+        collectionDriver.partialUpdate(collection, req.body, entity, function(error, objs) {
+            if (error) { res.send(400, error); }
+            else { res.send(200, objs); }
+        });
+    } else {
+        var error = { "message" : "Cannot partial PUT a whole collection" }
+        res.send(400, error);
+    }
+});
+
 /**
  * This code handles the Delete functionality, the last of CRUD.
  * An entity in a collection is specified (if collection but no entity, response contains an error message),
