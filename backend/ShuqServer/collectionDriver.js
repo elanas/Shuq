@@ -109,12 +109,17 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error);
         else {
-            obj._id = entityId;
-            obj.updated_at = new Date();
+            //obj._id = entityId;
+            //obj.updated_at = new Date();
 
 
             if (obj.to_add) {
                 console.log(obj.to_add);
+                if (obj.hasOwnProperty("inventory")) {
+                    obj.inventory.push({testInvObj: "test1"});
+                } else {
+                    console.log("No inv to append to");
+                }
             } else {
                 console.log("Nothing to add\n");
             }
@@ -133,6 +138,8 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
                     else callback(null, obj.to_replace);
                 });
             }
+
+            callback(null,obj);
         }
     });
 };
