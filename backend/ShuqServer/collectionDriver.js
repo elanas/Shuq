@@ -109,37 +109,50 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error);
         else {
-            //obj._id = entityId;
-            //obj.updated_at = new Date();
+            the_collection.findOne({'_id': entityId}, function (error, doc) {
+                if (error) callback(error);
+                else {
+                    //obj is the item given to the put, doc is the item gotten from the db
+
+                    //obj._id = entityId;
+                    //obj.updated_at = new Date();
+
+                    //RIGHT NOW THIS ASSUMES THE ITEM IS ALREADY PRESENT!!!!!!!!!!!!!!!
 
 
-            if (obj.to_add) {
-                console.log(obj.to_add);
-                if (obj.hasOwnProperty("inventory")) {
-                    obj.inventory.push({testInvObj: "test1"});
-                } else {
-                    console.log("No inv to append to");
+                    if (obj.to_add) {
+                        console.log(obj.to_add);
+                        var testItem = {testInvObj: "test1"};
+                        if (doc.hasOwnProperty("inventory")) {
+                            doc.inventory.push(testItem);
+                        } else {
+                            console.log("No inv to append to");
+                            doc.inventory = [testItem];
+                        }
+                    } else {
+                        console.log("Nothing to add\n");
+                    }
+
+
+
+                    //TODO remove!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if (obj.to_remove) {
+                        console.log(obj.to_remove);
+                    } else {
+                        console.log("Nothing to remove\n");
+                    }
+
+
+                    if (obj.to_replace) {
+                        doc = obj.to_replace;
+                    }
+
+                    the_collection.save(doc, function (error, doc2) {
+                        if (error) callback(error)
+                        else callback(null, doc);
+                    });
                 }
-            } else {
-                console.log("Nothing to add\n");
-            }
-
-
-            if (obj.to_remove) {
-                console.log(obj.to_remove);
-            } else {
-                console.log("Nothing to remove\n");
-            }
-
-
-            if (obj.to_replace) {
-                the_collection.save(obj.to_replace, function (error, doc) {
-                    if (error) callback(error)
-                    else callback(null, obj.to_replace);
-                });
-            }
-
-            callback(null,obj);
+            });
         }
     });
 };
