@@ -63,7 +63,7 @@ app.get('/:collection', function(req, res) {
    var params = req.params; //B
    collectionDriver.findAll(req.params.collection, function(error, objs) {
     	  if (error) { res.send(400, error); }
-	      else { 
+	      else {
 	          if (req.accepts('html')) {
     	          res.render('data',{objects: objs, collection: req.params.collection}); // use data.jade format
               } else {
@@ -109,6 +109,14 @@ app.get('/:collection/:entity', function(req, res) {
        }
    }
 
+   //returns a list of matches for the entity
+   else if (collection = "match") {
+     collectionDriver.match("user", entity, function(error, objs) {
+       if (error) { res.send(400, error);}
+       else { res.send(200, objs);}
+     });
+     }
+
    // normal url path /collection/itemInCollection
    else if (entity) {
        collectionDriver.get(collection, entity, function(error, objs) {
@@ -128,7 +136,7 @@ app.post('/:collection', function(req, res) {
     var object = req.body;
     var collection = req.params.collection;
     collectionDriver.save(collection, object, function(err,docs) {
-          if (err) { res.send(400, err); } 
+          if (err) { res.send(400, err); }
           else { res.send(201, docs); }
      });
 });

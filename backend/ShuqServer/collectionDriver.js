@@ -44,6 +44,30 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
     });
 };
 
+CollectionDriver.prototype.match = function(collectionName, user, callback) {
+  this.getCollection(collectionName, function(error, the_collection) {
+    if (error) callback(error);
+    else {
+      var wishlist;
+      the_collection.findOne({'username':user}, function(error,doc) {
+        if (error) callback(error);
+        else {
+          wishlist = doc['wishlist'];
+          the_collection.find({ "inventory.items" :{$in:wishlist['items']}}, function(error, docs) {
+            docs.toArray(function(error, results) {
+              console.log(results);
+            });
+            docs.each(function(user) {
+              console.log(user);
+            });
+            callback(null,docs);
+          });
+        }
+      });
+    }
+  });
+
+}
 
 /**
  * Grabs an specific object from a collection
