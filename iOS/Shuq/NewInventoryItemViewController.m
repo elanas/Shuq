@@ -46,14 +46,17 @@
         Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
 
         //Set item photo
-        
-//        [newInventoryItem setImage: self.photo];
+        if(self.photo != nil) {
+            [newInventoryItem setImage: self.photo];
+        }
         
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
         [inventory addItem:newInventoryItem];
         ShuqModel *model = [ShuqModel getModel];
         //Post Image
-        [model saveNewItemImage:newInventoryItem];
+        if(self.photo != nil) {
+            [model saveNewItemImage:newInventoryItem];
+        }
         //PUT the primary user
         [model updateUser:[model getPrimaryUser]];
     }
