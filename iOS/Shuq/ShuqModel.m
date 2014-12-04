@@ -53,7 +53,9 @@ static NSString* const kLocations = @"user";
     
     if(isValid) {
         //will eventually return a user above
+        if(newUser) {
         primaryUser = [[User alloc] initWithUsername:username andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init] andSettings:0 andLocation:@"Baltimore" andPassword:password];
+        }
         return TRUE;
     } else {
         //do something to alert user
@@ -145,13 +147,17 @@ static NSString* const kLocations = @"user";
         
         if (error == nil) {
             NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            if([responseBody containsString:@"error"]) {
+            if([responseBody rangeOfString:@"error"].location!= NSNotFound) {
+            //if([responseBody containsString:@"error"]) {
+                
                 
                 //authentication failed
                 validAuth = FALSE;
             } else {
                 
                 //authentication successful
+                NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                [self getParsePrimaryUser:responseArray];
                 validAuth = TRUE;
             }
             dispatch_semaphore_signal(semaphore);
