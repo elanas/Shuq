@@ -136,14 +136,30 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
             the_collection.findOne({'_id': entityId}, function (error, doc) {
                 if (error) callback(error);
                 else {
-                    //obj is the item given to the put, doc is the item gotten from the db
+                   //RIGHT NOW THIS ASSUMES GOOD INPUT AND SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-                    //obj._id = entityId;
-                    //obj.updated_at = new Date();
+                    var index;
+                    for (index = 0; index < obj.changes.length; ++index) {
+                        var change = obj,changes[index];
+                        var path = change.path.split(".");
+                        var navigator = doc;
+                        var j;
+                        for (j=0; j<path.length; ++j) {
+                            navigator = navigator[path[j]];
+                        }
 
-                    //RIGHT NOW THIS ASSUMES THE ITEM IS ALREADY PRESENT!!!!!!!!!!!!!!!
+                        if (change.type === "add") {
+                            navigator[change.propertyName] = change.propertyValue;
 
+                        } else if (change.type === "remove") {
+                            delete navigator[change.propertyName];
 
+                        } else if (change.type === "replace") {
+                            navigator = change.propertyValue;
+
+                        }
+                    }
+/*
                     if (obj.to_add) {
                         console.log(obj.to_add);
                         var testItem = {testInvObj: "test1"};
@@ -170,6 +186,7 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
                     if (obj.to_replace) {
                         doc = obj.to_replace;
                     }
+*/
 
                     the_collection.save(doc, function (error, doc2) {
                         if (error) callback(error)

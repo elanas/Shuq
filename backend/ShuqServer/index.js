@@ -60,7 +60,7 @@ app.get('/', function (req, res) {
  *  (still works if collection is empty or was never created, just has a header and no table)
  */
 app.get('/:collection', function(req, res) {
-   var params = req.params; //B
+   var params = req.params;
    collectionDriver.findAll(req.params.collection, function(error, objs) {
     	  if (error) { res.send(400, error); }
 	      else {
