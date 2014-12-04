@@ -78,7 +78,9 @@
              
              NSMutableDictionary* item = [NSMutableDictionary dictionary];
              item[@"name"] = [[items objectAtIndex:i] getName];
-             item[@"imageId"] = [[items objectAtIndex:i] getImageID];
+             if([[items objectAtIndex:i] getImageID] != nil) {
+                 item[@"imageId"] = [[items objectAtIndex:i] getImageID];
+             }
              
              //Problem with int
              //item[@"value"]= [[items objectAtIndex:i] getValue];

@@ -44,8 +44,11 @@
 {
     if([segue.identifier isEqualToString:@"backToInventory"]){
         Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
+
         //Set item photo
-        [newInventoryItem setImage: self.photo];
+        
+//        [newInventoryItem setImage: self.photo];
+        
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
         [inventory addItem:newInventoryItem];
         ShuqModel *model = [ShuqModel getModel];

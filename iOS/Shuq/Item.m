@@ -67,9 +67,11 @@
 }
 -(void) setImageId: (NSString*) iid{
     imageId= iid;
+    NSLog(@"setting: %@", imageId);
 }
 
 -(NSString *) getImageID {
+    NSLog(@"getting: %@", imageId);
     return imageId;
 }
 
