@@ -123,10 +123,12 @@ static NSString* const kLocations = @"user";
 }
 
 -(BOOL)getUserFromServerWithUsername:(NSString*)user andPassword:(NSString*)pass {
-    NSString* test = [@"user" stringByAppendingPathComponent:user];
+    NSString* userAuth = [@"auth" stringByAppendingPathComponent:user];
+    userAuth = [userAuth stringByAppendingString:@":"];
+    userAuth = [userAuth stringByAppendingString:pass];
+
     
-    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:test]]; //1
-    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"GET"; //2
@@ -135,21 +137,37 @@ static NSString* const kLocations = @"user";
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
-    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-        if (error == nil) {
-            
-            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //
-            //NSLog(@"%@", responseArray);
-            //Parse users
-            
-            [self getParsePrimaryUser:responseArray];
+    __block BOOL validAuth = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-            
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if([responseBody containsString:@"error"]) {
+                
+                //authentication failed
+                validAuth = FALSE;
+            } else {
+                
+                //authentication successful
+                validAuth = TRUE;
+            }
+            dispatch_semaphore_signal(semaphore);
+
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
         }
     }];
     
+    
     [dataTask resume];
-    return TRUE;
+
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    return validAuth;
 }
 
 -(BOOL)addNewUserToServerWithUsername:(NSString*)username andPassword:(NSString*)password {

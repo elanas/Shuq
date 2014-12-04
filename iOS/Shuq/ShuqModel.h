@@ -20,7 +20,14 @@
         List of other users that the local user has been matched to
      */
     NSMutableArray *users;
+    
+    BOOL _isValid;
 }
+
+-(BOOL)isValidAuth;
+
+-(void)setIsValid:(BOOL)valid;
+
 /**
     Create the ShuqModel
  */
