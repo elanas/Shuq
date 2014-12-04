@@ -1,6 +1,5 @@
 /**
- * @fileoverview the helper class that handles a lot of interactions with the mongodb database
- * @type {exports.ObjectID|*}
+ * @fileoverview a helper class that handles a lot of interactions with the mongodb database
  */
 
 //var ObjectID = require('mongodb').ObjectID;
@@ -70,7 +69,7 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
 }
 
 /**
- * Grabs an specific object from a collection
+ * Grabs a specific object from a collection
  * @param collectionName the name of the collection
  * @param id the id of the entity you want to get
  * @param callback the callback response
@@ -145,8 +144,7 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
             the_collection.findOne({'_id': entityId}, function (error, doc) {
                 if (error) callback(error);
                 else {
-                   //RIGHT NOW THIS ASSUMES GOOD INPUT AND SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+                   //RIGHT NOW THIS ASSUMES GOOD INPUT
                     var index;
                     for (index = 0; index < obj.changes.length; ++index) {
                         var change = obj.changes[index];
@@ -168,34 +166,6 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
 
                         }
                     }
-/*
-                    if (obj.to_add) {
-                        console.log(obj.to_add);
-                        var testItem = {testInvObj: "test1"};
-                        if (doc.hasOwnProperty("inventory")) {
-                            doc.inventory.push(testItem);
-                        } else {
-                            console.log("No inv to append to");
-                            doc.inventory = [testItem];
-                        }
-                    } else {
-                        console.log("Nothing to add\n");
-                    }
-
-
-
-                    //TODO remove!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    if (obj.to_remove) {
-                        console.log(obj.to_remove);
-                    } else {
-                        console.log("Nothing to remove\n");
-                    }
-
-
-                    if (obj.to_replace) {
-                        doc = obj.to_replace;
-                    }
-*/
 
                     the_collection.save(doc, function (error, doc2) {
                         if (error) callback(error)

@@ -1,11 +1,9 @@
 /**
  * @fileoverview The main server code, run by "node ." or "node index.js".
  * This controls express behaviour and runs the database by handling CRUD requests.
- * This code was produced while following along with the helpful tutorial found here:
+ * This code and both 'drivers' were produced with great help from the tutorial found here:
  * http://www.raywenderlich.com/61078/write-simple-node-jsmongodb-web-service-ios-app
- * It is expected this code will be extended in the future to support other functionality,
- * such as a different version of a put that takes a json representing changes made, as
- * opposed to always having to get a giant, mostly the same json to replace the old one.
+ * which walked us through the basics. Code is still in development.
  */
 
 /**
