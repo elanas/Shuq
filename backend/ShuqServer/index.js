@@ -109,7 +109,7 @@ app.get('/:collection/:entity', function(req, res) {
        if (entity) {
            var userAndPass = entity.split(":");
            if (userAndPass.length != 2) {
-               res.send(300, {error: 'Illegal colon in username or password', url: req.url});
+               res.send(400, {error: 'Illegal colon in username or password', url: req.url});
                return;
            }
            collectionDriver.get("user", userAndPass[0], function(error, objs) {

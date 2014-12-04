@@ -20,7 +20,14 @@
         List of other users that the local user has been matched to
      */
     NSMutableArray *users;
+    
+    BOOL _isValid;
 }
+
+-(BOOL)isValidAuth;
+
+-(void)setIsValid:(BOOL)valid;
+
 /**
     Create the ShuqModel
  */
@@ -58,6 +65,15 @@
  imports users from server
  */
 - (void) import;
+/**
+ Post a new item image to the server
+ */
+- (void) saveNewItemImage:(Item*)item;
+/**
+ Loads an image of an item from the server
+ */
+- (void) loadImage:(Item*)item;
+
 /**
  Gets the users objects from a JSON object
  @param users array of json user items

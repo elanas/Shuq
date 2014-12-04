@@ -65,6 +65,24 @@
     Tag* tag = [[Tag alloc] initWithName:t];
     [tags addObject:tag];
 }
+-(void) setImageId: (NSString*) iid{
+    imageId= iid;
+    NSLog(@"setting: %@", imageId);
+}
+
+-(NSString *) getImageID {
+    NSLog(@"getting: %@", imageId);
+    return imageId;
+}
+
+-(UIImage *) getImage {
+    return image;
+}
+
+-(void) setImage: (UIImage*) i {
+    image = i;
+}
+
 
 
 @end

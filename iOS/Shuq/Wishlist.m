@@ -28,7 +28,8 @@
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {
             Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
-            NSMutableArray* tagJSON = dictionary[@"taflist"];
+            [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
+            NSMutableArray* tagJSON = [itemJSON objectAtIndex:i][@"taglist"];
             for(NSUInteger n=0; n< [tagJSON count]; n++)
             {
                 [item addTag:[tagJSON objectAtIndex:n][@"tagname"]];
@@ -77,6 +78,7 @@
         
         NSMutableDictionary* item = [NSMutableDictionary dictionary];
         item[@"name"] = [[items objectAtIndex:i] getName];
+        item[@"imageId"] = [[items objectAtIndex:i] getImageID];
         
         NSMutableArray* tagList = [[items objectAtIndex:i]getTags];
         NSMutableArray* tagJSON =[[NSMutableArray alloc] init];

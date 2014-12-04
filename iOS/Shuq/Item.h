@@ -32,6 +32,14 @@
      Ranking of the value of the item, from 1-4
      */
     NSUInteger* value;
+    /**
+     Image of the item
+     */
+    UIImage* image;
+    /**
+     Image id of the image of the item
+     */
+    NSString* imageId;
 }
 
 
@@ -78,6 +86,23 @@
  @param t name of tag to add
  */
 -(void) addTag: (NSString *) t;
+/**
+ Set the image id of the object
+ */
+-(void) setImageId: (NSString*) iid;
+/**
+ Get the imageID of the object
+ */
+-(NSString *) getImageID;
+/**
+ Get the image of the object
+ */
+-(UIImage *) getImage;
+/**
+ Set the image of the object
+ */
+-(void) setImage: (UIImage*) i;
+
 
 
 @end

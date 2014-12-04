@@ -123,10 +123,12 @@ static NSString* const kLocations = @"user";
 }
 
 -(BOOL)getUserFromServerWithUsername:(NSString*)user andPassword:(NSString*)pass {
-    NSString* test = [@"user" stringByAppendingPathComponent:user];
+    NSString* userAuth = [@"auth" stringByAppendingPathComponent:user];
+    userAuth = [userAuth stringByAppendingString:@":"];
+    userAuth = [userAuth stringByAppendingString:pass];
+
     
-    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:test]]; //1
-    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"GET"; //2
@@ -135,21 +137,37 @@ static NSString* const kLocations = @"user";
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
-    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-        if (error == nil) {
-            
-            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //
-            //NSLog(@"%@", responseArray);
-            //Parse users
-            
-            [self getParsePrimaryUser:responseArray];
+    __block BOOL validAuth = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-            
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if([responseBody containsString:@"error"]) {
+                
+                //authentication failed
+                validAuth = FALSE;
+            } else {
+                
+                //authentication successful
+                validAuth = TRUE;
+            }
+            dispatch_semaphore_signal(semaphore);
+
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
         }
     }];
     
+    
     [dataTask resume];
-    return TRUE;
+
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    return validAuth;
 }
 
 -(BOOL)addNewUserToServerWithUsername:(NSString*)username andPassword:(NSString*)password {
@@ -172,6 +190,7 @@ static NSString* const kLocations = @"user";
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = isExistingLocation ? @"PUT" : @"POST"; //2
     
+    
     NSData* data = [NSJSONSerialization dataWithJSONObject:[user toDictionary] options:0 error:NULL]; //3
     request.HTTPBody = data;
     
@@ -188,9 +207,55 @@ static NSString* const kLocations = @"user";
             [self parseAndSetPrimaryUser:responseArray];
 
         }
+        else {
+            //Do something about same username
+        }
     }];
     [dataTask resume];
     return TRUE;
+}
+
+- (void) saveNewItemImage:(Item*)item
+{
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:@"files"]]; //1
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST"; //2
+    [request addValue:@"image/png" forHTTPHeaderField:@"Content-Type"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSData* bytes = UIImagePNGRepresentation([item getImage]); //4
+    NSURLSessionUploadTask* task = [session uploadTaskWithRequest:request fromData:bytes completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        if (error == nil && [(NSHTTPURLResponse*)response statusCode] < 300) {
+            NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            [item setImageId:responseDict[@"_id"]] ; //6
+            
+        }
+    }];
+    [task resume];
+}
+
+- (void) loadImage:(Item*)item {
+    NSURL* url = [NSURL URLWithString:[[kBaseURL stringByAppendingPathComponent:@"files"] stringByAppendingPathComponent:[item getImageID]]]; //1
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDownloadTask* task = [session downloadTaskWithURL:url completionHandler:^(NSURL *fileLocation, NSURLResponse *response, NSError *error) { //2
+        if (!error) {
+            NSData* imageData = [NSData dataWithContentsOfURL:fileLocation]; //3
+            UIImage* image = [UIImage imageWithData:imageData];
+            if (!image) {
+                NSLog(@"unable to build image");
+            }
+            
+            [item setImage:image];
+            
+        }
+    }];
+    
+    [task resume]; //4
 }
 
 -(void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray
@@ -215,6 +280,9 @@ static NSString* const kLocations = @"user";
 {
         User* user = [[User alloc] initWithDictionary:us];
         primaryUser = user;
+    
+        //Potentially load images
+    
        // NSLog(@"%@", [primaryUser getUniqueID]);
 }
 
