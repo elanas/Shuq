@@ -309,6 +309,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = com.cape;
 				TargetAttributes = {
+					0B77744119FD856B00D2A696 = {
+						DevelopmentTeam = 86E8Y5JRKT;
+					};
 					0B77745C19FD856B00D2A696 = {
 						TestTargetID = 0B77744119FD856B00D2A696;
 					};
@@ -499,10 +502,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shuq/Shuq-Prefix.pch";
 				INFOPLIST_FILE = "Shuq/Shuq-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -513,10 +518,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shuq/Shuq-Prefix.pch";
 				INFOPLIST_FILE = "Shuq/Shuq-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -172,6 +172,7 @@ static NSString* const kLocations = @"user";
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = isExistingLocation ? @"PUT" : @"POST"; //2
     
+    
     NSData* data = [NSJSONSerialization dataWithJSONObject:[user toDictionary] options:0 error:NULL]; //3
     request.HTTPBody = data;
     
@@ -188,9 +189,55 @@ static NSString* const kLocations = @"user";
             [self parseAndSetPrimaryUser:responseArray];
 
         }
+        else {
+            //Do something about same username
+        }
     }];
     [dataTask resume];
     return TRUE;
+}
+
+- (void) saveNewItemImage:(Item*)item
+{
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:@"files"]]; //1
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST"; //2
+    [request addValue:@"image/png" forHTTPHeaderField:@"Content-Type"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSData* bytes = UIImagePNGRepresentation([item getImage]); //4
+    NSURLSessionUploadTask* task = [session uploadTaskWithRequest:request fromData:bytes completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        if (error == nil && [(NSHTTPURLResponse*)response statusCode] < 300) {
+            NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            [item setImageId:responseDict[@"_id"]] ; //6
+            
+        }
+    }];
+    [task resume];
+}
+
+- (void) loadImage:(Item*)item {
+    NSURL* url = [NSURL URLWithString:[[kBaseURL stringByAppendingPathComponent:@"files"] stringByAppendingPathComponent:[item getImageID]]]; //1
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDownloadTask* task = [session downloadTaskWithURL:url completionHandler:^(NSURL *fileLocation, NSURLResponse *response, NSError *error) { //2
+        if (!error) {
+            NSData* imageData = [NSData dataWithContentsOfURL:fileLocation]; //3
+            UIImage* image = [UIImage imageWithData:imageData];
+            if (!image) {
+                NSLog(@"unable to build image");
+            }
+            
+            [item setImage:image];
+            
+        }
+    }];
+    
+    [task resume]; //4
 }
 
 -(void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray
@@ -215,6 +262,9 @@ static NSString* const kLocations = @"user";
 {
         User* user = [[User alloc] initWithDictionary:us];
         primaryUser = user;
+    
+        //Potentially load images
+    
        // NSLog(@"%@", [primaryUser getUniqueID]);
 }
 

@@ -59,6 +59,15 @@
  */
 - (void) import;
 /**
+ Post a new item image to the server
+ */
+- (void) saveNewItemImage:(Item*)item;
+/**
+ Loads an image of an item from the server
+ */
+- (void) loadImage:(Item*)item;
+
+/**
  Gets the users objects from a JSON object
  @param users array of json user items
  @param destinationArray arrray to store users

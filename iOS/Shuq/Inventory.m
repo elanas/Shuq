@@ -31,7 +31,8 @@
         {
             Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
             [item setDesc:[itemJSON objectAtIndex:i][@"description"]];
-            NSMutableArray* tagJSON = dictionary[@"taflist"];
+            [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
+            NSMutableArray* tagJSON = [itemJSON objectAtIndex:i][@"taglist"];
             for(NSUInteger n=0; n< [tagJSON count]; n++)
             {
                 [item addTag:[tagJSON objectAtIndex:n][@"tagname"]];
@@ -77,6 +78,7 @@
              
              NSMutableDictionary* item = [NSMutableDictionary dictionary];
              item[@"name"] = [[items objectAtIndex:i] getName];
+             item[@"imageId"] = [[items objectAtIndex:i] getImageID];
              
              //Problem with int
              //item[@"value"]= [[items objectAtIndex:i] getValue];
