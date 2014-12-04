@@ -93,12 +93,13 @@ app.get('/:collection/:entity', function(req, res) {
        if (entity) {
            var userAndPass = entity.split(":");
            if (userAndPass.length != 2) {
-               res.send(400, {error: 'Illegal colon in username or password', url: req.url});
+               res.send(300, {error: 'Illegal colon in username or password', url: req.url});
                return;
            }
            collectionDriver.get("user", userAndPass[0], function(error, objs) {
-               if (error) { res.send(400, error);}
-               else if (objs.password != userAndPass[1]) {
+               if (error || objs == null || objs.username == null) {
+                   res.send(400, {error: 'Incorrect username/password combination.', url: req.url});
+               } else if (objs.password != userAndPass[1]) {
                    res.send(3, {error: 'Incorrect username password combination', url: req.url});
                    return;
                } else {res.send(200, objs);}
