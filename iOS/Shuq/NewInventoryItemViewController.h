@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewInventoryItemViewController : UIViewController
+@interface NewInventoryItemViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 /**
  The soon-to-be item name
@@ -22,6 +22,10 @@
  The soon-to-be item value
  */
 @property NSString* itemValue;
+/**
+ The soon-to-be item photo
+ */
+@property UIImage* photo;
 /**
  The name text field
  */
@@ -38,5 +42,10 @@
  The method to get ready to go back to the inventory (soon it will send data back without having to use a segue)
  */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+
+/**
+ This method is called by the add photo button and will take a photo
+*/
+- (IBAction)TakePhoto:(UIButton *)sender;
 
 @end

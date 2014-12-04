@@ -99,8 +99,17 @@ CollectionDriver.prototype.save = function(collectionName, obj, callback) {
       if( error ) callback(error);
       else {
         obj.created_at = new Date();
-        the_collection.insert(obj, function() {
+/*        the_collection.insert(obj, function() {
           callback(null, obj);
+          });
+*/      the_collection.insert(obj, function(error, doc) {
+            /*if (writeResult.nInserted === 1) {
+                callback(null, obj);
+            }*/
+            if (error) callback(error);
+            else {
+                callback(null, obj);
+            }
         });
       }
     });
