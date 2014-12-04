@@ -7,6 +7,7 @@
 //
 
 #import "Inventory.h"
+#import "ShuqModel.h"
 #define safeSet(d,k,v) if (v) d[k] = v;
 
 @implementation Inventory
@@ -26,12 +27,18 @@
         items = [[NSMutableArray alloc] init];
         //for(id key in dictionary)
           //  NSLog(@"key=%@ value=%@", key, [dictionary objectForKey:key]);
+        ShuqModel *model = [ShuqModel getModel];
         NSMutableArray* itemJSON = dictionary[@"items"];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {
             Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
             [item setDesc:[itemJSON objectAtIndex:i][@"description"]];
             [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
+            if([item getImageID] != nil) {
+                //load image
+                [model loadImage:item];
+            }
+            
             NSMutableArray* tagJSON = [itemJSON objectAtIndex:i][@"taglist"];
             for(NSUInteger n=0; n< [tagJSON count]; n++)
             {

@@ -57,19 +57,28 @@
         if(self.photo != nil) {
             [model saveNewItemImage:newInventoryItem];
         }
-        //PUT the primary user
-        [model updateUser:[model getPrimaryUser]];
+        else {
+            //PUT the primary user
+            [model updateUser:[model getPrimaryUser]];
+        }
     }
 }
 
 - (IBAction)TakePhoto:(UIButton *)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        UIImage* fileimage = [UIImage imageNamed:@"hat.png"];
+        self.photo =fileimage;
+        self.imageView.image = fileimage;
+        
+    }
+    else {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    [self presentViewController:picker animated:YES completion:NULL];
-    
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

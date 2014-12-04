@@ -41,7 +41,10 @@
 /**
  The method to get ready to go back to the inventory (soon it will send data back without having to use a segue)
  */
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 /**
  This method is called by the add photo button and will take a photo
