@@ -1,6 +1,5 @@
 /**
- * @fileoverview the helper class that handles a lot of interactions with the mongodb database
- * @type {exports.ObjectID|*}
+ * @fileoverview a helper class that handles a lot of interactions with the mongodb database
  */
 
 //var ObjectID = require('mongodb').ObjectID;
@@ -70,7 +69,7 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
 }
 
 /**
- * Grabs an specific object from a collection
+ * Grabs a specific object from a collection
  * @param collectionName the name of the collection
  * @param id the id of the entity you want to get
  * @param callback the callback response
