@@ -16,7 +16,8 @@ var http = require('http'),
     path = require('path'),
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
-    CollectionDriver = require('./collectionDriver').CollectionDriver; // see collectionDriver.js
+    CollectionDriver = require('./collectionDriver').CollectionDriver, // see collectionDriver.js
+    FileDriver = require('./fileDriver').FileDriver; // see fileDriver.js
 
 /**
  * Set up our express instance (named 'app')
@@ -29,7 +30,8 @@ app.use(express.bodyParser()); // parses request body -> then if it represents a
 
 var mongoHost = 'localHost'; // Running on the local machine. Can be changed to a Mongolab address, for example
 var mongoPort = 27017; // default local mongo port
-var collectionDriver;  // this will be our collection driver. see collectiondriver.js for more
+var collectionDriver;  // this will be our collection driver (for jsons). see collectiondriver.js for more
+var fileDriver; //this will be our fileDriver (for photos or other files). See fileDriver.js for more
 
 /**
  * Create and open a mongoclient (if found) and create the collection driver for it
@@ -42,6 +44,7 @@ mongoClient.open(function(err, mongoClient) {
   }
   var db = mongoClient.db("MyDatabase");  // get our mongo database and name 'db' in this code
   collectionDriver = new CollectionDriver(db); // create the collection driver with our mongo database
+  fileDriver = new FileDriver(db); // create the file driver with our mongo database
 });
 
 
@@ -53,6 +56,19 @@ app.use(express.static(path.join(__dirname, 'public'))); // allows static direct
 app.get('/', function (req, res) {
   res.send("<html><body><h1>Welcome to shuq's express page!</h1><br><br>For more info, append \"/README.html\" to your navigation bar.</body></html>");
 });
+
+
+/**
+ * This code handles what happens when you try to post to /files. This destination is reserved for files,
+ * in our case images. FileDriver handles most of the work for storing these.
+ */
+app.post('/files', function(req,res) {fileDriver.handleUploadRequest(req,res);});
+
+/**
+ * This code handles what happens when you try to get a file from /files. This destination is reserved for files,
+ * in our case images. The requested file should be gotten if found, see filedriver for more info.
+ */
+app.get('/files/:id', function(req, res) {fileDriver.handleGet(req,res);});
 
 /**
  *  This code determines what express shows when you navigate to a subfolder of the root that has not been statically declared.
