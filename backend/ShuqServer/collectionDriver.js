@@ -140,7 +140,7 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
 
                     var index;
                     for (index = 0; index < obj.changes.length; ++index) {
-                        var change = obj,changes[index];
+                        var change = obj.changes[index];
                         var path = change.path.split(".");
                         var navigator = doc;
                         var j;
