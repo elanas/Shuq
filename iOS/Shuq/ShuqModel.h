@@ -87,6 +87,12 @@
  @param users array of json user items
  */
 - (void) parseAndGetUsers:(NSArray*) us;
+/**
+ Gets the items objects from an array of JSON item objects
+ @param it array of json items
+ @param destinationArray arrray to store items
+ */
+- (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray;
 
 
 @end

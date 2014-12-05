@@ -55,6 +55,12 @@
  @param name name of the item
  */
 -(id)initWithName:(NSString *)name;
+
+/**
+ Creates a new item based off of the JSON dictionary
+ @param dictionay the JSON object
+ */
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
 /**
  Resturns the file path to the photo
  @return file path to photo
