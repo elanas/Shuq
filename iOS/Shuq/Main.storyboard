@@ -181,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="-1376" y="1016"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="31v-5y-iIb">
             <objects>
-                <viewController id="Fcc-LW-UbC" sceneMemberID="viewController">
+                <viewController id="Fcc-LW-UbC" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ABt-b6-81A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -556,7 +556,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="n0X-Mg-3Zs"/>
+        <segue reference="zio-dR-h1s"/>
         <segue reference="Ppo-Dl-Jzy"/>
     </inferredMetricsTieBreakers>
 </document>

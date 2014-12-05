@@ -30,6 +30,7 @@
 		0BA0B0E41A0159C60087DDA5 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E01A0159C60087DDA5 /* glasses.png */; };
 		0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E11A0159C60087DDA5 /* hat.png */; };
 		0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E61A017D310087DDA5 /* iphone.png */; };
+		0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC398F1A3161F600122AA6 /* MenuViewController.m */; };
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
 		306A479B1A1807FA00F32C9F /* ShuqServerConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */; };
 		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
@@ -86,6 +87,8 @@
 		0BA0B0E01A0159C60087DDA5 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glasses.png; path = images/glasses.png; sourceTree = "<group>"; };
 		0BA0B0E11A0159C60087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hat.png; path = images/hat.png; sourceTree = "<group>"; };
 		0BA0B0E61A017D310087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
+		0BDC398E1A3161F600122AA6 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		0BDC398F1A3161F600122AA6 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
 		306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqServerConnectionTest.m; sourceTree = "<group>"; };
 		30C059F91A17D48300CAF2FB /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				0B77747D19FD95A000D2A696 /* LoginViewController.m */,
 				0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */,
 				0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */,
+				0BDC398E1A3161F600122AA6 /* MenuViewController.h */,
+				0BDC398F1A3161F600122AA6 /* MenuViewController.m */,
 				0B77747F19FD9CD600D2A696 /* TemplateViewController.h */,
 				0B77748019FD9CD600D2A696 /* TemplateViewController.m */,
 				0B046F621A1816E40040CC9E /* NewUserViewController.h */,
@@ -369,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
+				0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
 				321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,
