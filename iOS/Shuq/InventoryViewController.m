@@ -31,7 +31,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSLog([[items count] stringvalue]);
     return [items count];
 }
 
@@ -41,24 +40,15 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InventoryItemCell"];
     }
-    //NSString *s = [NSString stringWithFormat: @"%@. %@", items[indexPath.row][@"id"],(items[indexPath.row][@"name"])];
     cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
-    //NSLog([[items objectAtIndex:(indexPath.row)] getName]);
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Value Selected by user
+    //Set item based on which cell is selected by user
     _toSend = [items objectAtIndex:indexPath.row];
-    //Initialize new viewController
-    //SingleInventoryItemViewController *viewController = [[SingleInventoryItemViewController alloc] initWithNibName:[_toSend getName] bundle:nil];
-    //Pass selected value to a property declared in NewViewController
-    //viewController.valueToPrint = selectedValue;
-    //Push new view to navigationController stack
-    NSLog(@"in here");
-    //[self.navigationController presentModalViewController:viewController animated:YES];
     [self performSegueWithIdentifier: @"cellSelected" sender: self];
 }
 

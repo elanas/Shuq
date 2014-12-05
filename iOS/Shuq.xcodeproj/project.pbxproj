@@ -44,6 +44,7 @@
 		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
 		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
 		32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56FE1A02E353000CDE5B /* Inventory.m */; };
+		32DD69FC1A31A1A10036367C /* SingleWishlistItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DD69FB1A31A1A10036367C /* SingleWishlistItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		32BE56F81A02DB6C000CDE5B /* Wishlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wishlist.m; sourceTree = "<group>"; };
 		32BE56FD1A02E353000CDE5B /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
 		32BE56FE1A02E353000CDE5B /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
+		32DD69FA1A31A1A10036367C /* SingleWishlistItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWishlistItemViewController.h; sourceTree = "<group>"; };
+		32DD69FB1A31A1A10036367C /* SingleWishlistItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWishlistItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +242,8 @@
 				3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */,
 				3223A2F01A3191D000EF2866 /* SingleInventoryItemViewController.h */,
 				3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */,
+				32DD69FA1A31A1A10036367C /* SingleWishlistItemViewController.h */,
+				32DD69FB1A31A1A10036367C /* SingleWishlistItemViewController.m */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
 				0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
+				32DD69FC1A31A1A10036367C /* SingleWishlistItemViewController.m in Sources */,
 				321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,

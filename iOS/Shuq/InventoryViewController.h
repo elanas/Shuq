@@ -16,8 +16,8 @@
      */
     User* user;
     /**
-    The array of items to populate the cells of the table
-    */
+     The array of items to populate the cells of the table
+     */
     NSMutableArray *items;
 }
 
