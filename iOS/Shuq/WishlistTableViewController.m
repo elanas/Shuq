@@ -40,6 +40,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WishlistItemCell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WishlistItemCell"];
+    }
     cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
     
     return cell;

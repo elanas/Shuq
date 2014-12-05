@@ -8,6 +8,7 @@ var interface_user =
     [ "getWishlist", "interface_user.html#a7608aa47a7d1541a4bca587d3455cd23", null ],
     [ "initWithDictionary:", "interface_user.html#a54dde8129975d3b5a9047958c4037e25", null ],
     [ "initWithUsername:andWishlist:andInventory:andSettings:andLocation:andPassword:", "interface_user.html#adc36a6288f44f9243c0f57602858b3c9", null ],
+    [ "setLocation:", "interface_user.html#ac17f069ebdb7c1a6f0755d15a1976566", null ],
     [ "toDictionary", "interface_user.html#a31f52320eddc46e1e4f820bbd0e79107", null ],
     [ "inventory", "interface_user.html#af0ae0ccfd89aed4ae58968c39f178db3", null ],
     [ "location", "interface_user.html#a0ec937e9d3132c0bdbf75e6d0240541b", null ],
