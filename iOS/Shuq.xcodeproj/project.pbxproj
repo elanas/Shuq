@@ -39,6 +39,7 @@
 		321634141A1806510092B785 /* WishlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321634131A1806510092B785 /* WishlistTableViewController.m */; };
 		321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321634161A184AB70092B785 /* NewInventoryItemViewController.m */; };
 		3223A2EF1A3185BA00EF2866 /* NewWishlistItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */; };
+		3223A2F21A3191D000EF2866 /* SingleInventoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */; };
 		32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F41A02DB6C000CDE5B /* ShuqModel.m */; };
 		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
 		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
@@ -104,6 +105,8 @@
 		321634161A184AB70092B785 /* NewInventoryItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewInventoryItemViewController.m; sourceTree = "<group>"; };
 		3223A2ED1A3185BA00EF2866 /* NewWishlistItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWishlistItemViewController.h; sourceTree = "<group>"; };
 		3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWishlistItemViewController.m; sourceTree = "<group>"; };
+		3223A2F01A3191D000EF2866 /* SingleInventoryItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleInventoryItemViewController.h; sourceTree = "<group>"; };
+		3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleInventoryItemViewController.m; sourceTree = "<group>"; };
 		32BE56F31A02DB6C000CDE5B /* ShuqModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuqModel.h; sourceTree = "<group>"; };
 		32BE56F41A02DB6C000CDE5B /* ShuqModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModel.m; sourceTree = "<group>"; };
 		32BE56F51A02DB6C000CDE5B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				321634161A184AB70092B785 /* NewInventoryItemViewController.m */,
 				3223A2ED1A3185BA00EF2866 /* NewWishlistItemViewController.h */,
 				3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */,
+				3223A2F01A3191D000EF2866 /* SingleInventoryItemViewController.h */,
+				3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3223A2F21A3191D000EF2866 /* SingleInventoryItemViewController.m in Sources */,
 				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
 				0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,

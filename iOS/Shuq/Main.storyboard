@@ -329,6 +329,54 @@
             </objects>
             <point key="canvasLocation" x="-802" y="-455"/>
         </scene>
+        <!--Single Inventory Item View Controller-->
+        <scene sceneID="Drr-08-saf">
+            <objects>
+                <viewController id="kxr-wb-jhP" customClass="SingleInventoryItemViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyk-5h-z3l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="dv2-sO-lI1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Name" id="NvR-Iq-pDQ"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Y5c-OT-vX9">
+                                <rect key="frame" x="72" y="92" width="176" height="176"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sZI-4a-iB0">
+                                <rect key="frame" x="72" y="301" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j0b-qf-f67">
+                                <rect key="frame" x="72" y="360" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionText" destination="sZI-4a-iB0" id="2ZS-Tj-ozR"/>
+                        <outlet property="navigationBar" destination="NvR-Iq-pDQ" id="ohT-gw-m80"/>
+                        <outlet property="navigationItem" destination="NvR-Iq-pDQ" id="ANX-CW-89u"/>
+                        <outlet property="pictureImageView" destination="Y5c-OT-vX9" id="riC-Zi-PJL"/>
+                        <outlet property="valueText" destination="j0b-qf-f67" id="pVM-Eg-zaN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n4A-Ji-UVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="-1100"/>
+        </scene>
         <!--Inventory View Controller-->
         <scene sceneID="Rx2-tv-gsC">
             <objects>
@@ -394,6 +442,7 @@
                     <navigationItem key="navigationItem" id="Al2-ob-WdA"/>
                     <connections>
                         <outlet property="view" destination="tib-A5-6Bp" id="7dv-rc-lfU"/>
+                        <segue destination="kxr-wb-jhP" kind="modal" identifier="cellSelected" id="RDn-jQ-5cx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXJ-oB-j76" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -624,7 +673,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="KQA-JK-hdH"/>
+        <segue reference="XUY-tV-1cl"/>
         <segue reference="Zye-kC-puS"/>
-        <segue reference="n0X-Mg-3Zs"/>
     </inferredMetricsTieBreakers>
 </document>

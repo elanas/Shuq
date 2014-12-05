@@ -7,6 +7,7 @@
 //
 
 #import "InventoryViewController.h"
+#import "SingleInventoryItemViewController.h"
 #import "Item.h"
 #import "Inventory.h"
 #import "User.h"
@@ -46,6 +47,29 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Value Selected by user
+    _toSend = [items objectAtIndex:indexPath.row];
+    //Initialize new viewController
+    //SingleInventoryItemViewController *viewController = [[SingleInventoryItemViewController alloc] initWithNibName:[_toSend getName] bundle:nil];
+    //Pass selected value to a property declared in NewViewController
+    //viewController.valueToPrint = selectedValue;
+    //Push new view to navigationController stack
+    NSLog(@"in here");
+    //[self.navigationController presentModalViewController:viewController animated:YES];
+    [self performSegueWithIdentifier: @"cellSelected" sender: self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"cellSelected"]){
+        SingleInventoryItemViewController *destViewController = segue.destinationViewController;
+        destViewController.item = _toSend;
+    }
+}
+
 
 //- (void)import
 //{

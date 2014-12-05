@@ -30,7 +30,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"backToWishlist"]){
+    if([segue.identifier isEqualToString:@"backToWishlist"]) {
         Item* newWishlistItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
         Wishlist* wishlist = [[[ShuqModel getModel] getPrimaryUser] getWishlist];
         [wishlist addItem:newWishlistItem];

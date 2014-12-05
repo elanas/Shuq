@@ -26,4 +26,9 @@
  */
 @property ShuqModel* model;
 
+/**
+ An item to view as a single item
+ */
+@property Item* toSend;
+
 @end
