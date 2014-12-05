@@ -337,5 +337,12 @@ static NSString* const kLocations = @"user";
     
        // NSLog(@"%@", [primaryUser getUniqueID]);
 }
+- (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray {
+    for (NSDictionary* item in it) {
+        Item* i = [[Item alloc] initWithDictionary:item];
+        [destinationArray addObject:i];
+    }
+}
+
 
 @end

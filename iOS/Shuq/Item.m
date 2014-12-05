@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 com.cape. All rights reserved.
 //
 
+#import "ShuqModel.h"
 #import "Item.h"
 
 @implementation Item
@@ -36,6 +37,32 @@
     return self;
 
 }
+
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary {
+    self = [super init];
+    
+    if (self) {
+        ShuqModel *model = [ShuqModel getModel];
+        tags = [[NSMutableArray alloc] init];
+        
+        title = dictionary[@"name"];
+        desc = dictionary[@"description"];
+        imageId = dictionary[@"imageId"];
+        if(imageId != nil) {
+            //load image
+            [model loadImage:self];
+        }
+        
+        NSMutableArray* tagJSON = dictionary[@"taglist"];
+        for(NSUInteger n=0; n< [tagJSON count]; n++)
+        {
+            [self addTag:[tagJSON objectAtIndex:n][@"tagname"]];
+        }
+        
+    }
+    return self;
+}
+
 
 -(NSString*) getName {
     return title;
