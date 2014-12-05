@@ -60,7 +60,9 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
             docs.each(function(user) {
               console.log(user);
             });
-            callback(null,docs);
+            docs.toArray(function(error, theArray) {
+              callback(null, theArray);
+            });
           });
         }
       });
