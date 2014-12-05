@@ -128,7 +128,9 @@ app.get('/:collection/:entity', function(req, res) {
    else if (collection == "match") {
      collectionDriver.match("user", entity, function(error, objs) {
        if (error) { res.send(400, error);}
-       else { res.send(200, objs);}
+       else {
+           res.send(200, objs);
+       }
      });
      }
 

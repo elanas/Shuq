@@ -63,6 +63,47 @@ static NSString* const kLocations = @"user";
     }
     
 }
+
+-(void)getMatchItems:(NSString*)username {
+    NSString* userAuth = [@"match" stringByAppendingPathComponent:username];
+    
+    NSLog(@"urls: %@", userAuth);
+    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"GET"; //2
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+//    __block BOOL validAuth = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+            NSLog(responseBody);
+            
+            dispatch_semaphore_signal(semaphore);
+            
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    
+    
+    [dataTask resume];
+    
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+}
+
 - (void) updateUser:(User*)user
 {
     if (!user ) {
@@ -175,6 +216,7 @@ static NSString* const kLocations = @"user";
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     return validAuth;
 }
+
 
 -(BOOL)addNewUserToServerWithUsername:(NSString*)username andPassword:(NSString*)password {
     

@@ -24,6 +24,8 @@
     BOOL _isValid;
 }
 
+-(void)getMatchItems:(NSString*)username;
+
 -(BOOL)isValidAuth;
 
 -(void)setIsValid:(BOOL)valid;
