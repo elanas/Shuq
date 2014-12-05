@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1sZ-an-KTF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1sZ-an-KTF">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -468,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSr-Va-eB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="-455"/>
+            <point key="canvasLocation" x="70" y="-435"/>
         </scene>
         <!--Wishlist Table View Controller-->
         <scene sceneID="fny-99-8sV">
@@ -499,11 +499,23 @@
                                             <segue destination="cre-zQ-kbs" kind="modal" id="UkH-jh-gMK"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" style="plain" id="vsq-tA-IiA">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QTT-I0-8by">
+                                            <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Add Item">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="Ysx-aM-ggN" kind="modal" id="6PU-E6-OAy"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryItemCell" id="HTG-Te-nuZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistItemCell" id="HTG-Te-nuZ">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HTG-Te-nuZ" id="Jsz-XH-svs">
@@ -546,6 +558,61 @@
             </objects>
             <point key="canvasLocation" x="-358" y="226"/>
         </scene>
+        <!--New Wishlist Item View Controller-->
+        <scene sceneID="YuG-ag-oUa">
+            <objects>
+                <viewController id="Ysx-aM-ggN" customClass="NewWishlistItemViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OIn-SR-lQb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="NEz-ds-AfA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.1229712687" green="0.75685307359999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Add Item" id="OJV-8M-fsA">
+                                        <barButtonItem key="backBarButtonItem" title="Back" id="Mg7-uY-PgM"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" id="eRf-5Y-Sva">
+                                <rect key="frame" x="83" y="150" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" id="M1U-Rn-GgS">
+                                <rect key="frame" x="83" y="195" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" minimumFontSize="17" id="MPy-c2-mpb">
+                                <rect key="frame" x="112" y="233" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K3M-nl-aa0">
+                                <rect key="frame" x="129" y="307" width="63" height="30"/>
+                                <state key="normal" title="Add Item">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eSB-z3-AwZ" kind="modal" identifier="backToWishlist" id="Zye-kC-puS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.38785587189999998" green="0.59097851170000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="M1U-Rn-GgS" id="JU3-L5-XVe"/>
+                        <outlet property="nameTextField" destination="eRf-5Y-Sva" id="HSq-7z-yTP"/>
+                        <outlet property="valueTextField" destination="MPy-c2-mpb" id="mw8-JJ-yKP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohn-Lb-NDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="226"/>
+        </scene>
     </scenes>
     <resources>
         <image name="menu.png" width="1024" height="1024"/>
@@ -556,7 +623,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zio-dR-h1s"/>
-        <segue reference="Ppo-Dl-Jzy"/>
+        <segue reference="KQA-JK-hdH"/>
+        <segue reference="Zye-kC-puS"/>
+        <segue reference="n0X-Mg-3Zs"/>
     </inferredMetricsTieBreakers>
 </document>
