@@ -119,8 +119,8 @@ FileDriver.prototype.handleUploadRequest = function(req, res) {
              var filename = id + ext;
              filePath = __dirname + '/uploads/' + filename;
 
-	     var writable = fs.createWriteStream(filePath);
-	     req.pipe(writable);
+	           var writable = fs.createWriteStream(filePath);
+	           req.pipe(writable);
              req.on('end', function (){
                res.send(201,{'_id':id});
              });
