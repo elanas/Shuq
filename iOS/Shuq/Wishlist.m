@@ -7,6 +7,7 @@
 //
 
 #import "Wishlist.h"
+#import "ShuqModel.h"
 #define safeSet(d,k,v) if (v) d[k] = v;
 
 @implementation Wishlist
@@ -25,10 +26,16 @@
     {
         items = [[NSMutableArray alloc] init];
         NSMutableArray* itemJSON = dictionary[@"items"];
+        ShuqModel *model = [ShuqModel getModel];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {
             Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
             [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
+            if([item getImageID] != nil) {
+                //load image
+                [model loadImage:item];
+            }
+
             NSMutableArray* tagJSON = [itemJSON objectAtIndex:i][@"taglist"];
             for(NSUInteger n=0; n< [tagJSON count]; n++)
             {

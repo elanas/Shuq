@@ -227,6 +227,9 @@ static NSString* const kLocations = @"user";
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST"; //2
     [request addValue:@"image/png" forHTTPHeaderField:@"Content-Type"]; //3
+    if([item getImage] != nil) {
+        NSLog(@"Posting not nil photo");
+    }
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
@@ -236,7 +239,7 @@ static NSString* const kLocations = @"user";
         if (error == nil && [(NSHTTPURLResponse*)response statusCode] < 300) {
             NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             [item setImageId:responseDict[@"_id"]] ; //6
-            
+            [self updateUser:primaryUser];
         }
     }];
     [task resume];
@@ -247,6 +250,7 @@ static NSString* const kLocations = @"user";
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    NSLog(@"%@",[item getImageID]);
     
     NSURLSessionDownloadTask* task = [session downloadTaskWithURL:url completionHandler:^(NSURL *fileLocation, NSURLResponse *response, NSError *error) { //2
         if (!error) {
@@ -255,9 +259,9 @@ static NSString* const kLocations = @"user";
             if (!image) {
                 NSLog(@"unable to build image");
             }
-            
-            [item setImage:image];
-            
+            else {
+                [item setImage:image];
+            }
         }
     }];
     
