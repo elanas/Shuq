@@ -7,6 +7,7 @@
 //
 
 #import "InventoryViewController.h"
+#import "SingleInventoryItemViewController.h"
 #import "Item.h"
 #import "Inventory.h"
 #import "User.h"
@@ -30,7 +31,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSLog([[items count] stringvalue]);
     return [items count];
 }
 
@@ -40,12 +40,26 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InventoryItemCell"];
     }
-    //NSString *s = [NSString stringWithFormat: @"%@. %@", items[indexPath.row][@"id"],(items[indexPath.row][@"name"])];
     cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
-    //NSLog([[items objectAtIndex:(indexPath.row)] getName]);
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Set item based on which cell is selected by user
+    _toSend = [items objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier: @"cellSelected" sender: self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"cellSelected"]){
+        SingleInventoryItemViewController *destViewController = segue.destinationViewController;
+        destViewController.item = _toSend;
+    }
+}
+
 
 //- (void)import
 //{

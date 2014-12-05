@@ -32,6 +32,14 @@
      Ranking of the value of the item, from 1-4
      */
     NSUInteger* value;
+    /**
+     Image of the item
+     */
+    UIImage* image;
+    /**
+     Image id of the image of the item
+     */
+    NSString* imageId;
 }
 
 
@@ -47,6 +55,12 @@
  @param name name of the item
  */
 -(id)initWithName:(NSString *)name;
+
+/**
+ Creates a new item based off of the JSON dictionary
+ @param dictionay the JSON object
+ */
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
 /**
  Resturns the file path to the photo
  @return file path to photo
@@ -78,6 +92,23 @@
  @param t name of tag to add
  */
 -(void) addTag: (NSString *) t;
+/**
+ Set the image id of the object
+ */
+-(void) setImageId: (NSString*) iid;
+/**
+ Get the imageID of the object
+ */
+-(NSString *) getImageID;
+/**
+ Get the image of the object
+ */
+-(UIImage *) getImage;
+/**
+ Set the image of the object
+ */
+-(void) setImage: (UIImage*) i;
+
 
 
 @end

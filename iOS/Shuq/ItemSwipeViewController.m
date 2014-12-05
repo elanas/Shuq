@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "InventoryViewController.h"
 #import "WishlistTableViewController.h"
+#import "ShuqModel.h"
 
 
 @interface ItemSwipeViewController ()
@@ -41,6 +42,9 @@
     [self loadItemsArray];
     [self loadItemsImageView];
     [self loadGestures];
+    
+    ShuqModel *model = [ShuqModel getModel];
+    [model getMatchItems:[[model getPrimaryUser] getUsername]];
     
     [self.view addSubview:_itemView];
 }

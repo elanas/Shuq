@@ -16,8 +16,8 @@
      */
     User* user;
     /**
-    The array of items to populate the cells of the table
-    */
+     The array of items to populate the cells of the table
+     */
     NSMutableArray *items;
 }
 
@@ -25,5 +25,10 @@
  The model
  */
 @property ShuqModel* model;
+
+/**
+ An item to view as a single item
+ */
+@property Item* toSend;
 
 @end

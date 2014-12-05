@@ -1,6 +1,5 @@
 /**
- * @fileoverview the helper class that handles a lot of interactions with the mongodb database
- * @type {exports.ObjectID|*}
+ * @fileoverview a helper class that handles a lot of interactions with the mongodb database
  */
 
 //var ObjectID = require('mongodb').ObjectID;
@@ -72,7 +71,7 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
 }
 
 /**
- * Grabs an specific object from a collection
+ * Grabs a specific object from a collection
  * @param collectionName the name of the collection
  * @param id the id of the entity you want to get
  * @param callback the callback response
@@ -101,8 +100,17 @@ CollectionDriver.prototype.save = function(collectionName, obj, callback) {
       if( error ) callback(error);
       else {
         obj.created_at = new Date();
-        the_collection.insert(obj, function() {
+/*        the_collection.insert(obj, function() {
           callback(null, obj);
+          });
+*/      the_collection.insert(obj, function(error, doc) {
+            /*if (writeResult.nInserted === 1) {
+                callback(null, obj);
+            }*/
+            if (error) callback(error);
+            else {
+                callback(null, obj);
+            }
         });
       }
     });
@@ -138,39 +146,27 @@ CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityI
             the_collection.findOne({'_id': entityId}, function (error, doc) {
                 if (error) callback(error);
                 else {
-                    //obj is the item given to the put, doc is the item gotten from the db
-
-                    //obj._id = entityId;
-                    //obj.updated_at = new Date();
-
-                    //RIGHT NOW THIS ASSUMES THE ITEM IS ALREADY PRESENT!!!!!!!!!!!!!!!
-
-
-                    if (obj.to_add) {
-                        console.log(obj.to_add);
-                        var testItem = {testInvObj: "test1"};
-                        if (doc.hasOwnProperty("inventory")) {
-                            doc.inventory.push(testItem);
-                        } else {
-                            console.log("No inv to append to");
-                            doc.inventory = [testItem];
+                   //RIGHT NOW THIS ASSUMES GOOD INPUT
+                    var index;
+                    for (index = 0; index < obj.changes.length; ++index) {
+                        var change = obj.changes[index];
+                        var path = change.path.split(".");
+                        var navigator = doc;
+                        var j;
+                        for (j=0; j<path.length; ++j) {
+                            navigator = navigator[path[j]];
                         }
-                    } else {
-                        console.log("Nothing to add\n");
-                    }
 
+                        if (change.type === "add") {
+                            navigator[change.propertyName] = change.propertyValue;
 
+                        } else if (change.type === "remove") {
+                            delete navigator[change.propertyName];
 
-                    //TODO remove!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    if (obj.to_remove) {
-                        console.log(obj.to_remove);
-                    } else {
-                        console.log("Nothing to remove\n");
-                    }
+                        } else if (change.type === "replace") {
+                            navigator = change.propertyValue;
 
-
-                    if (obj.to_replace) {
-                        doc = obj.to_replace;
+                        }
                     }
 
                     the_collection.save(doc, function (error, doc2) {

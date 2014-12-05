@@ -30,6 +30,7 @@
 		0BA0B0E41A0159C60087DDA5 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E01A0159C60087DDA5 /* glasses.png */; };
 		0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E11A0159C60087DDA5 /* hat.png */; };
 		0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E61A017D310087DDA5 /* iphone.png */; };
+		0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC398F1A3161F600122AA6 /* MenuViewController.m */; };
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
 		306A479B1A1807FA00F32C9F /* ShuqServerConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */; };
 		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
@@ -37,10 +38,13 @@
 		3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3216340D1A17F41B0092B785 /* InventoryViewController.m */; };
 		321634141A1806510092B785 /* WishlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321634131A1806510092B785 /* WishlistTableViewController.m */; };
 		321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321634161A184AB70092B785 /* NewInventoryItemViewController.m */; };
+		3223A2EF1A3185BA00EF2866 /* NewWishlistItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */; };
+		3223A2F21A3191D000EF2866 /* SingleInventoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */; };
 		32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F41A02DB6C000CDE5B /* ShuqModel.m */; };
 		32BE56FA1A02DB6C000CDE5B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F61A02DB6C000CDE5B /* User.m */; };
 		32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56F81A02DB6C000CDE5B /* Wishlist.m */; };
 		32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BE56FE1A02E353000CDE5B /* Inventory.m */; };
+		32DD69FC1A31A1A10036367C /* SingleWishlistItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DD69FB1A31A1A10036367C /* SingleWishlistItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,8 @@
 		0BA0B0E01A0159C60087DDA5 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glasses.png; path = images/glasses.png; sourceTree = "<group>"; };
 		0BA0B0E11A0159C60087DDA5 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hat.png; path = images/hat.png; sourceTree = "<group>"; };
 		0BA0B0E61A017D310087DDA5 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
+		0BDC398E1A3161F600122AA6 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		0BDC398F1A3161F600122AA6 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
 		306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqServerConnectionTest.m; sourceTree = "<group>"; };
 		30C059F91A17D48300CAF2FB /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -98,6 +104,10 @@
 		321634131A1806510092B785 /* WishlistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewController.m; sourceTree = "<group>"; };
 		321634151A184AB70092B785 /* NewInventoryItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewInventoryItemViewController.h; sourceTree = "<group>"; };
 		321634161A184AB70092B785 /* NewInventoryItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewInventoryItemViewController.m; sourceTree = "<group>"; };
+		3223A2ED1A3185BA00EF2866 /* NewWishlistItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWishlistItemViewController.h; sourceTree = "<group>"; };
+		3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWishlistItemViewController.m; sourceTree = "<group>"; };
+		3223A2F01A3191D000EF2866 /* SingleInventoryItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleInventoryItemViewController.h; sourceTree = "<group>"; };
+		3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleInventoryItemViewController.m; sourceTree = "<group>"; };
 		32BE56F31A02DB6C000CDE5B /* ShuqModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuqModel.h; sourceTree = "<group>"; };
 		32BE56F41A02DB6C000CDE5B /* ShuqModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModel.m; sourceTree = "<group>"; };
 		32BE56F51A02DB6C000CDE5B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -106,6 +116,8 @@
 		32BE56F81A02DB6C000CDE5B /* Wishlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wishlist.m; sourceTree = "<group>"; };
 		32BE56FD1A02E353000CDE5B /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
 		32BE56FE1A02E353000CDE5B /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
+		32DD69FA1A31A1A10036367C /* SingleWishlistItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleWishlistItemViewController.h; sourceTree = "<group>"; };
+		32DD69FB1A31A1A10036367C /* SingleWishlistItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleWishlistItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,12 +230,20 @@
 				0B77747D19FD95A000D2A696 /* LoginViewController.m */,
 				0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */,
 				0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */,
+				0BDC398E1A3161F600122AA6 /* MenuViewController.h */,
+				0BDC398F1A3161F600122AA6 /* MenuViewController.m */,
 				0B77747F19FD9CD600D2A696 /* TemplateViewController.h */,
 				0B77748019FD9CD600D2A696 /* TemplateViewController.m */,
 				0B046F621A1816E40040CC9E /* NewUserViewController.h */,
 				0B046F631A1816E40040CC9E /* NewUserViewController.m */,
 				321634151A184AB70092B785 /* NewInventoryItemViewController.h */,
 				321634161A184AB70092B785 /* NewInventoryItemViewController.m */,
+				3223A2ED1A3185BA00EF2866 /* NewWishlistItemViewController.h */,
+				3223A2EE1A3185BA00EF2866 /* NewWishlistItemViewController.m */,
+				3223A2F01A3191D000EF2866 /* SingleInventoryItemViewController.h */,
+				3223A2F11A3191D000EF2866 /* SingleInventoryItemViewController.m */,
+				32DD69FA1A31A1A10036367C /* SingleWishlistItemViewController.h */,
+				32DD69FB1A31A1A10036367C /* SingleWishlistItemViewController.m */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -309,6 +329,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = com.cape;
 				TargetAttributes = {
+					0B77744119FD856B00D2A696 = {
+						DevelopmentTeam = 86E8Y5JRKT;
+					};
 					0B77745C19FD856B00D2A696 = {
 						TestTargetID = 0B77744119FD856B00D2A696;
 					};
@@ -365,8 +388,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3223A2F21A3191D000EF2866 /* SingleInventoryItemViewController.m in Sources */,
 				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
+				0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
+				32DD69FC1A31A1A10036367C /* SingleWishlistItemViewController.m in Sources */,
 				321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
@@ -375,6 +401,7 @@
 				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,
 				32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */,
+				3223A2EF1A3185BA00EF2866 /* NewWishlistItemViewController.m in Sources */,
 				321634141A1806510092B785 /* WishlistTableViewController.m in Sources */,
 				32BE56F91A02DB6C000CDE5B /* ShuqModel.m in Sources */,
 				0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */,
@@ -499,10 +526,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shuq/Shuq-Prefix.pch";
 				INFOPLIST_FILE = "Shuq/Shuq-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -513,10 +542,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shuq/Shuq-Prefix.pch";
 				INFOPLIST_FILE = "Shuq/Shuq-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

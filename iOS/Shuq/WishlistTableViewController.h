@@ -10,7 +10,25 @@
 #import "ShuqModel.h"
 
 @interface WishlistTableViewController : UITableViewController
+{
+    /**
+     The user whose inventory this view will represent
+     */
+    User* user;
+    /**
+     The array of items to populate the cells of the table
+     */
+    NSMutableArray *items;
+}
 
+/**
+ The model
+ */
 @property ShuqModel* model;
+
+/**
+ An item to view as a single item
+ */
+@property Item* toSend;
 
 @end

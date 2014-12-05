@@ -1,11 +1,9 @@
 /**
  * @fileoverview The main server code, run by "node ." or "node index.js".
  * This controls express behaviour and runs the database by handling CRUD requests.
- * This code was produced while following along with the helpful tutorial found here:
+ * This code and both 'drivers' were produced with great help from the tutorial found here:
  * http://www.raywenderlich.com/61078/write-simple-node-jsmongodb-web-service-ios-app
- * It is expected this code will be extended in the future to support other functionality,
- * such as a different version of a put that takes a json representing changes made, as
- * opposed to always having to get a giant, mostly the same json to replace the old one.
+ * which walked us through the basics. Code is still in development.
  */
 
 /**
@@ -16,7 +14,8 @@ var http = require('http'),
     path = require('path'),
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
-    CollectionDriver = require('./collectionDriver').CollectionDriver; // see collectionDriver.js
+    CollectionDriver = require('./collectionDriver').CollectionDriver, // see collectionDriver.js
+    FileDriver = require('./fileDriver').FileDriver; // see fileDriver.js
 
 /**
  * Set up our express instance (named 'app')
@@ -29,7 +28,8 @@ app.use(express.bodyParser()); // parses request body -> then if it represents a
 
 var mongoHost = 'localHost'; // Running on the local machine. Can be changed to a Mongolab address, for example
 var mongoPort = 27017; // default local mongo port
-var collectionDriver;  // this will be our collection driver. see collectiondriver.js for more
+var collectionDriver;  // this will be our collection driver (for jsons). see collectiondriver.js for more
+var fileDriver; //this will be our fileDriver (for photos or other files). See fileDriver.js for more
 
 /**
  * Create and open a mongoclient (if found) and create the collection driver for it
@@ -42,6 +42,7 @@ mongoClient.open(function(err, mongoClient) {
   }
   var db = mongoClient.db("MyDatabase");  // get our mongo database and name 'db' in this code
   collectionDriver = new CollectionDriver(db); // create the collection driver with our mongo database
+  fileDriver = new FileDriver(db); // create the file driver with our mongo database
 });
 
 
@@ -54,13 +55,26 @@ app.get('/', function (req, res) {
   res.send("<html><body><h1>Welcome to shuq's express page!</h1><br><br>For more info, append \"/README.html\" to your navigation bar.</body></html>");
 });
 
+
+/**
+ * This code handles what happens when you try to post to /files. This destination is reserved for files,
+ * in our case images. FileDriver handles most of the work for storing these.
+ */
+app.post('/files', function(req,res) {fileDriver.handleUploadRequest(req,res);});
+
+/**
+ * This code handles what happens when you try to get a file from /files. This destination is reserved for files,
+ * in our case images. The requested file should be gotten if found, see filedriver for more info.
+ */
+app.get('/files/:id', function(req, res) {fileDriver.handleGet(req,res);});
+
 /**
  *  This code determines what express shows when you navigate to a subfolder of the root that has not been statically declared.
  *  It will display the contents of the collection with that name in the format specified in data.jade
  *  (still works if collection is empty or was never created, just has a header and no table)
  */
 app.get('/:collection', function(req, res) {
-   var params = req.params; //B
+   var params = req.params;
    collectionDriver.findAll(req.params.collection, function(error, objs) {
     	  if (error) { res.send(400, error); }
 	      else {
@@ -97,8 +111,9 @@ app.get('/:collection/:entity', function(req, res) {
                return;
            }
            collectionDriver.get("user", userAndPass[0], function(error, objs) {
-               if (error) { res.send(400, error);}
-               else if (objs.password != userAndPass[1]) {
+               if (error || objs == null || objs.username == null) {
+                   res.send(400, {error: 'Incorrect username/password combination.', url: req.url});
+               } else if (objs.password != userAndPass[1]) {
                    res.send(3, {error: 'Incorrect username password combination', url: req.url});
                    return;
                } else {res.send(200, objs);}
@@ -110,10 +125,12 @@ app.get('/:collection/:entity', function(req, res) {
    }
 
    //returns a list of matches for the entity
-   else if (collection = "match") {
+   else if (collection == "match") {
      collectionDriver.match("user", entity, function(error, objs) {
        if (error) { res.send(400, error);}
-       else { res.send(200, objs);}
+       else {
+           res.send(200, objs);
+       }
      });
      }
 

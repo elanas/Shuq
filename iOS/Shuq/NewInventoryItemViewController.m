@@ -20,7 +20,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,12 +44,56 @@
 {
     if([segue.identifier isEqualToString:@"backToInventory"]){
         Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
+
+        //Set item photo
+        if(self.photo != nil) {
+            [newInventoryItem setImage: self.photo];
+        }
+        
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
         [inventory addItem:newInventoryItem];
         ShuqModel *model = [ShuqModel getModel];
-        //PUT the primary user
-        [model updateUser:[model getPrimaryUser]];
+        //Post Image
+        if(self.photo != nil) {
+            [model saveNewItemImage:newInventoryItem];
+        }
+        else {
+            //PUT the primary user
+            [model updateUser:[model getPrimaryUser]];
+        }
     }
+}
+
+- (IBAction)TakePhoto:(UIButton *)sender {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        UIImage* fileimage = [UIImage imageNamed:@"hat.png"];
+        self.photo =fileimage;
+        self.imageView.image = fileimage;
+        
+    }
+    else {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.photo = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 /*
