@@ -46,7 +46,7 @@
     /**
      Contact info of the user
      */
-    NSString* contact;
+    NSNumber* contact;
 }
 
 /**
@@ -100,12 +100,12 @@
  Returns the contactinfo of user
  @return contact
  */
--(NSString*) getContact;
+-(NSNumber*) getContact;
 /**
  Returns the contactinfo of user
  @return contact
  */
--(void) setContact: (NSString*) con;
+-(void) setContact: (NSNumber*) con;
 
 
 @end

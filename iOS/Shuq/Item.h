@@ -31,7 +31,7 @@
     /**
      Ranking of the value of the item, from 1-4
      */
-    NSUInteger* value;
+    NSNumber* value;
     /**
      Image of the item
      */
@@ -49,12 +49,12 @@
  @param path file path to a photo
  @param d description of the item
  */
--(id)initWithName:(NSString *)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSUInteger*) v;
+-(id)initWithName:(NSString *)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSNumber*) v;
 /**
  Creates a new item
  @param name name of the item
  */
--(id)initWithName:(NSString *)name;
+-(id)initWithName:(NSString *)name andValue: (NSNumber*) v;
 
 /**
  Creates a new item based off of the JSON dictionary
@@ -82,7 +82,7 @@
 /** Returns value of item
  @return value
  */
--(NSUInteger*) getValue;
+-(NSNumber*) getValue;
 /** Returns description of item
  @return tags
  */

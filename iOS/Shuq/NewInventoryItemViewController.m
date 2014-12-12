@@ -43,7 +43,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"backToInventory"]){
-        Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
+         NSNumber* num = [NSNumber numberWithInteger:[_valueTextField.text integerValue]];
+        Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:num];
 
         //Set item photo
         if(self.photo != nil) {

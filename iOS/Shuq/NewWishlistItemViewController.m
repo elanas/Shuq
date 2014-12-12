@@ -31,7 +31,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"backToWishlist"]) {
-        Item* newWishlistItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:5];
+         NSNumber* num = [NSNumber numberWithInteger:[_valueTextField.text integerValue]];
+        Item* newWishlistItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue: num];
         Wishlist* wishlist = [[[ShuqModel getModel] getPrimaryUser] getWishlist];
         [wishlist addItem:newWishlistItem];
         ShuqModel *model = [ShuqModel getModel];

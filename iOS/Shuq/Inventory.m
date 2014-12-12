@@ -31,7 +31,7 @@
         NSMutableArray* itemJSON = dictionary[@"items"];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {
-            Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
+             Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"] andValue: [itemJSON objectAtIndex:i][@"value"]];
             [item setDesc:[itemJSON objectAtIndex:i][@"description"]];
             [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
             if([item getImageID] != nil) {
@@ -89,8 +89,7 @@
                  item[@"imageId"] = [[items objectAtIndex:i] getImageID];
              }
              
-             //Problem with int
-             //item[@"value"]= [[items objectAtIndex:i] getValue];
+             item[@"value"]= [[items objectAtIndex:i] getValue];
              
              item[@"description"]= [[items objectAtIndex:i] getDesc];
              

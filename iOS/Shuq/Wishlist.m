@@ -29,12 +29,14 @@
         ShuqModel *model = [ShuqModel getModel];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {
-            Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"]];
+            Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"] andValue: [itemJSON objectAtIndex:i][@"value"]];
             [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
+            
             if([item getImageID] != nil) {
                 //load image
                 [model loadImage:item];
             }
+            
 
             NSMutableArray* tagJSON = [itemJSON objectAtIndex:i][@"taglist"];
             for(NSUInteger n=0; n< [tagJSON count]; n++)
@@ -85,6 +87,8 @@
         
         NSMutableDictionary* item = [NSMutableDictionary dictionary];
         item[@"name"] = [[items objectAtIndex:i] getName];
+        item[@"value"]= [[items objectAtIndex:i] getValue];
+        
         if([[items objectAtIndex:i] getImageID] != nil) {
             item[@"imageId"] = [[items objectAtIndex:i] getImageID];
         }

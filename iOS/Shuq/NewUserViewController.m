@@ -47,7 +47,7 @@
 //    model = [ShuqModel getModel];
     NSString* username = _newuserTextField.text;
     NSString* password = _newpassTextField.text;
-    NSString* num = _newcontactTextField.text;
+    NSNumber* num = [NSNumber numberWithInteger:[_newcontactTextField.text integerValue]];
     
     //    NSLog(password);
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {

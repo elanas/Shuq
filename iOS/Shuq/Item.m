@@ -14,7 +14,7 @@
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 
 
--(id)initWithName:(NSString*)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSUInteger *)v{
+-(id)initWithName:(NSString*)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSNumber *)v{
     self = [super init];
     
     if (self) {
@@ -27,11 +27,12 @@
     return self;
 }
 
--(id)initWithName:(NSString*)name {
+-(id)initWithName:(NSString*)name andValue: (NSNumber*) v{
     self = [super init];
     
     if (self) {
         title = name;
+        value = v;
         tags = [[NSMutableArray alloc] init];
     }
     return self;
@@ -48,6 +49,7 @@
         title = dictionary[@"name"];
         desc = dictionary[@"description"];
         imageId = dictionary[@"imageId"];
+        value = dictionary[@"value"];
         if(imageId != nil) {
             //load image
             [model loadImage:self];
@@ -81,7 +83,7 @@
 }
 
 
--(NSUInteger*) getValue {
+-(NSNumber*) getValue {
     return value;
 }
 

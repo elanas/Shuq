@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _descriptionText.text = [_item getDesc];
-    _valueText.text = [NSString stringWithFormat:@"%lu", (unsigned long)[_item getValue]];
+    _valueText.text = [[_item getValue] stringValue];
     _navigationBar.title = [_item getName];
 }
 

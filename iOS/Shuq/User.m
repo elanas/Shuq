@@ -74,7 +74,7 @@
     safeSet(jsonable, @"username", username);
     safeSet(jsonable, @"location", location);
     safeSet(jsonable, @"password", password);
-    safeSet(jsonable, @"contact", contact);
+    safeSet(jsonable, @"contact", contact );
     safeSet(jsonable, @"wishlist", [wishlist toDictionary]);
     safeSet(jsonable, @"inventory", [inventory toDictionary]);
     safeSet(jsonable, @"settings", [settings toDictionary]);
@@ -85,10 +85,10 @@
     return unid;
 }
 
--(NSString*) getContact {
+-(NSNumber*) getContact {
     return contact;
 }
--(void) setContact: (NSString*) con {
+-(void) setContact: (NSNumber*) con {
     contact = con;
 }
 
