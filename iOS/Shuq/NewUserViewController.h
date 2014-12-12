@@ -24,6 +24,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *newuserTextField;
 @property (strong, nonatomic) IBOutlet UITextField *newpassTextField;
+@property (strong, nonatomic) IBOutlet UITextField *newcontactTextField;
 @property (strong, nonatomic) IBOutlet UITextField *locationField;
 @property (strong, nonatomic) IBOutlet UIButton *continueButton;
 @property (strong, nonatomic) IBOutlet UIButton *createAccountButton;

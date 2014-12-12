@@ -23,6 +23,7 @@
 /**
  the list of items that the user will be swiping through
  */
+//DELETE below
 @property NSMutableArray* items;
 /**
  Index of the item currently being displayed

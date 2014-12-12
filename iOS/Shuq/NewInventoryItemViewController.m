@@ -66,7 +66,14 @@
 
 - (IBAction)TakePhoto:(UIButton *)sender {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        UIImage* fileimage = [UIImage imageNamed:@"hat.png"];
+        NSMutableArray* list = [[NSMutableArray alloc] init];
+        [list addObject:@"hat.png"];
+        [list addObject:@"iphone.png"];
+        [list addObject:@"flask.png"];
+        [list addObject:@"glasses.png"];
+        int ind = arc4random() % 4;
+        
+        UIImage* fileimage = [UIImage imageNamed:[list objectAtIndex:ind]];
         self.photo =fileimage;
         self.imageView.image = fileimage;
         

@@ -43,8 +43,7 @@
     [self loadItemsImageView];
     [self loadGestures];
     
-    ShuqModel *model = [ShuqModel getModel];
-    [model getMatchItems:[[model getPrimaryUser] getUsername]];
+    
     
     [self.view addSubview:_itemView];
 }
@@ -52,16 +51,23 @@
 - (void) handleSwipe:(UISwipeGestureRecognizer *) swipe {
     
     //loops items
-    
+    ShuqModel *model = [ShuqModel getModel];
+    /**/
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
         NSLog(@"Left Swipe");
+        /*_itemIndex = (_itemIndex + 1) % [model.items count];*/
+        //DELETE
         _itemIndex = (_itemIndex + 1) % [_items count];
 
     } else if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         NSLog(@"Right Swipe");
         if (_itemIndex == 0) {
+            /*_itemIndex = [model.items count];*/
+            //DELETE
             _itemIndex = [_items count];
         }
+        /*_itemIndex = (_itemIndex - 1) % [model.items count];*/
+        //DELETE
         _itemIndex = (_itemIndex - 1) % [_items count];
 
     }
@@ -70,8 +76,12 @@
 }
 
 -(void) loadItemsArray {
-    //read file/json
     
+    ShuqModel *model = [ShuqModel getModel];
+    [model getMatchItems:[[model getPrimaryUser] getUsername]];
+    
+    //DELETE Below
+    ///*
     _items = [[NSMutableArray alloc] init];
     NSUInteger num = 1;
     
@@ -84,14 +94,21 @@
     [_items addObject:i2];
     [_items addObject:i3];
     [_items addObject:i4];
-
+     //*/
 
 }
 
 -(void) setItem {
+    /*ShuqModel *model = [ShuqModel getModel];
+    Item *item =[model.items objectAtIndex:_itemIndex];*/
+    
+    //DELETE
     Item *item = [_items objectAtIndex:_itemIndex];
     
+    /*[_itemView setImage: [item getImage]];*/
+    //DELETE
     [_itemView setImage:[UIImage imageNamed:[item getPath]]];
+    
     [itemName setText:[item getName]];
     [_itemDesc setText:[item getDesc]];
 }
