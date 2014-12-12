@@ -36,6 +36,7 @@
         unid = username;
         location = dictionary[@"location"];
         password = dictionary[@"password"];
+        contact = dictionary[@"contact"];
         wishlist = [[Wishlist alloc] initWithDictionary: dictionary[@"wishlist"]];
         inventory = [[Inventory alloc] initWithDictionary: dictionary[@"inventory"]];
         settings = [[Settings alloc] initWithDictionary: dictionary[@"settings"]];
@@ -73,6 +74,7 @@
     safeSet(jsonable, @"username", username);
     safeSet(jsonable, @"location", location);
     safeSet(jsonable, @"password", password);
+    safeSet(jsonable, @"contact", contact);
     safeSet(jsonable, @"wishlist", [wishlist toDictionary]);
     safeSet(jsonable, @"inventory", [inventory toDictionary]);
     safeSet(jsonable, @"settings", [settings toDictionary]);
@@ -81,6 +83,13 @@
 }
 -(NSString*) getUniqueID {
     return unid;
+}
+
+-(NSString*) getContact {
+    return contact;
+}
+-(void) setContact: (NSString*) con {
+    contact = con;
 }
 
 

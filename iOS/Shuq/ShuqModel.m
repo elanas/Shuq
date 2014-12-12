@@ -57,7 +57,7 @@ static NSString* const kLocations = @"user";
     if(isValid) {
         //will eventually return a user above
         if(newUser) {
-        primaryUser = [[User alloc] initWithUsername:username andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init] andSettings:0 andLocation:@"11111" andPassword:password];
+        
         }
         return TRUE;
     } else {
@@ -231,19 +231,24 @@ static NSString* const kLocations = @"user";
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     
+     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
 
             //parse users
             [self parseAndSetPrimaryUser:responseArray];
-
+            dispatch_semaphore_signal(semaphore);
         }
         else {
             //Do something about same username
+            dispatch_semaphore_signal(semaphore);
         }
     }];
     [dataTask resume];
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     return TRUE;
 }
 

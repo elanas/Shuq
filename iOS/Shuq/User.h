@@ -43,6 +43,10 @@
      Password of the user
      */
     NSString* password;
+    /**
+     Contact info of the user
+     */
+    NSString* contact;
 }
 
 /**
@@ -92,5 +96,16 @@
  @return id
  */
 -(NSString*) getUniqueID;
+/**
+ Returns the contactinfo of user
+ @return contact
+ */
+-(NSString*) getContact;
+/**
+ Returns the contactinfo of user
+ @return contact
+ */
+-(void) setContact: (NSString*) con;
+
 
 @end
