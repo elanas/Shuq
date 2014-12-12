@@ -54,7 +54,9 @@
 //        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];
 //        [self presentModalViewController:isvc animated:YES];
     } else {
-        NSLog(@"incorrect password combo");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Failed to Login" message: @"Invalid username or password" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
     }
 }
 
