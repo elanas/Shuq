@@ -59,7 +59,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuq20.png" id="EUp-5k-mTI">
-                                <rect key="frame" x="24" y="86" width="260" height="141"/>
+                                <rect key="frame" x="2" y="77" width="297" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
