@@ -58,8 +58,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuq20.png" id="EUp-5k-mTI">
-                                <rect key="frame" x="2" y="77" width="297" height="141"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuq23.png" id="EUp-5k-mTI">
+                                <rect key="frame" x="16" y="101" width="257" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -736,7 +736,7 @@
     </scenes>
     <resources>
         <image name="menu.png" width="1024" height="1024"/>
-        <image name="shuq20.png" width="500" height="500"/>
+        <image name="shuq23.png" width="500" height="500"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
