@@ -87,7 +87,8 @@ static NSString* const kLocations = @"user";
             NSLog(@"Matching");
             NSLog(@"%@", responseBody);
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-            [self parseAndGetItems:responseArray toArray:_items];
+            NSLog(@"%@", responseArray);
+            /*[self parseAndGetItems:responseArray toArray:_items];*/
             dispatch_semaphore_signal(semaphore);
             
         } else {
@@ -303,8 +304,6 @@ static NSString* const kLocations = @"user";
 {
         User* user = [[User alloc] initWithDictionary:us];
         primaryUser = user;
-    
-        //Potentially load images
     
        // NSLog(@"%@", [primaryUser getUniqueID]);
 }
