@@ -43,16 +43,21 @@ static NSString* const kLocations = @"user";
     //checking if in database
     if ([username length] == 0) {
         return false;
-    }    if(newUser) {
+    }
+    
+    
+    if(newUser) {
         isValid = [self addNewUserToServerWithUsername:username andPassword:password];
     } else {
         isValid = [self getUserFromServerWithUsername:username andPassword:password];
     }
     
+    
+    
     if(isValid) {
         //will eventually return a user above
         if(newUser) {
-        primaryUser = [[User alloc] initWithUsername:username andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init] andSettings:0 andLocation:@"Baltimore" andPassword:password];
+        primaryUser = [[User alloc] initWithUsername:username andWishlist:[[Wishlist alloc] init] andInventory:[[Inventory alloc] init] andSettings:0 andLocation:@"11111" andPassword:password];
         }
         return TRUE;
     } else {
@@ -198,7 +203,7 @@ static NSString* const kLocations = @"user";
 
 -(BOOL)addNewUserToServerWithUsername:(NSString*)username andPassword:(NSString*)password {
     
-    User *user = [[User alloc]initWithUsername:username andWishlist:[[Wishlist alloc]init] andInventory:[[Inventory alloc]init] andSettings:nil andLocation:@"Baltimore" andPassword:password];
+    User *user = [[User alloc]initWithUsername:username andWishlist:[[Wishlist alloc]init] andInventory:[[Inventory alloc]init] andSettings:nil andLocation:@"11111" andPassword:password];
     
     //check if username is valid
     //should check db to see if username already exists
@@ -212,6 +217,7 @@ static NSString* const kLocations = @"user";
     
     NSURL* url = isExistingLocation ? [NSURL URLWithString:[locations stringByAppendingPathComponent:[user getUniqueID]]] :
     [NSURL URLWithString:locations]; //1
+    
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = isExistingLocation ? @"PUT" : @"POST"; //2

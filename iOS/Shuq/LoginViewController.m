@@ -31,7 +31,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.view.backgroundColor = [UIColor clearColor];
+    
+    [_aboutButton addTarget:self action:@selector(showAbout) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -54,7 +55,8 @@
 //        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];
 //        [self presentModalViewController:isvc animated:YES];
     } else {
-        NSLog(@"incorrect password combo");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Failed to Login" message: @"Invalid username or password" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
 }
 
@@ -65,6 +67,12 @@
         ItemSwipeViewController *controller = (ItemSwipeViewController *    )segue.destinationViewController;
         controller.model = model;
     }
+}
+
+-(void)showAbout {
+    UIAlertView *about = [[UIAlertView alloc]initWithTitle:@"About this App" message:@"Shuq is a mobile trading post, allowing users to trade what they have for what they want. If you have an account, you can login here. Otherwise, hit the new user button to get started!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [about show];
 }
 
 /*
