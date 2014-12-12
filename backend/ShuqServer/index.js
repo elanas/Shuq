@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview The main server code, run by "node ." or "node index.js".
  * This controls express behaviour and runs the database by handling CRUD requests.
@@ -133,6 +134,15 @@ app.get('/:collection/:entity', function(req, res) {
        }
      });
      }
+
+  else if (collection == "userCheck") {
+    collectionDriver.check("user", entity, function(error, objs) {
+      if (error) { res.send(400, error);}
+      else {
+        res.send(200,objs);
+      }
+    });
+  }
 
    // normal url path /collection/itemInCollection
    else if (entity) {

@@ -70,6 +70,21 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
 
 }
 
+CollectionDriver.prototype.check = function(collectionName, user, callback) {
+  this.getCollection(collectionName, function(error, the_collection) {
+    if (error) callback(error);
+    else {
+      the_collection.findOne({'username':user}, function(error, doc) {
+        if(doc) {
+          callback(null, doc);
+        } else {
+          callback(error);
+        }
+      });
+    }
+  });
+}
+
 /**
  * Grabs a specific object from a collection
  * @param collectionName the name of the collection
