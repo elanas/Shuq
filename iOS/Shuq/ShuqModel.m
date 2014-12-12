@@ -16,14 +16,12 @@ static NSString* const kLocations = @"user";
 -(id)init {
     self = [super init];
     if (self) {
-        users = [[NSMutableArray alloc] init];
+        _items = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(NSMutableArray*)getUsers {
-    return users;
-}
+
 
 -(User*)getPrimaryUser {
     return primaryUser;
@@ -93,7 +91,9 @@ static NSString* const kLocations = @"user";
             NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"Matching");
             NSLog(@"%@", responseBody);
-            
+            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            NSLog(@"%@", responseArray);
+            /*[self parseAndGetItems:responseArray toArray:_items];*/
             dispatch_semaphore_signal(semaphore);
             
         } else {
@@ -147,28 +147,6 @@ static NSString* const kLocations = @"user";
     [dataTask resume];
 }
 
-- (void)import
-{
-    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:kLocations]]; //1
-    
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"GET"; //2
-    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
-    
-    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
-    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
-    
-    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-        if (error == nil) {
-            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
-            [self parseAndGetUsers:responseArray toArray:users]; //7
-            
-        }
-    }];
-    
-    [dataTask resume];
-    
-}
 
 -(BOOL)getUserFromServerWithUsername:(NSString*)user andPassword:(NSString*)pass {
     NSString* userAuth = [@"auth" stringByAppendingPathComponent:user];
@@ -316,13 +294,7 @@ static NSString* const kLocations = @"user";
     [task resume]; //4
 }
 
--(void) parseAndGetUsers:(NSArray*) us toArray:(NSMutableArray*) destinationArray
-{
-        for (NSDictionary* item in us) {
-            User* user = [[User alloc] initWithDictionary:item];
-            [destinationArray addObject:user];
-        }
-}
+
 -(void) parseAndSetPrimaryUser:(NSArray*) us
 {
     if([us count] !=1) {
@@ -338,8 +310,6 @@ static NSString* const kLocations = @"user";
 {
         User* user = [[User alloc] initWithDictionary:us];
         primaryUser = user;
-    
-        //Potentially load images
     
        // NSLog(@"%@", [primaryUser getUniqueID]);
 }
