@@ -86,8 +86,8 @@ static NSString* const kLocations = @"user";
         
         if (error == nil) {
             NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-            NSLog(responseBody);
+            NSLog(@"Matching");
+            NSLog(@"%@", responseBody);
             
             dispatch_semaphore_signal(semaphore);
             
