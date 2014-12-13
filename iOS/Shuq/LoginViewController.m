@@ -34,7 +34,8 @@
 {
     FRAME_SIZE = 45;
     ANIMATION_SPEED = .3;
-    JUMP = 60;
+    JUMP = 70;
+    BIG_JUMP = 135;
     UIColor *placeholderColor = [UIColor colorWithRed:141/255.0 green:150/255.0 blue:164/255.0 alpha:1];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -122,6 +123,10 @@
         _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, (_passwordTextField.frame.origin.y - JUMP), _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
         _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, (_loginButton.frame.origin.y - JUMP), _loginButton.frame.size.width, _loginButton.frame.size.height);
         _logo.frame = CGRectMake(_logo.frame.origin.x, (_logo.frame.origin.y - JUMP), _logo.frame.size.width, _logo.frame.size.height);
+    
+        _newuserButton.frame = CGRectMake(_newuserButton.frame.origin.x, (_newuserButton.frame.origin.y - (BIG_JUMP)), _newuserButton.frame.size.width, _newuserButton.frame.size.height);
+    
+        _aboutButton.frame = CGRectMake(_aboutButton.frame.origin.x, (_aboutButton.frame.origin.y - BIG_JUMP), _aboutButton.frame.size.width, _aboutButton.frame.size.height);
         
         [UIView commitAnimations];
 
@@ -139,6 +144,10 @@
         _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, (_loginButton.frame.origin.y + JUMP), _loginButton.frame.size.width, _loginButton.frame.size.height);
     
         _logo.frame = CGRectMake(_logo.frame.origin.x, (_logo.frame.origin.y + JUMP), _logo.frame.size.width, _logo.frame.size.height);
+    
+        _newuserButton.frame = CGRectMake(_newuserButton.frame.origin.x, (_newuserButton.frame.origin.y + (BIG_JUMP)), _newuserButton.frame.size.width, _newuserButton.frame.size.height);
+    
+        _aboutButton.frame = CGRectMake(_aboutButton.frame.origin.x, (_aboutButton.frame.origin.y + BIG_JUMP), _aboutButton.frame.size.width, _aboutButton.frame.size.height);
     
     
         [UIView commitAnimations];
