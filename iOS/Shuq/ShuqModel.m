@@ -60,10 +60,11 @@ static NSString* const kLocations = @"user";
         if(newUser) {
         
         }
+        NSLog(@"from server: user does not exist");
         return TRUE;
     } else {
         //do something to alert user
-        NSLog(@"false");
+        NSLog(@"from server: user already exists");
         return FALSE;
     }
     

@@ -91,9 +91,13 @@
     
     //    NSLog(password);
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
+        
+        NSLog(@"in view controller: user does not exist, proceed");
         [[model getPrimaryUser] setContact:num];
         //segue
     } else {
+        NSLog(@"in view controller: user already exists");
+        
         //aware user
         //don't segue
     }
@@ -119,8 +123,6 @@
     //check location is valod
     
     [[model getPrimaryUser] setLocation:loc];
-    
-    NSLog(@"%@", [[model getPrimaryUser]getLocation]);
     
     [model updateUser:[model getPrimaryUser]];
     
