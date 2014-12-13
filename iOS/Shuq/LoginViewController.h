@@ -14,11 +14,12 @@
 /**
  The Class LoginScreen. This class represents the screen that handles login, and can move to related screens as shown in the GUI sketches.
  */
-@interface LoginViewController : TemplateViewController {
+@interface LoginViewController : TemplateViewController <UITextFieldDelegate> {
     /**
      The model for the app
      */
     ShuqModel* model;
+    int FRAME_SIZE;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender;
