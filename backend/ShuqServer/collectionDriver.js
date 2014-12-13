@@ -13,6 +13,8 @@ CollectionDriver = function(db) {
   this.db = db;
 };
 
+CollectionDriver.matches = [];
+
 /**
  * The function that gets a collection
  * @param collectionName the name of the collction to get
@@ -52,17 +54,19 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
         if (error) callback(error);
         else {
           wishlist = doc['wishlist'];
-          the_collection.find({ "inventory.items" :{$in:wishlist['items']}}, function(error, docs) {
-            docs.toArray(function(error, results) {
-              console.log(results);
+          var potentialMatches = [];
+          var items = wishlist['items'];
+          var itemsLength = items.length;
+          for (var i=0; i<itemsLength; i++) {
+            the_collection.find({ "inventory.items" : { $elemMatch: {name: items[i]['name']}}}, function(error, docs) {
+              docs.toArray(function(error, results) {
+                console.log(results);
+              });
+              docs.each(function(user) {
+                console.log(user);
+              });
             });
-            docs.each(function(user) {
-              console.log(user);
-            });
-            docs.toArray(function(error, theArray) {
-              callback(null, theArray);
-            });
-          });
+          }
         }
       });
     }
@@ -76,9 +80,9 @@ CollectionDriver.prototype.check = function(collectionName, user, callback) {
     else {
       the_collection.findOne({'username':user}, function(error, doc) {
         if(doc) {
-          callback(null, doc);
+          callback(null, "Taken");
         } else {
-          callback(error);
+          callback(null, "Free");
         }
       });
     }
