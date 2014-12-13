@@ -31,6 +31,7 @@
     ANIMATION_SPEED = .3;
     JUMP = 70;
     BIG_JUMP = 135;
+    shouldSegue = FALSE;
     UIColor *placeholderColor = [UIColor colorWithRed:141/255.0 green:150/255.0 blue:164/255.0 alpha:1];
     
     [super viewDidLoad];
@@ -91,15 +92,13 @@
     
     //    NSLog(password);
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
-        
-        NSLog(@"in view controller: user does not exist, proceed");
         [[model getPrimaryUser] setContact:num];
+        shouldSegue = TRUE;
         //segue
     } else {
-        NSLog(@"in view controller: user already exists");
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Username already exists. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
-        //aware user
-        //don't segue
+        [alert show];
     }
 }
 
@@ -132,6 +131,14 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
+}
+
+-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if(shouldSegue) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 /*
