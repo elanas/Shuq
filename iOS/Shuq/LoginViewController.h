@@ -20,11 +20,16 @@
      */
     ShuqModel* model;
     int FRAME_SIZE;
+    double ANIMATION_SPEED;
+    int JUMP;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *logo;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *newuserButton;
 - (IBAction)attemptLogin:(id)sender;
 @property(weak, nonatomic) IBOutlet UIButton *aboutButton;
 

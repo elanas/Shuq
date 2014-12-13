@@ -33,6 +33,8 @@
 - (void)viewDidLoad
 {
     FRAME_SIZE = 45;
+    ANIMATION_SPEED = .3;
+    JUMP = 60;
     UIColor *placeholderColor = [UIColor colorWithRed:141/255.0 green:150/255.0 blue:164/255.0 alpha:1];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -108,6 +110,38 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:ANIMATION_SPEED];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        _usernameTextField.frame = CGRectMake(_usernameTextField.frame.origin.x, (_usernameTextField.frame.origin.y - JUMP), _usernameTextField.frame.size.width, _usernameTextField.frame.size.height);
+    
+        _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, (_passwordTextField.frame.origin.y - JUMP), _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
+        _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, (_loginButton.frame.origin.y - JUMP), _loginButton.frame.size.width, _loginButton.frame.size.height);
+        _logo.frame = CGRectMake(_logo.frame.origin.x, (_logo.frame.origin.y - JUMP), _logo.frame.size.width, _logo.frame.size.height);
+        
+        [UIView commitAnimations];
+
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:ANIMATION_SPEED];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        _usernameTextField.frame = CGRectMake(_usernameTextField.frame.origin.x, (_usernameTextField.frame.origin.y + JUMP), _usernameTextField.frame.size.width, _usernameTextField.frame.size.height);
+    
+        _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, (_passwordTextField.frame.origin.y + JUMP), _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
+    
+        _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, (_loginButton.frame.origin.y + JUMP), _loginButton.frame.size.width, _loginButton.frame.size.height);
+    
+        _logo.frame = CGRectMake(_logo.frame.origin.x, (_logo.frame.origin.y + JUMP), _logo.frame.size.width, _logo.frame.size.height);
+    
+    
+        [UIView commitAnimations];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

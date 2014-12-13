@@ -44,7 +44,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1TB-mk-dma">
                                 <rect key="frame" x="126" y="446" width="68" height="30"/>
                                 <state key="normal" title="New User">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.37254902720451355" green="0.45098042488098145" blue="0.58039218187332153" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -54,7 +54,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ADE-bL-lmZ">
                                 <rect key="frame" x="139" y="484" width="42" height="30"/>
                                 <state key="normal" title="About">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.37254902719999999" green="0.45098042490000001" blue="0.58039218189999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -67,6 +67,9 @@
                     </view>
                     <connections>
                         <outlet property="aboutButton" destination="ADE-bL-lmZ" id="7YP-E7-k58"/>
+                        <outlet property="loginButton" destination="yhh-1Y-9B1" id="SrU-f2-Ug5"/>
+                        <outlet property="logo" destination="EUp-5k-mTI" id="RiW-HL-1az"/>
+                        <outlet property="newuserButton" destination="1TB-mk-dma" id="gTZ-N1-l6R"/>
                         <outlet property="passwordTextField" destination="uGo-LQ-Eji" id="fJj-rh-Lz6"/>
                         <outlet property="usernameTextField" destination="Uju-PF-YDF" id="DfO-OW-30r"/>
                         <segue destination="cre-zQ-kbs" kind="modal" identifier="loginSuccess" id="BTI-c2-VKA"/>
