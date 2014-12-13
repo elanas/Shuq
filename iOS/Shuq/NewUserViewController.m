@@ -120,10 +120,11 @@
     NSString *loc = _locationField.text;
     
     //check location is valod
+//    shouldSegue = TRUE;
     
-    [[model getPrimaryUser] setLocation:loc];
+//    [[model getPrimaryUser] setLocation:loc];
     
-    [model updateUser:[model getPrimaryUser]];
+//    [model updateUser:[model getPrimaryUser]];
     
     
 }
@@ -134,9 +135,15 @@
 }
 
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSLog(@"inside???");
+
+    
     if(shouldSegue) {
+        NSLog(@"yes?");
+
         return YES;
     } else {
+        NSLog(@"no?");
         return NO;
     }
 }
