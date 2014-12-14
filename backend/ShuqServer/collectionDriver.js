@@ -2,9 +2,7 @@
  * @fileoverview a helper class that handles a lot of interactions with the mongodb database
  */
 
-//var ObjectID = require('mongodb').ObjectID;
 var cDriver;
-
 
 /**
  * The constructor for a collection driver object
@@ -15,8 +13,6 @@ CollectionDriver = function(db) {
   this.db = db;
   cDriver = this;
 };
-
-CollectionDriver.matches = [];
 
 /**
  * The function that gets a collection
@@ -48,6 +44,14 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
     });
 };
 
+/**
+ * Goes through the collection (should be "user") and detects every user's matches.
+ * For every user, match JSON objects are created for each user they match with
+ * and they are stored in the collection "<userID>Matches".
+ * Will be called periodically by matchMaker.js
+ * @param collectionName the collection to make matches with (user)
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.makeAllMatches = function(collectionName, callback) {
   this.findAll(collectionName, function(error, allUsers) {
     if (error) callback(error);
@@ -69,7 +73,14 @@ CollectionDriver.prototype.makeAllMatches = function(collectionName, callback) {
   });
 };
 
-
+/**
+ * Goes through the collection (should be "user") and detects the specified user's matches.
+ * For that user, match JSON objects are created for each user they match with
+ * and they are stored in the collection "<userID>Matches".
+ * This function exists for the purposes of the demo so the app can force matches to be made immediately.
+ * @param collectionName the collection to make matches with (user)
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callback) {
   var stringMatchCollection = id.concat("Matches");
   this.deleteAll(stringMatchCollection, function(error, response) {
@@ -197,6 +208,13 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
   return matchedObjectsArray;
 };
 
+/**
+ * Helper function used to determine whether 2 zip codes are considered 'in range' of each other.
+ * This function is used to ensure matches are only made between users in range of each other.
+ * @param zip1 the zipcode string of one of the users
+ * @param zip2 the zipcode string of the other user
+ * @return true if the zips are in range, false otherwise
+ */
 CollectionDriver.prototype.testZip = function(zip1, zip2) {
   var int1 = parseInt(zip1);
   var int2 = parseInt(zip2);
@@ -205,6 +223,16 @@ CollectionDriver.prototype.testZip = function(zip1, zip2) {
   return (int1 == int2);
 };
 
+/**
+ * Helper function creates a numerical score representing the strength of a match.
+ * These scores are used to rank the matches from best to worst to give to the user.
+ * Takes into account locations (zips) and the hot items involved.
+ * @param zip1 the zipcode string of one of the users
+ * @param zip2 the zipcode string of the other user
+ * @param otherHas an array of item JSONS that user2 Has and user1 Wants
+ * @param otherWants an array of item JSONS that user2 Wants and user1 Has
+ * @return an integer score representing the strength of the match
+ */
 CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants) {
   var totalMatches = otherHas.length + otherWants.length;
   var int1 = parseInt(zip1);
@@ -213,36 +241,13 @@ CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants)
   return ((10000-(Math.abs(int1 - int2))) + (1000*totalMatches));
 };
 
-/*
-CollectionDriver.prototype.match = function(collectionName, user, callback) {
-  this.getCollection(collectionName, function(error, the_collection) {
-    if (error) callback(error);
-    else {
-      var wishlist;
-      the_collection.findOne({'username':user}, function(error,doc) {
-        if (error) callback(error);
-        else {
-          wishlist = doc['wishlist'];
-          var potentialMatches = [];
-          var items = wishlist['items'];
-          var itemsLength = items.length;
-          for (var i=0; i<itemsLength; i++) {
-            the_collection.find({ "inventory.items" : { $elemMatch: {name: items[i]['name']}}}, function(error, docs) {
-              docs.toArray(function(error, results) {
-                console.log(results);
-              });
-              docs.each(function(user) {
-                console.log(user);
-              });
-            });
-          }
-        }
-      });
-    }
-  });
-
-}
-*/
+/**
+ * Checks whether or not a given username exists in the ('user') collection yet.
+ * Used by the app to ensure that a local user cannot be created unless available.
+ * @param collectionName the collection to check. Should be 'user'
+ * @param user the username to check for in the collection
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.check = function(collectionName, user, callback) {
   this.getCollection(collectionName, function(error, the_collection) {
     if (error) callback(error);
@@ -326,7 +331,16 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
     });
 };
 
-
+/**
+ * A variant of PUT update that takes a JSON representing delta changes
+ * and updates entries in a collection. Would be used to avoid reuploading
+ * large objects that have had a few minor changes made to them. Not currently
+ * used by the app, would require a change in JSON format.
+ * @param collectionName the collection to put into
+ * @param obj the object representing the changes made (proper format)
+ * @param entityId the _id of the entity being updated
+ * @param callback the callback function
+ */
 CollectionDriver.prototype.partialUpdate = function(collectionName, obj, entityId, callback) {
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error);
@@ -386,6 +400,11 @@ CollectionDriver.prototype.delete = function(collectionName, entityId, callback)
     });
 };
 
+/**
+ * Delete every entity from a collection
+ * @param collectionName the name of the collection
+ * @param callback the callback response
+ */
 CollectionDriver.prototype.deleteAll = function(collectionName, callback) {
     this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error);
