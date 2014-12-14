@@ -93,7 +93,8 @@
     //    NSLog(password);
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
         [[model getPrimaryUser] setContact:num];
-        shouldSegue = TRUE;
+//        shouldSegue = TRUE;
+        NSLog(@"continue");
         //segue
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Username already exists. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -122,9 +123,9 @@
     //check location is valod
 //    shouldSegue = TRUE;
     
-//    [[model getPrimaryUser] setLocation:loc];
+    [[model getPrimaryUser] setLocation:loc];
     
-//    [model updateUser:[model getPrimaryUser]];
+    [model updateUser:[model getPrimaryUser]];
     
     
 }
@@ -134,19 +135,19 @@
 
 }
 
--(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    NSLog(@"inside???");
-
-    
-    if(shouldSegue) {
-        NSLog(@"yes?");
-
-        return YES;
-    } else {
-        NSLog(@"no?");
-        return NO;
-    }
-}
+//-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+//    NSLog(@"inside???");
+//
+//    
+//    if(shouldSegue) {
+//        NSLog(@"yes?");
+//
+//        return YES;
+//    } else {
+//        NSLog(@"no?");
+//        return NO;
+//    }
+//}
 
 /*
  #pragma mark - Navigation
