@@ -50,24 +50,31 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
 
 
 CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callback) {
-  this.get(collectionName, id, function(error, user) {
+  var stringMatchCollection = id.concat("Matches");
+  this.deleteAll(stringMatchCollection, function(error, response) {
     if (error) callback(error);
-    else {
-      cDriver.findAll(collectionName, function(error, allUsers) {
+    else
+    {
+      cDriver.get(collectionName, id, function(error, user) {
         if (error) callback(error);
         else {
-          var arrayOfMatches = cDriver.matchesForOne(user, allUsers);
-          var theString = id.concat("Matches");
-          console.log(theString);
-          cDriver.save(theString, arrayOfMatches, function(error, response) {
+          cDriver.findAll(collectionName, function(error, allUsers) {
             if (error) callback(error);
-            else callback(response);
+            else {
+              var arrayOfMatches = cDriver.matchesForOne(user, allUsers);
+              console.log(theString);
+              cDriver.save(theString, arrayOfMatches, function(error, response) {
+                if (error) callback(error);
+                else callback(response);
+              });
+            }
           });
         }
       });
     }
   });
 };
+
 
 /**
  * Helper function to make all matches for a specific user.
@@ -88,7 +95,6 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       continue;
     }
 
-    console.log("This is user " + otherUser.username );
 
     //don't match users that are too far
     if (!(this.testZip(otherUser.location, userToMatch.location))) {
@@ -117,7 +123,6 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
     }
 
     if (otherHas.length == 0) {
-      console.log("Zilch for otherHas for user " + otherUser.username);
       continue;
     }
 
@@ -132,7 +137,6 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 
         console.log(myItem.name + "   " + otherUser.wishlist.items[k].name);
         if (myItem.name != otherUser.wishlist.items[k].name) {
-          console.log("breaking");
           continue;
         }
 
@@ -142,7 +146,6 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
     }
 
     if (otherWants.length == 0) {
-      console.log("Zilch for otherWants for user " + otherUser.username);
       continue;
     }
 
@@ -349,6 +352,21 @@ CollectionDriver.prototype.delete = function(collectionName, entityId, callback)
             	if (error) callback(error)
             	else callback(null, doc);
             });
+        }
+    });
+};
+
+CollectionDriver.prototype.deleteAll = function(collectionName, callback) {
+    this.getCollection(collectionName, function(error, the_collection) {
+        if (error) callback(error);
+        else {
+          the_collection.remove({}, function(error,doc) {
+            	if (error) callback(error)
+              else {
+                console.log("deleting everything in " + collectionName);
+                callback(null, doc);
+              }
+          });
         }
     });
 };

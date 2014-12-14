@@ -1,10 +1,10 @@
 {
-	"username" : "Rudy",
-	"_id"      : "Rudy",
+	"username" : "Graham",
+	"_id"      : "Graham",
 	"location" : "11111",
 	"password" : "51438008",
 
-	"wishlist" : { 
+	"inventory" : { 
 		"items" : 
 			[
 				{
@@ -22,7 +22,7 @@
 			]
 	},
 
-	"inventory" : {
+	"wishlist" : {
 		"items" : 
 			[
 				{
