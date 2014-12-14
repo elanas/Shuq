@@ -211,6 +211,17 @@ app.put('/partial/:collection/:entity', function(req, res) {
     }
 });
 
+app.delete('/:collection', function(req, res) {
+    var params = req.params;
+    var collection = params.collection;
+    collectionDriver.deleteAll(collection, function(error, objs) {
+      if (error) { res.send(400, error);}
+      else { res.send(200, objs); } // 200 b/c includes the original doc
+    });
+});
+
+
+
 /**
  * This code handles the Delete functionality, the last of CRUD.
  * An entity in a collection is specified (if collection but no entity, response contains an error message),
@@ -220,17 +231,10 @@ app.delete('/:collection/:entity', function(req, res) {
     var params = req.params;
     var entity = params.entity;
     var collection = params.collection;
-    if (entity) {
-       collectionDriver.delete(collection, entity, function(error, objs) {
-          if (error) { res.send(400, error); }
-          else { res.send(200, objs); } // 200 b/c includes the original doc
-       });
-   } else {
-       collectionDriver.deleteAll(collection, function(error, objs) {
-          if (error) { res.send(400, error); }
-          else { res.send(200, objs); } // 200 b/c includes the original doc
-       });
-   }
+    collectionDriver.delete(collection, entity, function(error, objs) {
+      if (error) { res.send(400, error); }
+      else { res.send(200, objs); } // 200 b/c includes the original doc
+    });
 });
 
 /** 404 code for unintelligible request. Uses 404.jade message*/
