@@ -77,7 +77,7 @@
     if ([model authenticateUser:username andPassword: password isNewUser:FALSE]) {
         
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
-        
+        [model runUserMatches:username];
         
         [self performSegueWithIdentifier:@"loginSuccess" sender:sender];
 //        ItemSwipeViewController *isvc = [[ItemSwipeViewController alloc] init];

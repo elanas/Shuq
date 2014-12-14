@@ -57,6 +57,10 @@
  */
 +(id)getModel;
 
+/**
+ Makes a call to run the match algorith on the server.
+ */
+-(void)runUserMatches:(NSString*)user;
 
 /**
  Post a new item image to the server
