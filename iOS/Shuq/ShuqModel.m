@@ -10,8 +10,8 @@
 
 @implementation ShuqModel
 
-//static NSString* const kBaseURL = @"http://localhost:3000/";
-static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
+static NSString* const kBaseURL = @"http://localhost:3000/";
+//static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
 static NSString* const kLocations = @"user";
 
 -(id)init {
@@ -69,46 +69,96 @@ static NSString* const kLocations = @"user";
     
 }
 
+-(void)runUserMatches:(NSString*)user
+{
+    NSString* userAuth = [@"demoMakeMatches" stringByAppendingPathComponent:user];
+    
+    
+    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
+    NSLog(@"urls: %@", url);
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"GET"; //2
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if([responseBody rangeOfString:@"error"].location!= NSNotFound) {
+                //if([responseBody containsString:@"error"]) {
+                
+                
+                //authentication failed
+            } else {
+                
+                //authentication successful
+                NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSLog(@"Called Matches");
+            }
+            dispatch_semaphore_signal(semaphore);
+            
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    
+    
+    [dataTask resume];
+    
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+}
+
 -(void)getMatchItems:(NSString*)username {
-//    NSString* userAuth = [@"match" stringByAppendingPathComponent:username];
-//    
-//    NSLog(@"urls: %@", userAuth);
-//    
-//    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
-//    
-//    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-//    request.HTTPMethod = @"GET"; //2
-//    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
-//    
-//    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
-//    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
-//    
-////    __block BOOL validAuth = nil;
-//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-//    
-//    
-//    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-//        
-//        if (error == nil) {
-//            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//            NSLog(@"Matching");
-//            NSLog(@"%@", responseBody);
-//            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-//            NSLog(@"%@", responseArray);
-//            /*[self parseAndGetItems:responseArray toArray:_items];*/
-//            dispatch_semaphore_signal(semaphore);
-//            
-//        } else {
-//            //error
-//            dispatch_semaphore_signal(semaphore);
-//        }
-//    }];
-//    
-//    
-//    [dataTask resume];
-//    
-//    //waiting for the call to be done
-//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    NSString* userAuth = [username stringByAppendingString:@"Matches"];
+    
+    
+    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
+    NSLog(@"urls: %@", url);
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"GET"; //2
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+//    __block BOOL validAuth = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"Matching");
+            //NSLog(@"%@", responseBody);
+            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            //NSLog(@"%@", responseArray);
+            [self parseMatchingItems:responseArray];
+            dispatch_semaphore_signal(semaphore);
+            
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    
+    
+    [dataTask resume];
+    
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void) updateUser:(User*)user
@@ -341,20 +391,25 @@ static NSString* const kLocations = @"user";
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
     NSLog(@"%@",[item getImageID]);
     
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
     NSURLSessionDownloadTask* task = [session downloadTaskWithURL:url completionHandler:^(NSURL *fileLocation, NSURLResponse *response, NSError *error) { //2
         if (!error) {
             NSData* imageData = [NSData dataWithContentsOfURL:fileLocation]; //3
             UIImage* image = [UIImage imageWithData:imageData];
             if (!image) {
+                 dispatch_semaphore_signal(semaphore);
                 NSLog(@"unable to build image");
             }
             else {
                 [item setImage:image];
+                 dispatch_semaphore_signal(semaphore);
             }
         }
     }];
     
     [task resume]; //4
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
 
@@ -376,6 +431,15 @@ static NSString* const kLocations = @"user";
     
        // NSLog(@"%@", [primaryUser getUniqueID]);
 }
+
+- (void) parseMatchingItems: (NSArray*) us {
+     
+    for (NSDictionary* user_item in us) {
+        [self parseAndGetItems:user_item[@"userHas"] toArray:_items];
+    }
+    NSLog(@"Load image");
+}
+
 - (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray {
     for (NSDictionary* item in it) {
         Item* i = [[Item alloc] initWithDictionary:item];

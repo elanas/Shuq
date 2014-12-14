@@ -55,20 +55,17 @@
     /**/
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
         NSLog(@"Left Swipe");
-        /*_itemIndex = (_itemIndex + 1) % [model.items count];*/
-        //DELETE
-        _itemIndex = (_itemIndex + 1) % [_items count];
+        _itemIndex = (_itemIndex + 1) % [model.items count];
+
 
     } else if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         NSLog(@"Right Swipe");
         if (_itemIndex == 0) {
-            /*_itemIndex = [model.items count];*/
-            //DELETE
-            _itemIndex = [_items count];
+            _itemIndex = [model.items count];
+
         }
-        /*_itemIndex = (_itemIndex - 1) % [model.items count];*/
-        //DELETE
-        _itemIndex = (_itemIndex - 1) % [_items count];
+        _itemIndex = (_itemIndex - 1) % [model.items count];
+
 
     }
     
@@ -80,34 +77,16 @@
     ShuqModel *model = [ShuqModel getModel];
     [model getMatchItems:[[model getPrimaryUser] getUsername]];
     
-    //DELETE Below
-    ///*
-    _items = [[NSMutableArray alloc] init];
-    NSNumber *num = [NSNumber numberWithInteger:1];
-    
-    Item *i1 = [[Item alloc] initWithName:@"iPhone Charger" andPath:@"iphone.png" andDesc:@"Brand new, just bought from Amazon. Comes with wall attachment." andValue:num];
-    Item *i2 = [[Item alloc] initWithName:@"Flask" andPath:@"flask.png" andDesc:@"Only used once. Tastes best with whisky." andValue:num];
-    Item *i3 = [[Item alloc] initWithName:@"Sunglasses" andPath:@"glasses.png" andDesc:@"Really great sunglasses, block the sun and make you look like a player." andValue:num];
-    Item *i4 = [[Item alloc] initWithName:@"Winter Hat" andPath:@"hat.png" andDesc:@"Super warm and comfy. Get all the guys if you wear it out at night." andValue:num];
-    
-    [_items addObject:i1];
-    [_items addObject:i2];
-    [_items addObject:i3];
-    [_items addObject:i4];
-     //*/
-
-}
+   }
 
 -(void) setItem {
-    /*ShuqModel *model = [ShuqModel getModel];
-    Item *item =[model.items objectAtIndex:_itemIndex];*/
+    ShuqModel *model = [ShuqModel getModel];
+    if([model.items count] ==0){
+        return;
+    }
+    Item *item =[model.items objectAtIndex:_itemIndex];
     
-    //DELETE
-    Item *item = [_items objectAtIndex:_itemIndex];
-    
-    /*[_itemView setImage: [item getImage]];*/
-    //DELETE
-    [_itemView setImage:[UIImage imageNamed:[item getPath]]];
+    [_itemView setImage: [item getImage]];
     
     [itemName setText:[item getName]];
     [_itemDesc setText:[item getDesc]];
@@ -117,9 +96,7 @@
     _itemView = [[UIImageView alloc] initWithFrame:CGRectMake(
                                                               [UIScreen mainScreen].bounds.size.width/6 + 7,
                                                               [UIScreen mainScreen].bounds.size.height/4, 200, 200)];
-//    [_itemView setImage:[UIImage imageNamed:[[_items objectAtIndex:_itemIndex] getPath]]];
-//    
-//    [itemName setText:[[_items objectAtIndex:_itemIndex] getName]];
+
     
     [self setItem];
     
