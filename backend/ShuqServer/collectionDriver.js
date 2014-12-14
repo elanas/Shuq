@@ -3,6 +3,8 @@
  */
 
 //var ObjectID = require('mongodb').ObjectID;
+var cDriver;
+
 
 /**
  * The constructor for a collection driver object
@@ -11,13 +13,14 @@
  */
 CollectionDriver = function(db) {
   this.db = db;
+  cDriver = this;
 };
 
 CollectionDriver.matches = [];
 
 /**
  * The function that gets a collection
- * @param collectionName the name of the collction to get
+ * @param collectionName the name of the collection to get
  * @param callback the callback response
  */
 CollectionDriver.prototype.getCollection = function(collectionName, callback) {
@@ -45,6 +48,139 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
     });
 };
 
+
+CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callback) {
+  this.get(collectionName, id, function(error, user) {
+    if (error) callback(error);
+    else {
+      cDriver.findAll(collectionName, function(error, allUsers) {
+        if (error) callback(error);
+        else {
+          var arrayOfMatches = cDriver.matchesForOne(user, allUsers);
+          var theString = id.concat("Matches");
+          console.log(theString);
+          cDriver.save(theString, arrayOfMatches, function(error, response) {
+            if (error) callback(error);
+            else callback(response);
+          });
+        }
+      });
+    }
+  });
+};
+
+/**
+ * Helper function to make all matches for a specific user.
+ * Creates match JSONs for every match and returns an array of them.
+ * @param userToMatch the user Json for whom we will find matches
+ * @param arrayOfUsers the array of all users within which we should check for matches
+ * @return an array of match Jsons
+ */
+CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
+  var matchedObjectsArray = [];
+
+  // for every user in arrayOfUsers
+  for (var i=0; i<arrayOfUsers.length; ++i) {
+    var otherUser = arrayOfUsers[i];
+
+    //don't match John with himself. Skip John
+    if (otherUser.username == userToMatch.username) {
+      continue;
+    }
+
+    console.log("This is user " + otherUser.username );
+
+    //don't match users that are too far
+    if (!(this.testZip(otherUser.location, userToMatch.location))) {
+        continue;
+    }
+
+    var otherHas = [];
+    var otherWants = [];
+
+
+
+    // check if he has something John wants
+    // for every item in John's wishlist
+    for (var j=0; j<userToMatch.wishlist.items.length; ++j) {
+      //for every item in user i's inventory
+      for (var k=0; k<otherUser.inventory.items.length; ++k) {
+        var othersItem = otherUser.inventory.items[k];
+
+        if (othersItem.name != userToMatch.wishlist.items[j].name) {
+          continue;
+        }
+
+        otherHas.push(othersItem);
+      }
+
+    }
+
+    if (otherHas.length == 0) {
+      console.log("Zilch for otherHas for user " + otherUser.username);
+      continue;
+    }
+
+
+
+    //check the other direction (what John has that other wants)
+    // for every item in John's inventory
+    for (var j=0; j<userToMatch.inventory.items.length; ++j) {
+      //for every item in user i's wishlist
+      for (var k=0; k<otherUser.wishlist.items.length; ++k) {
+        var myItem = userToMatch.inventory.items[j];
+
+        console.log(myItem.name + "   " + otherUser.wishlist.items[k].name);
+        if (myItem.name != otherUser.wishlist.items[k].name) {
+          console.log("breaking");
+          continue;
+        }
+
+        otherWants.push(myItem);
+        console.log(otherWants);
+      }
+    }
+
+    if (otherWants.length == 0) {
+      console.log("Zilch for otherWants for user " + otherUser.username);
+      continue;
+    }
+
+    var score = this.genScore(otherUser.location, userToMatch.location, otherHas, otherWants);
+    //Store a match object representing this match
+    var matchObject =
+        {
+          username: otherUser.username,
+          _id: otherUser.username,
+          userHas: otherHas,
+          userWants: otherWants,
+          score: score,
+          rank: 0
+        };
+
+    matchedObjectsArray.push(matchObject);
+  }
+
+  matchedObjectsArray.sort(function(a,b) {
+    return b.score - a.score;
+  });
+
+  for (var i=0; i<matchedObjectsArray.length; ++i) {
+    matchedObjectsArray[i].rank = i+1;
+  }
+
+  return matchedObjectsArray;
+};
+
+CollectionDriver.prototype.testZip = function(zip1, zip2) {
+  return (zip1 == zip2);
+};
+
+CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants) {
+  return 4;
+};
+
+/*
 CollectionDriver.prototype.match = function(collectionName, user, callback) {
   this.getCollection(collectionName, function(error, the_collection) {
     if (error) callback(error);
@@ -73,7 +209,7 @@ CollectionDriver.prototype.match = function(collectionName, user, callback) {
   });
 
 }
-
+*/
 CollectionDriver.prototype.check = function(collectionName, user, callback) {
   this.getCollection(collectionName, function(error, the_collection) {
     if (error) callback(error);

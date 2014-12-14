@@ -124,7 +124,7 @@ app.get('/:collection/:entity', function(req, res) {
            res.send(400, {error: 'misuse of auth url', url: req.url});
        }
    }
-
+/*
    //returns a list of matches for the entity
    else if (collection == "match") {
      collectionDriver.match("user", entity, function(error, objs) {
@@ -134,6 +134,14 @@ app.get('/:collection/:entity', function(req, res) {
        }
      });
      }
+*/
+
+  else if (collection == "demoMakeMatches") {
+    collectionDriver.demoMakeMatches("ZachAndI", entity, function(error, response) {
+      if(error) {res.send(400, error);}
+      res.send(200, response);
+    });
+  }
 
   else if (collection == "userCheck") {
     collectionDriver.check("user", entity, function(error, objs) {
