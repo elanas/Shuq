@@ -31,7 +31,6 @@
     ANIMATION_SPEED = .3;
     JUMP = 70;
     BIG_JUMP = 135;
-    shouldSegue = FALSE;
     UIColor *placeholderColor = [UIColor colorWithRed:141/255.0 green:150/255.0 blue:164/255.0 alpha:1];
     
     [super viewDidLoad];
@@ -93,9 +92,6 @@
     //    NSLog(password);
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
         [[model getPrimaryUser] setContact:num];
-//        shouldSegue = TRUE;
-        NSLog(@"continue");
-        //segue
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Username already exists. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
@@ -117,14 +113,10 @@
 }
 
 -(void)addLocation {
-//    model = [ShuqModel getModel];
     NSString *loc = _locationField.text;
     
-    //check location is valod
-//    shouldSegue = TRUE;
     
     [[model getPrimaryUser] setLocation:loc];
-    
     [model updateUser:[model getPrimaryUser]];
     
     
@@ -134,20 +126,6 @@
 {
 
 }
-
-//-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-//    NSLog(@"inside???");
-//
-//    
-//    if(shouldSegue) {
-//        NSLog(@"yes?");
-//
-//        return YES;
-//    } else {
-//        NSLog(@"no?");
-//        return NO;
-//    }
-//}
 
 /*
  #pragma mark - Navigation

@@ -24,8 +24,6 @@
     double ANIMATION_SPEED;
     int JUMP;
     int BIG_JUMP;
-    
-    BOOL shouldSegue;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender;

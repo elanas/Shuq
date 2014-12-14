@@ -72,8 +72,8 @@ static NSString* const kLocations = @"user";
 }
 
 -(void)getMatchItems:(NSString*)username {
-    NSString* userAuth = [@"match" stringByAppendingPathComponent:username];
-    
+//    NSString* userAuth = [@"match" stringByAppendingPathComponent:username];
+//    
 //    NSLog(@"urls: %@", userAuth);
 //    
 //    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
