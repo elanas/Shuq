@@ -10,8 +10,8 @@
 
 @implementation ShuqModel
 
-static NSString* const kBaseURL = @"http://localhost:3000/";
-//static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
+//static NSString* const kBaseURL = @"http://localhost:3000/";
+static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
 static NSString* const kLocations = @"user";
 
 -(id)init {
@@ -61,11 +61,9 @@ static NSString* const kLocations = @"user";
         if(newUser) {
         
         }
-        NSLog(@"from server: user does not exist");
         return TRUE;
     } else {
         //do something to alert user
-        NSLog(@"from server: user already exists");
         return FALSE;
     }
     
