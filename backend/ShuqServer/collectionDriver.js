@@ -83,10 +83,14 @@ CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callba
             if (error) callback(error);
             else {
               var arrayOfMatches = cDriver.matchesForOne(user, allUsers);
-              cDriver.save(stringMatchCollection, arrayOfMatches, function(error, response) {
-                if (error) callback(error);
-                else callback(response);
-              });
+              if (arrayOfMatches.length != 0) {
+                cDriver.save(stringMatchCollection, arrayOfMatches, function(error, response) {
+                  if (error) callback(error);
+                  else callback(response);
+                });
+              } else {
+                callback(null, "No Matches");
+              }
             }
           });
         }
