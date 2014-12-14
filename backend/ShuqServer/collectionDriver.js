@@ -57,14 +57,14 @@ CollectionDriver.prototype.makeAllMatches = function(collectionName, callback) {
         var userString = allUsers[i].username.concat("Matches");
         cDriver.deleteAll(userString, function(error, noerror) {
           if (error) callback(error);
-          else {
-            cDriver.save(userString, currentMatches, function(error, response) {
-              if (error) callback(error);
-            });
-          }
         });
-      callback(null, "Matches Done");
+        if (currentMatches.length != 0) {
+          cDriver.save(userString, currentMatches, function(error, response) {
+            if (error) callback(error);
+          });
+        }
       }
+      callback(null, "Matches Done");
     }
   });
 };
@@ -164,7 +164,6 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
         }
 
         otherWants.push(myItem);
-        console.log(otherWants);
       }
     }
 
@@ -210,6 +209,7 @@ CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants)
   var totalMatches = otherHas.length + otherWants.length;
   var int1 = parseInt(zip1);
   var int2 = parseInt(zip2);
+  //TAKE VALUES INTO ACCOUNT??????????????????????
   return ((10000-(Math.abs(int1 - int2))) + (1000*totalMatches));
 };
 

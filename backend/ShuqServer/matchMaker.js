@@ -20,7 +20,7 @@ mongoClient.open(function(err, mongoClient) {
   collectionDriver = new CollectionDriver(db); // create the collection driver with our mongo database
 });
 
-var minutes = 1, the_interval = minutes * 60 * 1000;
+var minutes = .2, the_interval = minutes * 60 * 1000;
 setInterval(function() {
   collectionDriver.makeAllMatches("user", function(error, doc) {
     if (error) console.log(error);
