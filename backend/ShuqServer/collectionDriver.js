@@ -203,7 +203,7 @@ CollectionDriver.prototype.testZip = function(zip1, zip2) {
   var int2 = parseInt(zip2);
   int1 = int1/1000;
   int2 = int2/1000;
-  return (int1 == int2;
+  return (int1 == int2);
 };
 
 CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants) {
