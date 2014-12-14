@@ -29,12 +29,20 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithRed:121.0/255.0 green:170.0/255.0 blue:246.0/255.0 alpha:1];
     
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor greenColor]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSUInteger) supportedInterfaceOrientations {
+    // Return a bitmask of supported orientations. If you need more,
+    // use bitwise or (see the commented return).
+    return UIInterfaceOrientationMaskPortrait;
+    // return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
 }
 
 /*

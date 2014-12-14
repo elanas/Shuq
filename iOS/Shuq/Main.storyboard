@@ -305,7 +305,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -804,8 +803,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zio-dR-h1s"/>
-        <segue reference="Ppo-Dl-Jzy"/>
         <segue reference="Zye-kC-puS"/>
+        <segue reference="Ppo-Dl-Jzy"/>
+        <segue reference="XUY-tV-1cl"/>
     </inferredMetricsTieBreakers>
 </document>

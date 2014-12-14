@@ -27,6 +27,8 @@
 		0B77747E19FD95A000D2A696 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77747D19FD95A000D2A696 /* LoginViewController.m */; };
 		0B77748119FD9CD600D2A696 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748019FD9CD600D2A696 /* TemplateViewController.m */; };
 		0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */; };
+		0B8E54811A3D6519005EB072 /* menubutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8E54801A3D6519005EB072 /* menubutton.png */; };
+		0B8E54831A3D6545005EB072 /* circles.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8E54821A3D6545005EB072 /* circles.png */; };
 		0B942EE51A3B4B5B00F26B1A /* shuq.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B942EE41A3B4B5B00F26B1A /* shuq.png */; };
 		0B942EE91A3B4D4400F26B1A /* shuq1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B942EE81A3B4D4400F26B1A /* shuq1.png */; };
 		0B942EEB1A3B4DD300F26B1A /* shuq2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B942EEA1A3B4DD300F26B1A /* shuq2.png */; };
@@ -116,6 +118,8 @@
 		0B77748019FD9CD600D2A696 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
 		0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSwipeViewController.h; sourceTree = "<group>"; };
 		0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSwipeViewController.m; sourceTree = "<group>"; };
+		0B8E54801A3D6519005EB072 /* menubutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubutton.png; sourceTree = "<group>"; };
+		0B8E54821A3D6545005EB072 /* circles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circles.png; sourceTree = "<group>"; };
 		0B942EE41A3B4B5B00F26B1A /* shuq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shuq.png; path = images/shuq.png; sourceTree = "<group>"; };
 		0B942EE81A3B4D4400F26B1A /* shuq1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq1.png; sourceTree = "<group>"; };
 		0B942EEA1A3B4DD300F26B1A /* shuq2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq2.png; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E54821A3D6545005EB072 /* circles.png */,
+				0B8E54801A3D6519005EB072 /* menubutton.png */,
 				0B24CB211A3D049600855025 /* splash-screen.png */,
 				0B1A3DFB1A3CDF55009E34FF /* shuq38.png */,
 				0B1A3DF91A3CDB1C009E34FF /* shuq37.png */,
@@ -461,6 +467,7 @@
 			files = (
 				0B942EF91A3B510B00F26B1A /* shuq11.png in Resources */,
 				0B942F0D1A3B585500F26B1A /* shuq21.png in Resources */,
+				0B8E54831A3D6545005EB072 /* circles.png in Resources */,
 				0B942F151A3CA8CF00F26B1A /* shuq31.png in Resources */,
 				0B942F1D1A3CBC6300F26B1A /* shuq36.png in Resources */,
 				0B942EF51A3B503000F26B1A /* shuq8.png in Resources */,
@@ -493,6 +500,7 @@
 				0B942EE51A3B4B5B00F26B1A /* shuq.png in Resources */,
 				0B942F191A3CB7E800F26B1A /* shuq34.png in Resources */,
 				0BA0B0E31A0159C60087DDA5 /* flask.png in Resources */,
+				0B8E54811A3D6519005EB072 /* menubutton.png in Resources */,
 				0B77745819FD856B00D2A696 /* Images.xcassets in Resources */,
 				0BA0B0E41A0159C60087DDA5 /* glasses.png in Resources */,
 				0B942F111A3B58BD00F26B1A /* shuq23.png in Resources */,
