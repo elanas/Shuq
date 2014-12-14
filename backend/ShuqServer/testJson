@@ -1,47 +1,47 @@
 {
-	username : "Zach",
-	userID   : "2",
-	location : "Standing",
-	password : "51438008",
+	"username" : "Rudy",
+	"_id"      : "Rudy",
+	"location" : "11111",
+	"password" : "51438008",
 
-	inventory : { 
-		items : 
+	"wishlist" : { 
+		"items" : 
 			[
 				{
-					name : "Jacket", 
-					taglist : 
+					"name" : "Jacket", 
+					"taglist" : 
 					[
-						{tagname : "Black"},
-						{tagname : "Large"}
+						{"tagname" : "Black"},
+						{"tagname" : "Large"}
 					]
 				},
 				{
-					name : "Frisbee",
-					taglist : []
+					"name" : "Frisbee",
+					"taglist" : []
 				}
 			]
 	},
 
-	wishlist : {
-		items : 
+	"inventory" : {
+		"items" : 
 			[
 				{
-					name : "Charizard", 
-					album : 
+					"name" : "Charizard", 
+					"album" : 
 					[
-						{URI : "charzard69jpg"}
+						{"URI" : "charzard69jpg"}
 					],
-					value : 10, 
-					taglist : 
+					"value" : 10, 
+					"taglist" : 
 					[
-						{tagname : "erotica"}
+						{"tagname" : "erotica"}
 					], 
-					description : "This majestic beast has fire in his loins"
+					"description" : "This majestic beast has fire in his loins"
 				}
 			]
 	},
 
-	settings : {
+	"settings" : {
 		"privacy" : 3
 	}
 }
