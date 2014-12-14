@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Item.h"
+#import "SingleItemTemplateViewController.h"
 
-@interface SingleInventoryItemViewController : UIViewController
+@interface SingleInventoryItemViewController : SingleItemTemplateViewController
 
 @property Item* item;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionText;

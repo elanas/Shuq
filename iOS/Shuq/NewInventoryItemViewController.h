@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddItemTemplateViewController.h"
 
-@interface NewInventoryItemViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface NewInventoryItemViewController : AddItemTemplateViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 /**
  The soon-to-be item name

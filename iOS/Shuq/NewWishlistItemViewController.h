@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddItemTemplateViewController.h"
 
-@interface NewWishlistItemViewController : UIViewController
+@interface NewWishlistItemViewController : AddItemTemplateViewController
 
 /**
  The soon-to-be item name

@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TemplateViewController.h"
+#import "TemplateNavViewController.h"
 #import "ShuqModel.h"
 
 /**
  The Class SwipeScreen. This class represents the screen that handles the main swiping page, and can move to related screens as shown in the GUI sketches.
  */
-@interface ItemSwipeViewController : TemplateViewController {
+@interface ItemSwipeViewController : TemplateNavViewController {
 }
 
 /**

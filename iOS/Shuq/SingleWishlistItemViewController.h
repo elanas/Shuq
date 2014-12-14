@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Item.h"
+#import "SingleItemTemplateViewController.h"
 
-@interface SingleWishlistItemViewController : UIViewController
+@interface SingleWishlistItemViewController : SingleItemTemplateViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionText;
 @property (weak, nonatomic) IBOutlet UILabel *valueText;

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TemplateNavViewController.h"
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : TemplateNavViewController
 
 @end
