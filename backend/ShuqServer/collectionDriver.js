@@ -48,6 +48,22 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
     });
 };
 
+CollectionDriver.prototype.makeAllMatches = function(collectionName, callback) {
+  this.findAll(collectionName, function(error, allUsers) {
+    if (error) callback(error);
+    else {
+      for (var i=0; i<allUsers.length; i++) {
+        var currentMatches = cDriver.matchesForOne(allUsers[i], allUsers);
+        var userString = allUsers[i].username.concat("Matches");
+        cDriver.save(userString, currentMatches, function(error, response) {
+          if (error) callback(error);
+        });
+      }
+      callback(null, "Matches Done");
+    }
+  });
+};
+
 
 CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callback) {
   var stringMatchCollection = id.concat("Matches");
@@ -176,11 +192,16 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 };
 
 CollectionDriver.prototype.testZip = function(zip1, zip2) {
-  return (zip1 == zip2);
+  var int1 = parseInt(zip1);
+  var int2 = parseInt(zip2);
+  return (Math.abs(int1-int2) < 10000);
 };
 
 CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants) {
-  return 4;
+  var totalMatches = otherHas.length + otherWants.length;
+  var int1 = parseInt(zip1);
+  var int2 = parseInt(zip2);
+  return ((10000-(Math.abs(int1 - int2))) + (1000*totalMatches));
 };
 
 /*
