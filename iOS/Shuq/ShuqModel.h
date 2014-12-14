@@ -43,7 +43,7 @@
  Authenticate the given username/password combo
  @return a boolean whether or not it was valid
  */
--(Boolean)authenticateUser:(NSString*)username andPassword: (NSString*)password isNewUser:(BOOL)newUser;
+-(BOOL)authenticateUser:(NSString*)username andPassword: (NSString*)password isNewUser:(BOOL)newUser;
 
 /**
  Puts the specified user to the server
@@ -62,6 +62,9 @@
  Post a new item image to the server
  */
 - (void) saveNewItemImage:(Item*)item;
+
+-(BOOL) checkUsernameExists:(NSString*)username;
+
 /**
  Loads an image of an item from the server
  */

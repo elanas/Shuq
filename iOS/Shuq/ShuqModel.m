@@ -11,6 +11,7 @@
 @implementation ShuqModel
 
 static NSString* const kBaseURL = @"http://localhost:3000/";
+//static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
 static NSString* const kLocations = @"user";
 
 -(id)init {
@@ -36,7 +37,7 @@ static NSString* const kLocations = @"user";
     return model;
 }
 
--(Boolean)authenticateUser:(NSString*)username andPassword:(NSString*)password isNewUser:(BOOL)newUser{
+-(BOOL)authenticateUser:(NSString*)username andPassword:(NSString*)password isNewUser:(BOOL)newUser{
 
     BOOL isValid;
     
@@ -52,6 +53,7 @@ static NSString* const kLocations = @"user";
         isValid = [self getUserFromServerWithUsername:username andPassword:password];
     }
     
+
     
     
     if(isValid) {
@@ -59,54 +61,56 @@ static NSString* const kLocations = @"user";
         if(newUser) {
         
         }
+        NSLog(@"from server: user does not exist");
         return TRUE;
     } else {
         //do something to alert user
+        NSLog(@"from server: user already exists");
         return FALSE;
     }
     
 }
 
 -(void)getMatchItems:(NSString*)username {
-    NSString* userAuth = [@"match" stringByAppendingPathComponent:username];
-    
-    NSLog(@"urls: %@", userAuth);
-    
-    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
-    
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"GET"; //2
-    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
-    
-    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
-    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
-    
-//    __block BOOL validAuth = nil;
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-    
-    
-    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-        
-        if (error == nil) {
-            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"Matching");
-            NSLog(@"%@", responseBody);
-            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-            NSLog(@"%@", responseArray);
-            /*[self parseAndGetItems:responseArray toArray:_items];*/
-            dispatch_semaphore_signal(semaphore);
-            
-        } else {
-            //error
-            dispatch_semaphore_signal(semaphore);
-        }
-    }];
-    
-    
-    [dataTask resume];
-    
-    //waiting for the call to be done
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//    NSString* userAuth = [@"match" stringByAppendingPathComponent:username];
+//    
+//    NSLog(@"urls: %@", userAuth);
+//    
+//    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userAuth]]; //1
+//    
+//    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+//    request.HTTPMethod = @"GET"; //2
+//    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+//    
+//    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+//    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+//    
+////    __block BOOL validAuth = nil;
+//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+//    
+//    
+//    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+//        
+//        if (error == nil) {
+//            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//            NSLog(@"Matching");
+//            NSLog(@"%@", responseBody);
+//            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+//            NSLog(@"%@", responseArray);
+//            /*[self parseAndGetItems:responseArray toArray:_items];*/
+//            dispatch_semaphore_signal(semaphore);
+//            
+//        } else {
+//            //error
+//            dispatch_semaphore_signal(semaphore);
+//        }
+//    }];
+//    
+//    
+//    [dataTask resume];
+//    
+//    //waiting for the call to be done
+//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
 - (void) updateUser:(User*)user
@@ -200,6 +204,57 @@ static NSString* const kLocations = @"user";
     return validAuth;
 }
 
+-(BOOL) checkUsernameExists:(NSString*)username {
+    NSString* userCheck = [@"userCheck" stringByAppendingPathComponent:username];
+    //    userCheck = [userAuth stringByAppendingString:@":"];
+    
+    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:userCheck]]; //1
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"GET"; //2
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    __block BOOL exists = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if([responseBody rangeOfString:@"Taken"].location!= NSNotFound) {
+                //if([responseBody containsString:@"error"]) {
+                
+                
+                //authentication failed
+                exists = TRUE;
+            } else {
+                
+                //authentication successful
+                NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                [self getParsePrimaryUser:responseArray];
+                exists = FALSE;
+            }
+            dispatch_semaphore_signal(semaphore);
+            
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    
+    
+    [dataTask resume];
+    
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    return exists;
+    
+}
+
 
 -(BOOL)addNewUserToServerWithUsername:(NSString*)username andPassword:(NSString*)password {
     
@@ -209,6 +264,10 @@ static NSString* const kLocations = @"user";
     //should check db to see if username already exists
     if (!user || [username length] == 0) {
         return FALSE; //input safety check
+    }
+    
+    if ([self checkUsernameExists:username]) {
+        return FALSE;
     }
     
     NSString* locations = [kBaseURL stringByAppendingPathComponent:kLocations];
@@ -234,6 +293,7 @@ static NSString* const kLocations = @"user";
      dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
         if (!error) {
             NSArray* responseArray = @[[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
 
