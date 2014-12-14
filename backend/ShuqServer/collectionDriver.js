@@ -42,7 +42,7 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
       else {
         the_collection.find().toArray(function(error, results) {
           if( error ) callback(error);
-          else callback(null, results)
+          else callback(null, results);
         });
       }
     });
@@ -55,11 +55,16 @@ CollectionDriver.prototype.makeAllMatches = function(collectionName, callback) {
       for (var i=0; i<allUsers.length; i++) {
         var currentMatches = cDriver.matchesForOne(allUsers[i], allUsers);
         var userString = allUsers[i].username.concat("Matches");
-        cDriver.save(userString, currentMatches, function(error, response) {
+        cDriver.deleteAll(userString, function(error, noerror) {
           if (error) callback(error);
+          else {
+            cDriver.save(userString, currentMatches, function(error, response) {
+              if (error) callback(error);
+            });
+          }
         });
-      }
       callback(null, "Matches Done");
+      }
     }
   });
 };
