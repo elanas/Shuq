@@ -1,0 +1,22 @@
+{
+	"username" : "Elana",
+	"_id"      : "Elana",
+	"location" : "11111",
+	"password" : "51438008",
+
+	"inventory" : { 
+		"items" : 
+			[
+			]
+	},
+
+	"wishlist" : {
+		"items" : 
+			[
+			]
+	},
+
+	"settings" : {
+		"privacy" : 3
+	}
+}
