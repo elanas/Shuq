@@ -83,8 +83,7 @@ CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callba
             if (error) callback(error);
             else {
               var arrayOfMatches = cDriver.matchesForOne(user, allUsers);
-              console.log(theString);
-              cDriver.save(theString, arrayOfMatches, function(error, response) {
+              cDriver.save(stringMatchCollection, arrayOfMatches, function(error, response) {
                 if (error) callback(error);
                 else callback(response);
               });
