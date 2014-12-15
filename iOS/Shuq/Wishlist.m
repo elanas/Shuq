@@ -45,10 +45,6 @@
     return self;
 }
 
--(NSMutableArray*) getWishlistItems {
-    return [super getItems];
-}
-
 -(void) addItem:(Item*)i {
     [super addItem:i];
 }

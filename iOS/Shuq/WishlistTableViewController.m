@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    Wishlist* wishlist = [[[ShuqModel getModel] getPrimaryUser] getWishlist];
-    items = [wishlist getWishlistItems];
+    itemList = [[[ShuqModel getModel] getPrimaryUser] getWishlist];
+    items = [itemList getItems];
 
     [_tableView setDataSource:self];
     [_tableView setDelegate:self];
@@ -33,22 +33,22 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [items count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WishlistItemCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WishlistItemCell"];
-    }
-    cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
-    
-    return cell;
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [items count];
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WishlistItemCell"];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WishlistItemCell"];
+//    }
+//    cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
+//    
+//    return cell;
+//}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
