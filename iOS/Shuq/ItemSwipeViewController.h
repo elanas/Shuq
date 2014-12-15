@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "TemplateNavViewController.h"
 #import "ShuqModel.h"
 
@@ -42,7 +43,22 @@
  */
 @property (weak, nonatomic) IBOutlet UITextView* itemDesc;
 
+/**
+ Called when match button is pressed
+ */
+- (IBAction)MatchButton:(id)sender;
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender;
+/**
+ Called after the user sends a text message
+ */
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result;
+
+/**
+ Opens up a text message to send to the user
+ @param itemName name of the item
+ @param the number to send it to
+ */
+- (void)showSMS:(NSString*)itemName andReciepient: (NSString*) number;
 
 @end

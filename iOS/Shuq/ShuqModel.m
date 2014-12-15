@@ -18,6 +18,7 @@ static NSString* const kLocations = @"user";
     self = [super init];
     if (self) {
         _items = [[NSMutableArray alloc] init];
+        contacts = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -435,16 +436,23 @@ static NSString* const kLocations = @"user";
 - (void) parseMatchingItems: (NSArray*) us {
      
     for (NSDictionary* user_item in us) {
-        [self parseAndGetItems:user_item[@"userHas"] toArray:_items];
+        NSString* con = [user_item[@"contact"] stringValue];
+        [self parseAndGetItems:user_item[@"userHas"] toArray:_items andContact:con];
     }
     NSLog(@"Load image");
 }
 
-- (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray {
+- (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray andContact: (NSString*) con{
     for (NSDictionary* item in it) {
         Item* i = [[Item alloc] initWithDictionary:item];
         [destinationArray addObject:i];
+        [contacts addObject:con];
     }
+
+}
+
+- (NSString*) getContact: (Item*) it {
+    return [contacts objectAtIndex:[_items indexOfObject:it]];
 }
 
 

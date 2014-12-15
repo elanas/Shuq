@@ -17,6 +17,8 @@
      */
     User *primaryUser;
 
+    /**Dictionay that maps forgeign items to the contact information of the person that has the item*/
+    NSMutableArray* contacts;
     
     BOOL _isValid;
 }
@@ -92,8 +94,14 @@
  Gets the items objects from an array of JSON item objects
  @param it array of json items
  @param destinationArray arrray to store items
+ @param and 
  */
-- (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray;
-
+- (void) parseAndGetItems:(NSArray*) it toArray:(NSMutableArray*) destinationArray andContact: (NSString*) con;
+/**
+ Returns the contact information associated with the item
+ @param item
+ @return the phone number
+ */
+- (NSString*) getContact: (Item*) it;
 
 @end
