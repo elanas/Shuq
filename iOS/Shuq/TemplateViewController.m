@@ -53,6 +53,17 @@
     }
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 /*
 #pragma mark - Navigation
 

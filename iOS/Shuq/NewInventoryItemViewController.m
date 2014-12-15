@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    textFields = [[NSMutableArray alloc]initWithObjects:_descriptionTextField, _nameTextField, _valueTextField, nil];
+    
     // Do any additional setup after loading the view.
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         

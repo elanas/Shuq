@@ -36,15 +36,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    textFields = [[NSMutableArray alloc]initWithObjects:_newuserTextField, _newpassTextField, _newcontactTextField, _locationField, nil];
+
+    
     _newuserTextField.delegate = self;
     _newpassTextField.delegate = self;
     _newcontactTextField.delegate = self;
     _locationField.delegate = self;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-    
+
     //formatting text fields
     CGRect frameRect = _newuserTextField.frame;
     frameRect.size.height = FRAME_SIZE;
@@ -101,15 +100,8 @@
 
 
 -(void)dismissKeyboard {
-    [_newuserTextField resignFirstResponder];
-    [_newpassTextField resignFirstResponder];
-    [_newcontactTextField resignFirstResponder];
     [_locationField resignFirstResponder];
-}
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    return YES;
+    [super dismissKeyboard];
 }
 
 -(void)addLocation {

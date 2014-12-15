@@ -10,7 +10,7 @@
 /**
  The Class TemplateScreen. This class is extended by all other screens.
  */
-@interface TemplateViewController : UIViewController {
+@interface TemplateViewController : UIViewController <UITextFieldDelegate> {
     NSMutableArray *textFields;
 }
 -(void)dismissKeyboard;
