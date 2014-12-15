@@ -3,6 +3,7 @@
 	"_id"      : "Elana",
 	"location" : "11111",
 	"password" : "51438008",
+        "contact"  : "1234567890",
 
 	"inventory" : { 
 		"items" : 

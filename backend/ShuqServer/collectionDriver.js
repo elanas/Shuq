@@ -188,6 +188,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
         {
           username: otherUser.username,
           _id: otherUser.username,
+          contact: otherUser.contact,
           userHas: otherHas,
           userWants: otherWants,
           score: score,
