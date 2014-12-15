@@ -9,5 +9,5 @@
 #import "TemplateViewController.h"
 
 @interface TemplateNavViewController : TemplateViewController
-
+-(void)dismissKeyboard;
 @end

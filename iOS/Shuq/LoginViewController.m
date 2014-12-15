@@ -40,12 +40,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    textFields = [[NSMutableArray alloc]initWithObjects:_usernameTextField, _passwordTextField, nil];
+    
     _usernameTextField.delegate = self;
     _passwordTextField.delegate = self;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
     
     //formatting text fields
     CGRect frameRect = _usernameTextField.frame;
@@ -101,11 +100,6 @@
     UIAlertView *about = [[UIAlertView alloc]initWithTitle:@"About this App" message:@"Shuq is a mobile trading post, allowing users to trade what they have for what they want. If you have an account, you can login here. Otherwise, hit the new user button to get started!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     
     [about show];
-}
-
--(void)dismissKeyboard {
-    [_usernameTextField resignFirstResponder];
-    [_passwordTextField resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
