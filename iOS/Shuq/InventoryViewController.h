@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ShuqModel.h"
+#import "ListTableTableViewController.h"
 
-@interface InventoryViewController : UITableViewController
+@interface InventoryViewController : ListTableTableViewController
 {
-    /**
-     The user whose inventory this view will represent
-     */
-    User* user;
-    /**
-     The array of items to populate the cells of the table
-     */
-    NSMutableArray *items;
+
 }
 
 /**
@@ -30,5 +24,8 @@
  An item to view as a single item
  */
 @property Item* toSend;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

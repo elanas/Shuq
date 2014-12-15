@@ -25,16 +25,4 @@
     NSMutableArray *items;
 }
 
-/**
- The model
-// */
-//@property ShuqModel* model;
-//
-///**
-// An item to view as a single item
-// */
-//@property Item* toSend;
-//
-//@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end

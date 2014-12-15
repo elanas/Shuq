@@ -46,11 +46,6 @@
     return self;
 }
 
-
--(NSMutableArray*) getInventoryItems {
-    return [super getItems];
-}
-
 -(void) addItem:(Item*)i {
     [items addObject:i];
 }

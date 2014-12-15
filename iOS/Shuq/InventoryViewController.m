@@ -21,32 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.tableView.frame = CGRectMake(0, 500, 320, 500);
+    itemList = [[[ShuqModel getModel] getPrimaryUser] getInventory];
+    items = [itemList getItems];
     
-
-    Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
-    items = [inventory getInventoryItems];
+    [_tableView setDataSource:self];
+    [_tableView setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [items count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InventoryItemCell" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InventoryItemCell"];
-    }
-    cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
-    
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,31 +47,5 @@
         destViewController.item = _toSend;
     }
 }
-
-
-//- (void)import
-//{
-//    NSURL* url = [NSURL URLWithString:[kBaseURL stringByAppendingPathComponent:kLocations]]; //1
-//    
-//    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-//    request.HTTPMethod = @"GET"; //2
-//    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
-//    
-//    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
-//    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
-//    NSLog(@"reached");
-//    
-//    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
-//        if (error == nil) {
-//            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
-//            [self parseAndGetUsers:responseArray toArray:users]; //7
-//            NSLog(@"here");
-//            
-//        }
-//    }];
-//    
-//    [dataTask resume];
-//    
-//}
 
 @end

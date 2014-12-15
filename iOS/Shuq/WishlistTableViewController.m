@@ -33,24 +33,6 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [items count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WishlistItemCell"];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WishlistItemCell"];
-//    }
-//    cell.textLabel.text = [[items objectAtIndex:(indexPath.row)] getName];
-//    
-//    return cell;
-//}
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Value Selected by user
