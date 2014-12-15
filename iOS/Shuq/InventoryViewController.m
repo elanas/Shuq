@@ -20,6 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.tableView.frame = CGRectMake(0, 500, 320, 500);
+    
+
     Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
     items = [inventory getInventoryItems];
 }

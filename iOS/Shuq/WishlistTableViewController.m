@@ -20,6 +20,9 @@
     
     Wishlist* wishlist = [[[ShuqModel getModel] getPrimaryUser] getWishlist];
     items = [wishlist getWishlistItems];
+
+    [_tableView setDataSource:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,13 +34,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSLog([[items count] stringvalue]);
     return [items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WishlistItemCell" forIndexPath:indexPath];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WishlistItemCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WishlistItemCell"];
     }

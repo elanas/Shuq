@@ -35,6 +35,8 @@
  The value text field
  */
 @property (weak, nonatomic) IBOutlet UITextField *valueTextField;
+
+//@property (weak, nonatomic) 
 /**
  The method to get ready to go back to the inventory (soon it will send data back without having to use a segue)
  */

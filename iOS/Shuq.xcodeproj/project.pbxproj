@@ -11,6 +11,7 @@
 		0B1140871A3E3DB4000CEBA2 /* TemplateNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1140861A3E3DB4000CEBA2 /* TemplateNavViewController.m */; };
 		0B11408B1A3E40DE000CEBA2 /* AddItemTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11408A1A3E40DE000CEBA2 /* AddItemTemplateViewController.m */; };
 		0B11408E1A3E419E000CEBA2 /* SingleItemTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B11408D1A3E419E000CEBA2 /* SingleItemTemplateViewController.m */; };
+		0B1140911A3E4E92000CEBA2 /* ListTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1140901A3E4E92000CEBA2 /* ListTableTableViewController.m */; };
 		0B1A3DFA1A3CDB1C009E34FF /* shuq37.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DF91A3CDB1C009E34FF /* shuq37.png */; };
 		0B1A3DFC1A3CDF55009E34FF /* shuq38.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DFB1A3CDF55009E34FF /* shuq38.png */; };
 		0B24CB221A3D049600855025 /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B24CB211A3D049600855025 /* splash-screen.png */; };
@@ -101,6 +102,8 @@
 		0B11408A1A3E40DE000CEBA2 /* AddItemTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemTemplateViewController.m; sourceTree = "<group>"; };
 		0B11408C1A3E419E000CEBA2 /* SingleItemTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleItemTemplateViewController.h; sourceTree = "<group>"; };
 		0B11408D1A3E419E000CEBA2 /* SingleItemTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleItemTemplateViewController.m; sourceTree = "<group>"; };
+		0B11408F1A3E4E92000CEBA2 /* ListTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableTableViewController.h; sourceTree = "<group>"; };
+		0B1140901A3E4E92000CEBA2 /* ListTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableTableViewController.m; sourceTree = "<group>"; };
 		0B1A3DF91A3CDB1C009E34FF /* shuq37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq37.png; sourceTree = "<group>"; };
 		0B1A3DFB1A3CDF55009E34FF /* shuq38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq38.png; sourceTree = "<group>"; };
 		0B24CB211A3D049600855025 /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen.png"; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				0B11408A1A3E40DE000CEBA2 /* AddItemTemplateViewController.m */,
 				0B11408C1A3E419E000CEBA2 /* SingleItemTemplateViewController.h */,
 				0B11408D1A3E419E000CEBA2 /* SingleItemTemplateViewController.m */,
+				0B11408F1A3E4E92000CEBA2 /* ListTableTableViewController.h */,
+				0B1140901A3E4E92000CEBA2 /* ListTableTableViewController.m */,
 			);
 			name = templates;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */,
 				0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
+				0B1140911A3E4E92000CEBA2 /* ListTableTableViewController.m in Sources */,
 				32DD69FC1A31A1A10036367C /* SingleWishlistItemViewController.m in Sources */,
 				321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,

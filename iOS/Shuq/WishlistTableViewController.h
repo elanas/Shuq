@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ShuqModel.h"
+#import "TemplateNavViewController.h"
 
-@interface WishlistTableViewController : UITableViewController
+@interface WishlistTableViewController : TemplateNavViewController <UITableViewDataSource>
 {
     /**
      The user whose inventory this view will represent
@@ -30,5 +31,7 @@
  An item to view as a single item
  */
 @property Item* toSend;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
