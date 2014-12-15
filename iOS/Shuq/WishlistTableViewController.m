@@ -22,6 +22,7 @@
     items = [wishlist getWishlistItems];
 
     [_tableView setDataSource:self];
+    [_tableView setDelegate:self];
 
 }
 
@@ -53,6 +54,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Value Selected by user
+    NSLog(@"in here?");
     _toSend = [items objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier: @"cellSelected" sender: self];
 }

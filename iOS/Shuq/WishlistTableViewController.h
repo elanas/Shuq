@@ -10,7 +10,7 @@
 #import "ShuqModel.h"
 #import "TemplateNavViewController.h"
 
-@interface WishlistTableViewController : TemplateNavViewController <UITableViewDataSource>
+@interface WishlistTableViewController : TemplateNavViewController <UITableViewDelegate, UITableViewDataSource>
 {
     /**
      The user whose inventory this view will represent
