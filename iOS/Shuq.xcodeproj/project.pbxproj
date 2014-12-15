@@ -69,6 +69,7 @@
 		0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC398F1A3161F600122AA6 /* MenuViewController.m */; };
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
 		306A479B1A1807FA00F32C9F /* ShuqServerConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */; };
+		30ABDAD31A3E9F5200C7A926 /* ItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 30ABDAD21A3E9F5200C7A926 /* ItemList.m */; };
 		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
 		30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FD1A17D4D200CAF2FB /* Tag.m */; };
 		3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3216340D1A17F41B0092B785 /* InventoryViewController.m */; };
@@ -170,6 +171,8 @@
 		0BDC398F1A3161F600122AA6 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
 		306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqServerConnectionTest.m; sourceTree = "<group>"; };
+		30ABDAD11A3E9F5200C7A926 /* ItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemList.h; sourceTree = "<group>"; };
+		30ABDAD21A3E9F5200C7A926 /* ItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemList.m; sourceTree = "<group>"; };
 		30C059F91A17D48300CAF2FB /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		30C059FA1A17D48300CAF2FB /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		30C059FC1A17D4D200CAF2FB /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
@@ -396,6 +399,8 @@
 		32BE56FC1A02DB73000CDE5B /* ShuqModel */ = {
 			isa = PBXGroup;
 			children = (
+				30ABDAD11A3E9F5200C7A926 /* ItemList.h */,
+				30ABDAD21A3E9F5200C7A926 /* ItemList.m */,
 				30C059F91A17D48300CAF2FB /* Settings.h */,
 				30C059FA1A17D48300CAF2FB /* Settings.m */,
 				0BA0B06E1A00BF710087DDA5 /* Item.h */,
@@ -557,6 +562,7 @@
 				0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */,
 				32BE56FB1A02DB6C000CDE5B /* Wishlist.m in Sources */,
 				0B1140911A3E4E92000CEBA2 /* ListTableTableViewController.m in Sources */,
+				30ABDAD31A3E9F5200C7A926 /* ItemList.m in Sources */,
 				32DD69FC1A31A1A10036367C /* SingleWishlistItemViewController.m in Sources */,
 				321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,

@@ -13,11 +13,7 @@
 @implementation Inventory
 
 -(id)init {
-    self = [super init];
-    if (self) {
-        items = [[NSMutableArray alloc] init];
-    }
-    return self;
+    return [super init];
 }
 
 - (instancetype) initWithDictionary:(NSDictionary*)dictionary {
@@ -31,7 +27,7 @@
         NSMutableArray* itemJSON = dictionary[@"items"];
         for (NSUInteger i=0; i< [itemJSON count]; i++)
         {
-             Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"] andValue: [itemJSON objectAtIndex:i][@"value"]];
+            Item* item = [[Item alloc] initWithName:[itemJSON objectAtIndex:i][@"name"] andValue: [itemJSON objectAtIndex:i][@"value"]];
             [item setDesc:[itemJSON objectAtIndex:i][@"description"]];
             [item setImageId:[itemJSON objectAtIndex:i][@"imageId"]];
             if([item getImageID] != nil) {
@@ -52,7 +48,7 @@
 
 
 -(NSMutableArray*) getInventoryItems {
-    return items;
+    return [super getItems];
 }
 
 -(void) addItem:(Item*)i {
@@ -74,6 +70,7 @@
     }
     return nil;
 }
+
 - (NSDictionary*) toDictionary
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
@@ -82,23 +79,7 @@
          NSMutableArray* itemJSON =[[NSMutableArray alloc] init];
          
          for (NSUInteger i = 0; i < [items count]; i++) {
-             
-             NSMutableDictionary* item = [NSMutableDictionary dictionary];
-             item[@"name"] = [[items objectAtIndex:i] getName];
-             if([[items objectAtIndex:i] getImageID] != nil) {
-                 item[@"imageId"] = [[items objectAtIndex:i] getImageID];
-             }
-             
-             item[@"value"]= [[items objectAtIndex:i] getValue];
-             
-             item[@"description"]= [[items objectAtIndex:i] getDesc];
-             
-             NSMutableArray* tagList = [[items objectAtIndex:i]getTags];
-             NSMutableArray* tagJSON =[[NSMutableArray alloc] init];
-             for(NSUInteger n = 0; n < [tagList count]; n++) {
-                 [tagJSON addObject: [[tagList objectAtIndex:n] toDictionary]];
-             }
-             item[@"taglist"] = tagJSON;
+             NSMutableDictionary* item = [[items objectAtIndex:i] toDictionary];
              [itemJSON addObject:item];
          }
          safeSet(jsonable, @"items", itemJSON);
