@@ -108,7 +108,10 @@
  Set the image of the object
  */
 -(void) setImage: (UIImage*) i;
-
+/**
+ Turn the item into a dictionary
+ */
+- (NSDictionary*) toDictionary;
 
 
 @end

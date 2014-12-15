@@ -148,7 +148,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       for (var k=0; k<otherUser.inventory.items.length; ++k) {
         var othersItem = otherUser.inventory.items[k];
 
-        if (othersItem.name.toLowerCase() != userToMatch.wishlist.items[j].name.toLowerCase()) {
+        if (othersItem.name.toLowerCase().trim() != userToMatch.wishlist.items[j].name.toLowerCase().trim()) {
           continue;
         }
 
@@ -170,7 +170,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       for (var k=0; k<otherUser.wishlist.items.length; ++k) {
         var myItem = userToMatch.inventory.items[j];
 
-        if (myItem.name.toLowerCase() != otherUser.wishlist.items[k].name.toLowerCase()) {
+        if (myItem.name.toLowerCase().trim() != otherUser.wishlist.items[k].name.toLowerCase().trim()) {
           continue;
         }
 
