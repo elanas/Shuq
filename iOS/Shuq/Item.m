@@ -112,6 +112,26 @@
     image = i;
 }
 
+- (NSDictionary*) toDictionary {
+    NSMutableDictionary* toReturn = [NSMutableDictionary dictionary];
+    toReturn[@"name"] = [self getName];
+    if([self getImageID] != nil) {
+        toReturn[@"imageId"] = [self getImageID];
+    }
+    
+    toReturn[@"value"]= [self getValue];
+    
+    toReturn[@"description"]= [self getDesc];
+    
+    NSMutableArray* tagList = [self getTags];
+    NSMutableArray* tagJSON =[[NSMutableArray alloc] init];
+    for(NSUInteger n = 0; n < [tagList count]; n++) {
+        [tagJSON addObject: [[tagList objectAtIndex:n] toDictionary]];
+    }
+    toReturn[@"taglist"] = tagJSON;
+    return toReturn;
+}
+
 
 
 @end

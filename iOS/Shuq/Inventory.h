@@ -8,15 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "Item.h"
+#import "ItemList.h"
 /**
  This class will contain all of the items that a user is offering.
  */
-@interface Inventory : NSObject {
-    /**
-     List of items in the inventory
-     */
-    NSMutableArray* items;
-}
+@interface Inventory : ItemList 
 
 /**
  Create new inventory
