@@ -129,7 +129,7 @@ app.get('/:collection/:entity', function(req, res) {
   else if (collection == "demoMakeMatches") {
     collectionDriver.demoMakeMatches("user", entity, function(error, response) {
       if(error) {res.send(400, error);}
-      res.send(200, response);
+      else {res.send(200, response);}
     });
   }
 

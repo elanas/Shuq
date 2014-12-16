@@ -96,8 +96,10 @@ CollectionDriver.prototype.demoMakeMatches = function(collectionName, id, callba
               var arrayOfMatches = cDriver.matchesForOne(user, allUsers);
               if (arrayOfMatches.length != 0) {
                 cDriver.save(stringMatchCollection, arrayOfMatches, function(error, response) {
-                  if (error) callback(error);
-                  else callback(response);
+                  if (error) { callback(error); }
+                  else {
+                    callback(response);
+                    }
                 });
               } else {
                 callback(null, "No Matches");
