@@ -46,6 +46,7 @@
     if ([segue.identifier isEqualToString:@"deleteItem"]) {
         ShuqModel *model = [ShuqModel getModel];
         [[[model getPrimaryUser] getInventory] removeItem:_item];
+        [model updateUser:[model getPrimaryUser]];
     }
 }
 

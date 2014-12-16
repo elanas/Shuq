@@ -53,10 +53,6 @@
     return [super getItem:i];
 }
 
--(Item*) removeItem:(NSUInteger*)i {
-    return [super removeItem:i];
-}
-
 -(void) emptyWishlist {
     for (NSUInteger i = 0; i < [items count]; i++) {
         [items removeObjectAtIndex:i];

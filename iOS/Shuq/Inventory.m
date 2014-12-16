@@ -57,12 +57,6 @@
     return nil;
 }
 
--(void) removeItem:(Item*)i {
-    if ([items indexOfObject:i] != nil) {
-        [items removeObject:i];
-    }
-}
-
 - (NSDictionary*) toDictionary
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];

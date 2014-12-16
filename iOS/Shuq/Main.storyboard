@@ -431,7 +431,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dXY-3A-aXL" kind="modal" id="8HP-PQ-5GC"/>
+                                    <segue destination="dXY-3A-aXL" kind="modal" identifier="deleteItem" id="8HP-PQ-5GC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -439,7 +439,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="cgr-Gx-ygu"/>
                     <connections>
-                        <outlet property="deleteButton" destination="DNl-lu-qdo" id="Qkq-dN-03q"/>
                         <outlet property="descriptionText" destination="sZI-4a-iB0" id="2ZS-Tj-ozR"/>
                         <outlet property="navigationBar" destination="NvR-Iq-pDQ" id="ohT-gw-m80"/>
                         <outlet property="navigationItem" destination="NvR-Iq-pDQ" id="ANX-CW-89u"/>
@@ -515,6 +514,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Al2-ob-WdA"/>
                     <connections>
+                        <outlet property="tableView" destination="tib-A5-6Bp" id="eey-hy-xgm"/>
                         <outlet property="view" destination="tib-A5-6Bp" id="7dv-rc-lfU"/>
                         <segue destination="kxr-wb-jhP" kind="modal" identifier="cellSelected" id="RDn-jQ-5cx"/>
                     </connections>

@@ -38,9 +38,8 @@
 -(Item*) getItem:(NSUInteger*)i;
 /**
  Removes the item at the specific position in the wishlist
- @param i index
- @return the delted item
+ @param i item
  */
--(Item*) removeItem:(NSUInteger*)i;
+-(void) removeItem:(Item*)i;
 
 @end

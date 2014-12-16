@@ -38,12 +38,6 @@
  */
 -(Item*) getItem:(NSUInteger*)i;
 /**
- Removes the item at the specific position in the inventory
- @param i index
- @return the removed item
- */
--(void) removeItem:(Item*)i;
-/**
  Convert to JSONable object
  */
 - (NSDictionary*) toDictionary;
