@@ -17,14 +17,6 @@
      */
     NSString* title;
     /**
-     File path to a photo of the item.
-     */
-    NSString* pathname;
-    /**
-     Description of the item
-     */
-    NSString* desc;
-    /**
      Tags of the item
      */
     NSMutableArray* tags;
@@ -42,17 +34,10 @@
     NSString* imageId;
 }
 
-
-/**
- Constructor to create new item
- @param name name of the item
- @param path file path to a photo
- @param d description of the item
- */
--(id)initWithName:(NSString *)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSNumber*) v;
 /**
  Creates a new item
  @param name name of the item
+ @param v the value of the item
  */
 -(id)initWithName:(NSString *)name andValue: (NSNumber*) v;
 
@@ -62,31 +47,22 @@
  */
 - (instancetype) initWithDictionary:(NSDictionary*)dictionary;
 /**
- Resturns the file path to the photo
- @return file path to photo
- */
--(NSString*) getPath;
-/**
  Returns name of item
  @return name
  */
 -(NSString*) getName;
-/** Returns description of item
- @return description
- */
--(NSString*) getDesc;
-/** Sets the description of item
- @param
- */
--(void) setDesc: (NSString*) d;
 /** Returns value of item
  @return value
  */
 -(NSNumber*) getValue;
-/** Returns description of item
+/** Returns tags of item
  @return tags
  */
 -(NSMutableArray*) getTags;
+/** Returns comma seperated tags of item
+ @return tags
+ */
+-(NSString*) getTagsStrings;
 /**
  Add a tag to the item
  @param t name of tag to add

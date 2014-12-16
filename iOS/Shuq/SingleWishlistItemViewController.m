@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _descriptionText.text = [_item getDesc];
+    _descriptionText.text = [@"Tags: " stringByAppendingString:[_item getTagsStrings]];
     _valueText.text = [[_item getValue] stringValue];
     _navigationBar.title = [_item getName];
 }

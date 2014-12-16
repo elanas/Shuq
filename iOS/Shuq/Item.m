@@ -13,20 +13,6 @@
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 
-
--(id)initWithName:(NSString*)name andPath:(NSString*) path andDesc:(NSString*) d andValue:(NSNumber *)v{
-    self = [super init];
-    
-    if (self) {
-        title = name;
-        pathname = path;
-        desc = d;
-        value = v;
-        tags = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
-
 -(id)initWithName:(NSString*)name andValue: (NSNumber*) v{
     self = [super init];
     
@@ -47,7 +33,6 @@
         tags = [[NSMutableArray alloc] init];
         
         title = dictionary[@"name"];
-        desc = dictionary[@"description"];
         imageId = dictionary[@"imageId"];
         value = dictionary[@"value"];
         if(imageId != nil) {
@@ -55,10 +40,10 @@
             [model loadImage:self];
         }
         
-        NSMutableArray* tagJSON = dictionary[@"taglist"];
+        NSMutableArray* tagJSON = dictionary[@"tags"];
         for(NSUInteger n=0; n< [tagJSON count]; n++)
         {
-            [self addTag:[tagJSON objectAtIndex:n][@"tagname"]];
+            [self addTag:[tagJSON objectAtIndex:n]];
         }
         
     }
@@ -70,25 +55,22 @@
     return title;
 }
 
--(NSString*) getPath {
-    return pathname;
-}
-
--(NSString*) getDesc {
-    return desc;
-}
-
--(void) setDesc: (NSString*) d {
-    desc = d;
-}
-
-
 -(NSNumber*) getValue {
     return value;
 }
 
 -(NSMutableArray*) getTags {
     return tags;
+}
+-(NSString*) getTagsStrings {
+    NSString* result =@"";
+    for (int i=0; i< [tags count]; i++) {
+        result =[result stringByAppendingString:[[tags objectAtIndex:i]getTagName]];
+        if (i!= [tags count]-1) {
+            result = [result stringByAppendingString:@", "];
+        }
+    }
+    return result;
 }
 -(void) addTag: (NSString *) t{
     Tag* tag = [[Tag alloc] initWithName:t];
@@ -121,16 +103,16 @@
     
     toReturn[@"value"]= [self getValue];
     
-    toReturn[@"description"]= [self getDesc];
-    
     NSMutableArray* tagList = [self getTags];
     NSMutableArray* tagJSON =[[NSMutableArray alloc] init];
     for(NSUInteger n = 0; n < [tagList count]; n++) {
-        [tagJSON addObject: [[tagList objectAtIndex:n] toDictionary]];
+        Tag* t= [tagList objectAtIndex:n];
+        [tagJSON addObject: [t getTagName]];
     }
-    toReturn[@"taglist"] = tagJSON;
+    toReturn[@"tags"] = tagJSON;
     return toReturn;
 }
+
 
 
 

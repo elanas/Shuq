@@ -56,7 +56,9 @@
     if([segue.identifier isEqualToString:@"backToInventory"]){
         
         NSNumber* num = [NSNumber numberWithInteger:[_valueTextField.text integerValue]];
-        Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:num];
+        Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andValue:num];
+        //Add tags
+        [super addTags:_descriptionTextField.text toItem:newInventoryItem];
 
         //Set item photo
         if(self.photo != nil) {
