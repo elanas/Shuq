@@ -608,6 +608,7 @@
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="addItemButton" destination="aBe-Is-dDL" id="pTX-mP-eil"/>
                         <outlet property="descriptionTextField" destination="ey7-Zy-3h0" id="Eza-6f-vFw"/>
                         <outlet property="imageView" destination="8Fs-LL-xk0" id="N2F-Ux-Z9G"/>
                         <outlet property="nameTextField" destination="s8g-Et-4sf" id="is1-G7-BYO"/>
@@ -740,6 +741,7 @@
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="addItemButton" destination="K3M-nl-aa0" id="axi-PU-8oE"/>
                         <outlet property="descriptionTextField" destination="M1U-Rn-GgS" id="JU3-L5-XVe"/>
                         <outlet property="nameTextField" destination="eRf-5Y-Sva" id="HSq-7z-yTP"/>
                         <outlet property="valueTextField" destination="MPy-c2-mpb" id="mw8-JJ-yKP"/>
