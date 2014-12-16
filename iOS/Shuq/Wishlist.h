@@ -18,40 +18,7 @@
  create new wishlist
  */
 -(id)init;
-/**
- Iniatiates the object from a JSON
- */
-- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
-/**
- Returns a list of all of the items in the wishlist
- @return items in wishlist
- */
--(NSMutableArray*) getWishlistItems;
-/**
- Adds a new item to the wishlist
- @param i item to add
- */
--(void) addItem:(Item*)i;
-/**
- Returns the item at the specific position in the wishlist
- @param i index
- @return the item at index i
- */
--(Item*) getItem:(NSUInteger*)i;
-/**
- Removes the item at the specific position in the wishlist
- @param i index
- @return the delted item
- */
--(Item*) removeItem:(NSUInteger*)i;
-/**
- Removes all items in the wishlist
- */
--(void) emptyWishlist;
-/**
- Convert to JSONable object
- */
-- (NSDictionary*) toDictionary;
+
 
 
 @end
