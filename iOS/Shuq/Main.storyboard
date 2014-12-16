@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1sZ-an-KTF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1sZ-an-KTF">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -293,7 +293,7 @@
             </objects>
             <point key="canvasLocation" x="-817" y="322"/>
         </scene>
-        <!--Item Swipe View Controller - Title-->
+        <!--Title-->
         <scene sceneID="dKE-EU-azq">
             <objects>
                 <viewController id="cre-zQ-kbs" customClass="ItemSwipeViewController" sceneMemberID="viewController">
@@ -423,9 +423,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DNl-lu-qdo">
+                                <rect key="frame" x="137" y="415" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dXY-3A-aXL" kind="modal" identifier="deleteItem" id="8HP-PQ-5GC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cgr-Gx-ygu"/>
                     <connections>
                         <outlet property="descriptionText" destination="sZI-4a-iB0" id="2ZS-Tj-ozR"/>
                         <outlet property="navigationBar" destination="NvR-Iq-pDQ" id="ohT-gw-m80"/>
@@ -486,7 +498,7 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryItemCell" id="cxx-kQ-wSo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InventoryItemCell" id="cxx-kQ-wSo">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxx-kQ-wSo" id="hWu-N5-wsq">
@@ -502,6 +514,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Al2-ob-WdA"/>
                     <connections>
+                        <outlet property="tableView" destination="tib-A5-6Bp" id="eey-hy-xgm"/>
                         <outlet property="view" destination="tib-A5-6Bp" id="7dv-rc-lfU"/>
                         <segue destination="kxr-wb-jhP" kind="modal" identifier="cellSelected" id="RDn-jQ-5cx"/>
                     </connections>
@@ -758,6 +771,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gUc-TG-sxs">
+                                <rect key="frame" x="137" y="341" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4kY-hb-PhD" kind="modal" identifier="deleteItem" id="1jX-kD-eQU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -785,8 +809,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hht-9x-lEI"/>
-        <segue reference="wBG-uc-FqG"/>
-        <segue reference="niW-yG-t3L"/>
+        <segue reference="XUY-tV-1cl"/>
+        <segue reference="8HP-PQ-5GC"/>
+        <segue reference="1jX-kD-eQU"/>
     </inferredMetricsTieBreakers>
 </document>

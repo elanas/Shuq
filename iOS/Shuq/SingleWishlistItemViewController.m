@@ -7,6 +7,7 @@
 //
 
 #import "SingleWishlistItemViewController.h"
+#import "ShuqModel.h"
 
 @interface SingleWishlistItemViewController ()
 
@@ -35,5 +36,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"deleteItem"]) {
+        ShuqModel *model = [ShuqModel getModel];
+        [[[model getPrimaryUser] getWishlist] removeItem:_item];
+        [model updateUser:[model getPrimaryUser]];
+    }
+}
 
 @end

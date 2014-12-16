@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 @end
