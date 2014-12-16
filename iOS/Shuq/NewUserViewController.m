@@ -126,7 +126,6 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid Location" message:@"Zipcode must be 5-digits longs." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    NSLog(@"halllelujah");
     [[model getPrimaryUser] setLocation:loc];
     [model updateUser:[model getPrimaryUser]];
 }
@@ -140,19 +139,21 @@
 {
     NSString *newString = textField.text;
     
+   
     if(textField.text.length == 3) {
         newString =[textField.text stringByReplacingCharactersInRange:range withString:@"-"];
-
     } else if(textField.text.length == 7) {
         newString =[textField.text stringByReplacingCharactersInRange:range withString:@"-"];
     }
     [self updateTextLabelsWithText: newString];
     
+   
     return YES;
 }
 
 -(void)updateTextLabelsWithText:(NSString *)string
 {
+    
     if([_newcontactTextField isEditing]) {
         if(string.length > 11) {
             string = [string substringToIndex:11];

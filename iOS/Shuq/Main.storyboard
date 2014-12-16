@@ -222,19 +222,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jt7-BA-hYf">
-                                <rect key="frame" x="0.0" y="74" width="333" height="71"/>
+                                <rect key="frame" x="0.0" y="60" width="333" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="    Inventory" backgroundImage="menubutton.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="dXY-3A-aXL" kind="modal" id="Ppo-Dl-Jzy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zEQ-wH-Wq7">
-                                <rect key="frame" x="0.0" y="145" width="333" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zEQ-wH-Wq7">
+                                <rect key="frame" x="0.0" y="128" width="333" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="    Wishlist" backgroundImage="menubutton.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,28 +244,22 @@
                                     <segue destination="4kY-hb-PhD" kind="modal" id="XVg-38-SA2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ioI-wb-t60">
-                                <rect key="frame" x="0.0" y="216" width="333" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ioI-wb-t60">
+                                <rect key="frame" x="0.0" y="196" width="333" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="    Privacy Settings" backgroundImage="menubutton.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AMq-PK-kNT">
-                                <rect key="frame" x="0.0" y="287" width="333" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AMq-PK-kNT">
+                                <rect key="frame" x="0.0" y="264" width="333" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="    Sign Out" backgroundImage="menubutton.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circles.png" id="Cgh-vT-jp3">
-                                <rect key="frame" x="117" y="361" width="86" height="122"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <navigationBar contentMode="scaleToFill" id="wWW-2Y-lNQ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -353,12 +348,17 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vws-Yq-Wb2">
-                                <rect key="frame" x="59" y="438" width="202" height="38"/>
+                                <rect key="frame" x="16" y="438" width="288" height="52"/>
                                 <color key="backgroundColor" red="0.43824133209999999" green="0.46532846719999998" blue="0.66583029199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Match">
                                     <color key="titleColor" white="1" alpha="0.95999999999999996" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="MatchButton:" destination="cre-zQ-kbs" eventType="touchUpInside" id="tin-H3-NG3"/>
                                 </connections>
@@ -798,7 +798,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circles.png" width="100" height="140"/>
         <image name="menu.png" width="1024" height="1024"/>
         <image name="menubutton.png" width="200" height="30"/>
         <image name="shuq37.png" width="500" height="500"/>
@@ -809,8 +808,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XUY-tV-1cl"/>
-        <segue reference="8HP-PQ-5GC"/>
-        <segue reference="1jX-kD-eQU"/>
+        <segue reference="Ppo-Dl-Jzy"/>
+        <segue reference="zio-dR-h1s"/>
+        <segue reference="XVg-38-SA2"/>
     </inferredMetricsTieBreakers>
 </document>
