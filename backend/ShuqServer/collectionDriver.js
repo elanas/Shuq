@@ -212,6 +212,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 /**
  * Helper function used to determine whether 2 zip codes are considered 'in range' of each other.
  * This function is used to ensure matches are only made between users in range of each other.
+ * Currently, zips are in range if the first 2 digits match
  * @param zip1 the zipcode string of one of the users
  * @param zip2 the zipcode string of the other user
  * @return true if the zips are in range, false otherwise
@@ -238,8 +239,105 @@ CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants)
   var totalMatches = otherHas.length + otherWants.length;
   var int1 = parseInt(zip1);
   var int2 = parseInt(zip2);
-  //TAKE VALUES INTO ACCOUNT??????????????????????
   return ((10000-(Math.abs(int1 - int2))) + (1000*totalMatches));
+};
+
+
+CollectionDriver.prototype.tagHelper = function(usernameToMatch, zip, tags, arrayOfUsers) {
+  console.log("taghelperCalled with " + tags);
+  console.log("tags at 1 is " + tags[1]);
+  var tagMatchesArray = [];
+
+  // for every user in arrayOfUsers
+  for (var i=0; i<arrayOfUsers.length; ++i) {
+    var otherUser = arrayOfUsers[i];
+
+    //don't match John with himself. Skip John
+    if (otherUser.username == usernameToMatch) {
+      continue;
+    }
+    console.log(otherUser.username + " being examined");
+
+    //don't match users that are too far
+    if (!(this.testZip(otherUser.location, zip))) {
+        console.log("failed zip test");
+        continue;
+    }
+
+    console.log("zip matched");
+
+    var otherHas = [];
+
+    // check if he has something John wants
+    // for every tag provided
+    for (var j=0; j<tags.length; ++j) {
+      var currentTag = tags[j];
+      console.log(currentTag + "is the searched tag being checked");
+      //for every item in user i's inventory
+      for (var k=0; k<otherUser.inventory.items.length; ++k) {
+        var othersItem = otherUser.inventory.items[k];
+        //for every tag of that item
+        for (var l=0; l<othersItem.taglist.length; ++l) {
+          var otherTag = othersItem.taglist[l].tagname;
+
+          console.log(currentTag + " and " + otherTag);
+
+          if ((currentTag.toLowerCase().trim() != otherTag.toLowerCase().trim()) &&
+            (currentTag.toLowerCase().trim() != otherTag.toLowerCase().trim())) {
+
+            continue;
+          }
+
+          //if we reach here, this item matches the search, add it and stop checking
+          otherHas.push(othersItem);
+          break;
+        }
+      }
+
+    }
+
+    if (otherHas.length == 0) {
+      continue;
+    }
+
+    //Store a match object representing this match
+    var matchObject =
+        {
+          username: otherUser.username,
+          _id: otherUser.username,
+          contact: otherUser.contact,
+          userHas: otherHas
+        };
+
+    tagMatchesArray.push(matchObject);
+  }
+
+  return tagMatchesArray;
+};
+
+
+CollectionDriver.prototype.searchTags = function(collectionName, username, zip, tags, callback) {
+  var stringSearchCollection = username.concat("Search");
+  this.deleteAll(stringSearchCollection, function(error, response) {
+    if (error) callback(error);
+    else
+    {
+      cDriver.findAll(collectionName, function(error, allUsers) {
+        if (error) callback(error);
+        else {
+          var arrayOfMatches = cDriver.tagHelper(username, zip, tags, allUsers);
+          if (arrayOfMatches.length != 0) {
+            cDriver.save(stringSearchCollection, arrayOfMatches, function(error, response) {
+              if (error) callback(error);
+              else callback(response);
+            });
+          } else {
+            callback(null, "No results matched that search.");
+          }
+        }
+      });
+    }
+  });
 };
 
 /**
@@ -262,7 +360,7 @@ CollectionDriver.prototype.check = function(collectionName, user, callback) {
       });
     }
   });
-}
+};
 
 /**
  * Grabs a specific object from a collection
@@ -281,6 +379,7 @@ CollectionDriver.prototype.get = function(collectionName, id, callback) {
         }
     });
 };
+
 
 
 /**
