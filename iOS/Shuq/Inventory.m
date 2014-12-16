@@ -57,13 +57,10 @@
     return nil;
 }
 
--(Item*) removeItem:(NSUInteger*)i {
-    if ([items objectAtIndex:*i] != nil) {
-        Item* toReturn = [items objectAtIndex:*i];
-        [items removeObjectAtIndex:*i];
-        return toReturn;
+-(void) removeItem:(Item*)i {
+    if ([items indexOfObject:i] != nil) {
+        [items removeObject:i];
     }
-    return nil;
 }
 
 - (NSDictionary*) toDictionary

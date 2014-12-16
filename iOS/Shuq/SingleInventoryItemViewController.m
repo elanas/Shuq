@@ -7,6 +7,7 @@
 //
 
 #import "SingleInventoryItemViewController.h"
+#import "ShuqModel.h"
 
 @interface SingleInventoryItemViewController ()
 
@@ -39,5 +40,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"deleteItem"]) {
+        ShuqModel *model = [ShuqModel getModel];
+        [[[model getPrimaryUser] getInventory] removeItem:_item];
+    }
+}
 
 @end

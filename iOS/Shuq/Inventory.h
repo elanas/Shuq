@@ -42,7 +42,7 @@
  @param i index
  @return the removed item
  */
--(Item*) removeItem:(NSUInteger*)i;
+-(void) removeItem:(Item*)i;
 /**
  Convert to JSONable object
  */
