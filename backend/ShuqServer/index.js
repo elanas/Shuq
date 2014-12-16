@@ -124,17 +124,6 @@ app.get('/:collection/:entity', function(req, res) {
            res.send(400, {error: 'misuse of auth url', url: req.url});
        }
    }
-/*
-   //returns a list of matches for the entity
-   else if (collection == "match") {
-     collectionDriver.match("user", entity, function(error, objs) {
-       if (error) { res.send(400, error);}
-       else {
-           res.send(200, objs);
-       }
-     });
-     }
-*/
 
   else if (collection == "demoMakeMatches") {
     collectionDriver.demoMakeMatches("user", entity, function(error, response) {
@@ -185,6 +174,7 @@ app.put('/:collection/:entity', function(req, res) {
     var params = req.params;
     var entity = params.entity;
     var collection = params.collection;
+
     if (entity) {
        collectionDriver.update(collection, req.body, entity, function(error, objs) {
           if (error) { res.send(400, error); }
@@ -194,6 +184,19 @@ app.put('/:collection/:entity', function(req, res) {
 	   var error = { "message" : "Cannot PUT a whole collection" }
 	   res.send(400, error);
    }
+});
+
+app.put('/searchTags/:name/:location', function(req, res) {
+    var params = req.params;
+    var name = params.name;
+    var location = params.location;
+
+    //specialized put for performing tag searches
+    // req.body should be of form {"tags" : ["blue", "suede"]}
+    collectionDriver.searchTags("user", name, location, req.body.tags, function(error, response) {
+      if(error) {res.send(400, error);}
+      else {res.send(200, response);}
+    });
 });
 
 app.put('/partial/:collection/:entity', function(req, res) {
