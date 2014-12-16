@@ -15,6 +15,7 @@
 		0B1A3DFA1A3CDB1C009E34FF /* shuq37.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DF91A3CDB1C009E34FF /* shuq37.png */; };
 		0B1A3DFC1A3CDF55009E34FF /* shuq38.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DFB1A3CDF55009E34FF /* shuq38.png */; };
 		0B24CB221A3D049600855025 /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B24CB211A3D049600855025 /* splash-screen.png */; };
+		0B6823711A3FC53200D1C12D /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823701A3FC53200D1C12D /* app-icon.png */; };
 		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
@@ -109,6 +110,7 @@
 		0B1A3DF91A3CDB1C009E34FF /* shuq37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq37.png; sourceTree = "<group>"; };
 		0B1A3DFB1A3CDF55009E34FF /* shuq38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq38.png; sourceTree = "<group>"; };
 		0B24CB211A3D049600855025 /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen.png"; sourceTree = "<group>"; };
+		0B6823701A3FC53200D1C12D /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
 		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -383,6 +385,7 @@
 		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0B6823701A3FC53200D1C12D /* app-icon.png */,
 				0B8E54821A3D6545005EB072 /* circles.png */,
 				0B8E54801A3D6519005EB072 /* menubutton.png */,
 				0B24CB211A3D049600855025 /* splash-screen.png */,
@@ -537,6 +540,7 @@
 				0B942F041A3B54D200F26B1A /* shuq16.png in Resources */,
 				0B942F061A3B555A00F26B1A /* shuq17.png in Resources */,
 				0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */,
+				0B6823711A3FC53200D1C12D /* app-icon.png in Resources */,
 				0B77745019FD856B00D2A696 /* InfoPlist.strings in Resources */,
 				0B942F081A3B563600F26B1A /* shuq18.png in Resources */,
 				0B942EEF1A3B4F7000F26B1A /* shuq5.png in Resources */,

@@ -11,7 +11,7 @@
 #import "ShuqModel.h"
 
 
-@interface ListTableTableViewController : TemplateNavViewController  <UITableViewDelegate, UITableViewDataSource>
+@interface ListTableTableViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource>
 
 {
     ItemList* itemList;
