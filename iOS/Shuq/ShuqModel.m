@@ -11,8 +11,8 @@
 
 @implementation ShuqModel
 
-//static NSString* const kBaseURL = @"http://localhost:3000/";
-static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
+static NSString* const kBaseURL = @"http://localhost:3000/";
+//static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
 static NSString* const kLocations = @"user";
 static NSString* const kFiles = @"files";
 
@@ -73,6 +73,7 @@ static NSString* const kFiles = @"files";
 
 -(void)getMatchItems:(NSString*)username {
     NSArray* resp = [com getMatchItems:username];
+    [_items removeAllObjects];
     if(resp != nil) {
         [self parseMatchingItems:resp];
     }
