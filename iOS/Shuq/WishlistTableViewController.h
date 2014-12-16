@@ -8,18 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ShuqModel.h"
-#import "TemplateNavViewController.h"
+#import "ListTableTableViewController.h"
 
-@interface WishlistTableViewController : TemplateNavViewController <UITableViewDataSource>
-{
-    /**
-     The user whose inventory this view will represent
-     */
-    User* user;
-    /**
-     The array of items to populate the cells of the table
-     */
-    NSMutableArray *items;
+@interface WishlistTableViewController : ListTableTableViewController {
+
 }
 
 /**

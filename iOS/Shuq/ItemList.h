@@ -21,6 +21,10 @@
  */
 -(id)init;
 /**
+ Iniatiates the object from a JSON
+ */
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
+/**
  Returns a list of all of the items in the wishlist
  @return items in wishlist
  */
@@ -38,9 +42,12 @@
 -(Item*) getItem:(NSUInteger*)i;
 /**
  Removes the item at the specific position in the wishlist
- @param i index
- @return the delted item
+ @param i item
  */
--(Item*) removeItem:(NSUInteger*)i;
+-(void) removeItem:(Item*)i;
+/**
+ Convert to JSONable object
+ */
+- (NSDictionary*) toDictionary;
 
 @end

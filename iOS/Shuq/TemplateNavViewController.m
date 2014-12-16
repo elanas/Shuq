@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
-    [[UINavigationBar appearance] setFrame:CGRectMake(0, 0, 320, 75)];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:99/255.0 green:137/255.0 blue:217/255.0 alpha:1]];
+    [[UINavigationBar appearance] setFrame:CGRectMake(0, 0, 320, 60)];
 
 }
 

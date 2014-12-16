@@ -9,5 +9,4 @@
 #import "TemplateViewController.h"
 
 @interface TemplateNavViewController : TemplateViewController
-
 @end
