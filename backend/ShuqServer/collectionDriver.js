@@ -148,9 +148,14 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       for (var k=0; k<otherUser.inventory.items.length; ++k) {
         var othersItem = otherUser.inventory.items[k];
 
-        if (othersItem.name.toLowerCase().trim() != userToMatch.wishlist.items[j].name.toLowerCase().trim()) {
+        var thisStrength = this.checkMatch(userToMatch.wishlist.items[j], othersItem);
+        console.log(thisStrength + userToMatch.wishlist.items[j].name +  "   -----");
+        if (thisStrength == 0){
+          console.log(thisStrength + "\n");
+          console.log("in if");
           continue;
         }
+        strength = strength + thisStrength;
 
         otherHas.push(othersItem);
       }
@@ -174,11 +179,12 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
           continue;
         }*/
         var thisStrength = this.checkMatch(myItem, otherUser.wishlist.items[k]);
-        if (thisStrength > 0);
+        console.log(thisStrength + " +++++++");
+        if (thisStrength < 0)
         {
-          strength = strength + thisStrength;
           continue;
         }
+        strength = strength + thisStrength;
 
         otherWants.push(myItem);
       }
@@ -216,7 +222,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 };
 
 CollectionDriver.prototype.checkMatch = function(a, b) {
-  if (stringCompare(a,b)) {
+  if (this.stringCompare(a.name,b.name)) {
     return 1;
   }
   var strength = b.tags.length + 2;
@@ -227,7 +233,7 @@ CollectionDriver.prototype.checkMatch = function(a, b) {
   else {
     for (var i=0; i<a.tags.length; i++) {
       for (var m=0; m<b.tags.length; m++) {
-        if (stringCompare(a,b)) {
+        if (this.stringCompare(a.tags[i],b.tags[m])) {
           strength = strength - 1;
           changed = 1;
         }
