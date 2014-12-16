@@ -160,7 +160,7 @@ app.get('/:collection/:x/:y', function(req, res) {
    var y = params.y;
    var collection = params.collection;
 
-  collectionDriver.getXY(collection, x, y function(err, docs) {
+  collectionDriver.getXY(collection, parseInt(x), parseInt(y), function(err, docs) {
     if (err) { res.send(400, err); }
     else { res.send(200, docs); }
   });
