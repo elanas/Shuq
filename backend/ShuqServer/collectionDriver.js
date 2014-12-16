@@ -38,7 +38,7 @@ CollectionDriver.prototype.findAll = function(collectionName, callback) {
       else {
         the_collection.find().toArray(function(error, results) {
           if( error ) callback(error);
-          else callback(null, {"stuff" : results});
+          else callback(null, results);
         });
       }
     });
