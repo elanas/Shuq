@@ -101,9 +101,11 @@
     if(trimContact.length != 10) {
         alert = [[UIAlertView alloc]initWithTitle:@"Invalid Contact" message:@"Phone number must be 10 digits long." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        return;
     }
     NSNumber* num = [NSNumber numberWithInteger:[trimContact integerValue]];
     
+    NSLog(@"authenticating");
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
         [[model getPrimaryUser] setContact:num];
     } else {
