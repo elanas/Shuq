@@ -43,6 +43,7 @@
  View of the description of the item currently being displayed.
  */
 @property (weak, nonatomic) IBOutlet UITextView* itemDesc;
+@property (weak, nonatomic) IBOutlet UILabel *numMatchesLabel;
 
 /**
  Called when match button is pressed

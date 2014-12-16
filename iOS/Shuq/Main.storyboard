@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1sZ-an-KTF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1sZ-an-KTF">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -294,7 +294,7 @@
             </objects>
             <point key="canvasLocation" x="-803" y="295"/>
         </scene>
-        <!--Item Swipe View Controller - Title-->
+        <!--Title-->
         <scene sceneID="dKE-EU-azq">
             <objects>
                 <viewController id="cre-zQ-kbs" customClass="ItemSwipeViewController" sceneMemberID="viewController">
@@ -369,6 +369,13 @@
                                     <action selector="MatchButton:" destination="cre-zQ-kbs" eventType="touchUpInside" id="tin-H3-NG3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Matches" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rAs-ej-arr">
+                                <rect key="frame" x="60" y="511" width="201" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -377,6 +384,7 @@
                     <connections>
                         <outlet property="itemDesc" destination="T5L-7f-j93" id="mNX-j4-Exo"/>
                         <outlet property="itemName" destination="bSF-Sz-Y5H" id="qhy-XY-q1U"/>
+                        <outlet property="numMatchesLabel" destination="rAs-ej-arr" id="Lek-og-cra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWw-HC-sbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
