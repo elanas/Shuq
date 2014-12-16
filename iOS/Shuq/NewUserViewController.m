@@ -103,11 +103,9 @@
         [alert show];
         return;
     }
-    NSNumber* num = [NSNumber numberWithInteger:[trimContact integerValue]];
-    
-    NSLog(@"authenticating");
+
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
-        [[model getPrimaryUser] setContact:num];
+        [[model getPrimaryUser] setContact:trimContact];
     } else {
         alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Username already exists. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *valueText;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameText;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 @end

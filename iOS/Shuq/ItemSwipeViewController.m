@@ -27,7 +27,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        enlarged = FALSE;
     }
     return self;
 }
@@ -36,8 +36,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [[self navigationItem] setTitle:@"helllllo"];
     
     _itemIndex = 0;
     _itemDesc.textColor = [UIColor whiteColor];
@@ -103,6 +101,12 @@
     _itemView = [[UIImageView alloc] initWithFrame:CGRectMake(
                                                               [UIScreen mainScreen].bounds.size.width/6 + 7,
                                                               [UIScreen mainScreen].bounds.size.height/4, 200, 200)];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enlarge)];
+    
+    singleTap.numberOfTapsRequired = 1;
+    [_itemView setUserInteractionEnabled:YES];
+    [_itemView addGestureRecognizer:singleTap];
 
     
     [self setItem];
@@ -194,5 +198,17 @@
     
     // Present message view controller on screen
     [self presentViewController:messageController animated:YES completion:nil];
+}
+
+- (void) enlarge {
+    if(!enlarged) {
+        [_itemView setFrame:CGRectMake(0, 0,                       [UIScreen mainScreen].bounds.size.width,                       [UIScreen mainScreen].bounds.size.width)];
+        enlarged = TRUE;
+    }
+    else {
+        [_itemView setFrame: CGRectMake(                      [UIScreen mainScreen].bounds.size.width/6 + 7,
+                                       [UIScreen mainScreen].bounds.size.height/4, 200, 200)];
+        enlarged = FALSE;
+    }
 }
 @end

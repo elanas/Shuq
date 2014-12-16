@@ -17,13 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _descriptionText.text = [@"Tags: " stringByAppendingString:[_item getTagsStrings]];
-    _valueText.text = [[_item getValue] stringValue];
-    _navigationBar.title = @"";
+    _descriptionText.text = [_item getTagsStrings];
+    _descriptionText.numberOfLines = 4;
+
+    _valueText.text = [@"Value: $" stringByAppendingString:[[_item getValue] stringValue]];
+    _navigationBar.title = @"Inventory Item";
+    _nameText.text = [_item getName];
     if ([_item getImage] != nil) {
         _pictureImageView.image = [_item getImage];
-
+    } else {
+        _pictureImageView.image = [UIImage imageNamed:@"no-pic.png"];
     }
+    _pictureImageView.layer.masksToBounds = YES;
+    _pictureImageView.layer.cornerRadius = 10;
+
 }
 
 - (void)didReceiveMemoryWarning {
