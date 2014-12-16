@@ -15,6 +15,7 @@
 		0B1A3DFA1A3CDB1C009E34FF /* shuq37.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DF91A3CDB1C009E34FF /* shuq37.png */; };
 		0B1A3DFC1A3CDF55009E34FF /* shuq38.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DFB1A3CDF55009E34FF /* shuq38.png */; };
 		0B24CB221A3D049600855025 /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B24CB211A3D049600855025 /* splash-screen.png */; };
+		0B6823711A3FC53200D1C12D /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823701A3FC53200D1C12D /* app-icon.png */; };
 		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
@@ -69,6 +70,7 @@
 		0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC398F1A3161F600122AA6 /* MenuViewController.m */; };
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
 		306A479B1A1807FA00F32C9F /* ShuqServerConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */; };
+		306B03061A3FC3230023F67A /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 306B03051A3FC3230023F67A /* Communicator.m */; };
 		30ABDAD31A3E9F5200C7A926 /* ItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 30ABDAD21A3E9F5200C7A926 /* ItemList.m */; };
 		30C059FB1A17D48300CAF2FB /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FA1A17D48300CAF2FB /* Settings.m */; };
 		30C059FE1A17D4D200CAF2FB /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C059FD1A17D4D200CAF2FB /* Tag.m */; };
@@ -108,6 +110,7 @@
 		0B1A3DF91A3CDB1C009E34FF /* shuq37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq37.png; sourceTree = "<group>"; };
 		0B1A3DFB1A3CDF55009E34FF /* shuq38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq38.png; sourceTree = "<group>"; };
 		0B24CB211A3D049600855025 /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen.png"; sourceTree = "<group>"; };
+		0B6823701A3FC53200D1C12D /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
 		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +174,8 @@
 		0BDC398F1A3161F600122AA6 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
 		306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqServerConnectionTest.m; sourceTree = "<group>"; };
+		306B03041A3FC3230023F67A /* Communicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communicator.h; sourceTree = "<group>"; };
+		306B03051A3FC3230023F67A /* Communicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communicator.m; sourceTree = "<group>"; };
 		30ABDAD11A3E9F5200C7A926 /* ItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemList.h; sourceTree = "<group>"; };
 		30ABDAD21A3E9F5200C7A926 /* ItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemList.m; sourceTree = "<group>"; };
 		30C059F91A17D48300CAF2FB /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -281,6 +286,7 @@
 				0B77744C19FD856B00D2A696 /* Supporting Files */,
 				0B77748619FDA26200D2A696 /* view controllers */,
 				32BE56FC1A02DB73000CDE5B /* ShuqModel */,
+				306B03071A3FC32E0023F67A /* ServerComminucation */,
 			);
 			path = Shuq;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0B6823701A3FC53200D1C12D /* app-icon.png */,
 				0B8E54821A3D6545005EB072 /* circles.png */,
 				0B8E54801A3D6519005EB072 /* menubutton.png */,
 				0B24CB211A3D049600855025 /* splash-screen.png */,
@@ -394,6 +401,15 @@
 				0BA0B0E11A0159C60087DDA5 /* hat.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		306B03071A3FC32E0023F67A /* ServerComminucation */ = {
+			isa = PBXGroup;
+			children = (
+				306B03041A3FC3230023F67A /* Communicator.h */,
+				306B03051A3FC3230023F67A /* Communicator.m */,
+			);
+			name = ServerComminucation;
 			sourceTree = "<group>";
 		};
 		32BE56FC1A02DB73000CDE5B /* ShuqModel */ = {
@@ -524,6 +540,7 @@
 				0B942F041A3B54D200F26B1A /* shuq16.png in Resources */,
 				0B942F061A3B555A00F26B1A /* shuq17.png in Resources */,
 				0BA0B0E51A0159C60087DDA5 /* hat.png in Resources */,
+				0B6823711A3FC53200D1C12D /* app-icon.png in Resources */,
 				0B77745019FD856B00D2A696 /* InfoPlist.strings in Resources */,
 				0B942F081A3B563600F26B1A /* shuq18.png in Resources */,
 				0B942EEF1A3B4F7000F26B1A /* shuq5.png in Resources */,
@@ -571,6 +588,7 @@
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
 				0B11408E1A3E419E000CEBA2 /* SingleItemTemplateViewController.m in Sources */,
 				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
+				306B03061A3FC3230023F67A /* Communicator.m in Sources */,
 				0B77748419FD9D5600D2A696 /* ItemSwipeViewController.m in Sources */,
 				32BE56FF1A02E353000CDE5B /* Inventory.m in Sources */,
 				3223A2EF1A3185BA00EF2866 /* NewWishlistItemViewController.m in Sources */,
