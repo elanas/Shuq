@@ -210,7 +210,12 @@
         return;
     }
     
-    NSString *message = [NSString stringWithFormat:@"Hey! I'm interested in trading for your %@!", iN];
+    NSMutableArray *itemTrade = [[[[ShuqModel getModel]getPrimaryUser]getInventory] getItems];
+    NSString *itemWant = [[itemTrade objectAtIndex:0]getName];
+    
+                           
+    NSString *message = [NSString stringWithFormat:@"Hey! I'm interested in trading for your %@! I have a %@ that you might be interested in.", iN, itemWant];
+
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
