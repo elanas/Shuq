@@ -10,15 +10,11 @@
 			[
 				{
 					"name" : "Jacket", 
-					"taglist" : 
-					[
-						{"tagname" : "Black"},
-						{"tagname" : "Large"}
-					]
+					"tags" : ["Black", "Large"]
 				},
 				{
 					"name" : "Frisbee",
-					"taglist" : []
+					"tags" : []
 				}
 			]
 	},
@@ -33,10 +29,7 @@
 						{"URI" : "charzard69jpg"}
 					],
 					"value" : 10, 
-					"taglist" : 
-					[
-						{"tagname" : "erotica"}
-					], 
+					"tags"  : ["erotica"], 
 					"description" : "This majestic beast has fire in his loins"
 				}
 			]
