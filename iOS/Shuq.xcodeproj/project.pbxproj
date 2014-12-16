@@ -16,6 +16,7 @@
 		0B1A3DFC1A3CDF55009E34FF /* shuq38.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A3DFB1A3CDF55009E34FF /* shuq38.png */; };
 		0B24CB221A3D049600855025 /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B24CB211A3D049600855025 /* splash-screen.png */; };
 		0B6823711A3FC53200D1C12D /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823701A3FC53200D1C12D /* app-icon.png */; };
+		0B6823741A3FE22300D1C12D /* SaveLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6823731A3FE22300D1C12D /* SaveLocationViewController.m */; };
 		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
@@ -111,6 +112,8 @@
 		0B1A3DFB1A3CDF55009E34FF /* shuq38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuq38.png; sourceTree = "<group>"; };
 		0B24CB211A3D049600855025 /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen.png"; sourceTree = "<group>"; };
 		0B6823701A3FC53200D1C12D /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
+		0B6823721A3FE22300D1C12D /* SaveLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveLocationViewController.h; sourceTree = "<group>"; };
+		0B6823731A3FE22300D1C12D /* SaveLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveLocationViewController.m; sourceTree = "<group>"; };
 		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -333,6 +336,8 @@
 				0B1140881A3E3EA4000CEBA2 /* templates */,
 				0B77748219FD9D5600D2A696 /* ItemSwipeViewController.h */,
 				0B77748319FD9D5600D2A696 /* ItemSwipeViewController.m */,
+				0B6823721A3FE22300D1C12D /* SaveLocationViewController.h */,
+				0B6823731A3FE22300D1C12D /* SaveLocationViewController.m */,
 				0BDC398E1A3161F600122AA6 /* MenuViewController.h */,
 				0BDC398F1A3161F600122AA6 /* MenuViewController.m */,
 				0B046F621A1816E40040CC9E /* NewUserViewController.h */,
@@ -586,6 +591,7 @@
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
 				0B046F641A1816E40040CC9E /* NewUserViewController.m in Sources */,
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
+				0B6823741A3FE22300D1C12D /* SaveLocationViewController.m in Sources */,
 				0B11408E1A3E419E000CEBA2 /* SingleItemTemplateViewController.m in Sources */,
 				30C059FB1A17D48300CAF2FB /* Settings.m in Sources */,
 				306B03061A3FC3230023F67A /* Communicator.m in Sources */,
