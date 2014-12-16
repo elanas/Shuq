@@ -22,12 +22,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-        textFields = [[NSMutableArray alloc]initWithObjects:_descriptionTextField, _nameTextField, _valueTextField, nil];
+    
+    textFields = [[NSMutableArray alloc]initWithObjects:_descriptionTextField, _nameTextField, _valueTextField, nil];
+    
+    [_addItemButton addTarget:self action:@selector(addItem:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) addItem:(id)sender {
+    if(_nameTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Item cannot have empty name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

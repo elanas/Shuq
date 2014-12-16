@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AddItemTemplateViewController.h"
 
-@interface NewInventoryItemViewController : AddItemTemplateViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface NewInventoryItemViewController : AddItemTemplateViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 /**
  The soon-to-be item name
@@ -46,6 +46,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *addItemButton;
 
 /**
  This method is called by the add photo button and will take a photo
