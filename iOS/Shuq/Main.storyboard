@@ -593,10 +593,6 @@
                                     <action selector="TakePhoto:" destination="HEB-pQ-1YT" eventType="touchUpInside" id="6zM-fl-fnJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8Fs-LL-xk0">
-                                <rect key="frame" x="51" y="345" width="219" height="203"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rld-tf-4Gw">
                                 <rect key="frame" x="98" y="237" width="10" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -604,6 +600,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8Fs-LL-xk0">
+                                <rect key="frame" x="67" y="356" width="187" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -903,6 +903,6 @@
         <segue reference="zio-dR-h1s"/>
         <segue reference="7CO-YD-a87"/>
         <segue reference="59u-uJ-ZJq"/>
-        <segue reference="niW-yG-t3L"/>
+        <segue reference="KQA-JK-hdH"/>
     </inferredMetricsTieBreakers>
 </document>
