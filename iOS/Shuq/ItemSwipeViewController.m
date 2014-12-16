@@ -27,7 +27,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        enlarged = FALSE;
     }
     return self;
 }
@@ -103,6 +103,12 @@
     _itemView = [[UIImageView alloc] initWithFrame:CGRectMake(
                                                               [UIScreen mainScreen].bounds.size.width/6 + 7,
                                                               [UIScreen mainScreen].bounds.size.height/4, 200, 200)];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enlarge)];
+    
+    singleTap.numberOfTapsRequired = 1;
+    [_itemView setUserInteractionEnabled:YES];
+    [_itemView addGestureRecognizer:singleTap];
 
     
     [self setItem];
@@ -194,5 +200,17 @@
     
     // Present message view controller on screen
     [self presentViewController:messageController animated:YES completion:nil];
+}
+
+- (void) enlarge {
+    if(!enlarged) {
+        [_itemView setFrame:CGRectMake(0, 0,                       [UIScreen mainScreen].bounds.size.width,                       [UIScreen mainScreen].bounds.size.height)];
+        enlarged = TRUE;
+    }
+    else {
+        [_itemView setFrame: CGRectMake(                      [UIScreen mainScreen].bounds.size.width/6 + 7,
+                                       [UIScreen mainScreen].bounds.size.height/4, 200, 200)];
+        enlarged = FALSE;
+    }
 }
 @end

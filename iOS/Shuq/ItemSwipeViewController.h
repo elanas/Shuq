@@ -15,6 +15,7 @@
  The Class SwipeScreen. This class represents the screen that handles the main swiping page, and can move to related screens as shown in the GUI sketches.
  */
 @interface ItemSwipeViewController : TemplateNavViewController {
+    BOOL enlarged;
 }
 
 /**
