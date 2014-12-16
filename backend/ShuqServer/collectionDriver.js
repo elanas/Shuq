@@ -142,19 +142,22 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 
 
     // check if he has something John wants
-    // for every item in John's wishlist
-    for (var j=0; j<userToMatch.wishlist.items.length; ++j) {
-      //for every item in user i's inventory
-      for (var k=0; k<otherUser.inventory.items.length; ++k) {
+    // for every item in their inventory
+    for (var k=0; k<otherUser.inventory.items.length; ++k) {
         var othersItem = otherUser.inventory.items[k];
+        //for every item in John's wishlist
+        for (var j=0; j<userToMatch.wishlist.items.length; ++j) {
+
 
         var thisStrength = this.checkMatch(userToMatch.wishlist.items[j], othersItem);
         if (thisStrength == 0){
           continue;
         }
         strength = strength + thisStrength;
+        console.log(userToMatch.username + " adding " + othersItem.name + " to otherHas for " + otherUser.username);
 
         otherHas.push(othersItem);
+        break;
       }
 
     }
@@ -168,9 +171,10 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
     //check the other direction (what John has that other wants)
     // for every item in John's inventory
     for (var j=0; j<userToMatch.inventory.items.length; ++j) {
+      var myItem = userToMatch.inventory.items[j];
       //for every item in user i's wishlist
       for (var k=0; k<otherUser.wishlist.items.length; ++k) {
-        var myItem = userToMatch.inventory.items[j];
+
 
         /*if (myItem.name.toLowerCase().trim() != otherUser.wishlist.items[k].name.toLowerCase().trim()) {
           continue;
@@ -181,8 +185,10 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
           continue;
         }
         strength = strength + thisStrength;
+        console.log(userToMatch.username + " adding " + myItem.name + " to otherWants for " + otherUser.username);
 
         otherWants.push(myItem);
+        break;
       }
     }
 
