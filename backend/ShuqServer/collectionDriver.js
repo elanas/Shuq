@@ -138,7 +138,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 
     var otherHas = [];
     var otherWants = [];
-
+    var strength = 0;
 
 
     // check if he has something John wants
@@ -148,9 +148,14 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       for (var k=0; k<otherUser.inventory.items.length; ++k) {
         var othersItem = otherUser.inventory.items[k];
 
-        if (othersItem.name.toLowerCase().trim() != userToMatch.wishlist.items[j].name.toLowerCase().trim()) {
+        var thisStrength = this.checkMatch(userToMatch.wishlist.items[j], othersItem);
+        console.log(thisStrength + userToMatch.wishlist.items[j].name +  "   -----");
+        if (thisStrength == 0){
+          console.log(thisStrength + "\n");
+          console.log("in if");
           continue;
         }
+        strength = strength + thisStrength;
 
         otherHas.push(othersItem);
       }
@@ -170,9 +175,16 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       for (var k=0; k<otherUser.wishlist.items.length; ++k) {
         var myItem = userToMatch.inventory.items[j];
 
-        if (myItem.name.toLowerCase().trim() != otherUser.wishlist.items[k].name.toLowerCase().trim()) {
+        /*if (myItem.name.toLowerCase().trim() != otherUser.wishlist.items[k].name.toLowerCase().trim()) {
+          continue;
+        }*/
+        var thisStrength = this.checkMatch(myItem, otherUser.wishlist.items[k]);
+        console.log(thisStrength + " +++++++");
+        if (thisStrength < 0)
+        {
           continue;
         }
+        strength = strength + thisStrength;
 
         otherWants.push(myItem);
       }
@@ -182,7 +194,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
       continue;
     }
 
-    var score = this.genScore(otherUser.location, userToMatch.location, otherHas, otherWants);
+    var score = this.genScore(otherUser.location, userToMatch.location, otherHas, otherWants, strength);
     //Store a match object representing this match
     var matchObject =
         {
@@ -209,6 +221,36 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
   return matchedObjectsArray;
 };
 
+CollectionDriver.prototype.checkMatch = function(a, b) {
+  if (this.stringCompare(a.name,b.name)) {
+    return 1;
+  }
+  var strength = b.tags.length + 2;
+  var changed = 0;
+  if (a.tags.length > b.tags.length) {
+    strength = a.tags.length + 2;
+  }
+  else {
+    for (var i=0; i<a.tags.length; i++) {
+      for (var m=0; m<b.tags.length; m++) {
+        if (this.stringCompare(a.tags[i],b.tags[m])) {
+          strength = strength - 1;
+          changed = 1;
+        }
+      }
+    }
+    if (changed) {
+      return strength;
+    }
+    return 0;
+  }
+};
+
+
+CollectionDriver.prototype.stringCompare = function(a, b) {
+  return a.toLowerCase().trim() == b.toLowerCase().trim();
+}
+
 /**
  * Helper function used to determine whether 2 zip codes are considered 'in range' of each other.
  * This function is used to ensure matches are only made between users in range of each other.
@@ -233,11 +275,11 @@ CollectionDriver.prototype.testZip = function(zip1, zip2) {
  * @param otherWants an array of item JSONS that user2 Wants and user1 Has
  * @return an integer score representing the strength of the match
  */
-CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants) {
+CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants, strength) {
   var totalMatches = otherHas.length + otherWants.length;
   var int1 = parseInt(zip1);
   var int2 = parseInt(zip2);
-  return ((1000-(Math.abs(int1 - int2))) + (1000*totalMatches));
+  return ((1000-(Math.abs(int1 - int2))) + (1000*totalMatches))/strength;
 };
 
 
