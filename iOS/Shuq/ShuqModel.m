@@ -11,8 +11,8 @@
 
 @implementation ShuqModel
 
-//static NSString* const kBaseURL = @"http://localhost:3000/";
-static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
+static NSString* const kBaseURL = @"http://localhost:3000/";
+//static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
 static NSString* const kLocations = @"user";
 static NSString* const kFiles = @"files";
 
@@ -115,9 +115,8 @@ static NSString* const kFiles = @"files";
 }
 
 - (void) parseMatchingItems: (NSArray*) us {
-     
     for (NSDictionary* user_item in us) {
-        NSString* con = [user_item[@"contact"] stringValue];
+        NSString* con = user_item[@"contact"];
         [self parseAndGetItems:user_item[@"userHas"] toArray:_items andContact:con];
     }
     NSLog(@"Load image");
