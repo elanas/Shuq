@@ -78,9 +78,9 @@
     [model runUserMatches:[[model getPrimaryUser] getUsername]];
     [model getMatchItems:[[model getPrimaryUser] getUsername]];
     
-    NSString *numMatches = [NSString stringWithFormat:@"%d", _itemIndex + 1];
+    NSString *numMatches = [NSString stringWithFormat:@"%d", (int)_itemIndex + 1];
     numMatches = [numMatches stringByAppendingString:@"/"];
-    numMatches = [numMatches stringByAppendingString:[NSString stringWithFormat:@"%d", [model.items count]]];
+    numMatches = [numMatches stringByAppendingString:[NSString stringWithFormat:@"%d", (int)[model.items count]]];
     
     [_numMatchesLabel setText:numMatches];
     
@@ -93,9 +93,9 @@
         [_itemView setImage:no_match];
         [itemName setText:@""];
         [_itemDesc setText:@""];
-        NSString *numMatches = [NSString stringWithFormat:@"%d", _itemIndex];
+        NSString *numMatches = [NSString stringWithFormat:@"%d", (int)_itemIndex];
         numMatches = [numMatches stringByAppendingString:@"/"];
-        numMatches = [numMatches stringByAppendingString:[NSString stringWithFormat:@"%d", [model.items count]]];
+        numMatches = [numMatches stringByAppendingString:[NSString stringWithFormat:@"%d", (int)[model.items count]]];
         
         [_numMatchesLabel setText:numMatches];
         return;
