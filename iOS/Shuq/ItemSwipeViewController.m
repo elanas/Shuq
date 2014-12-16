@@ -204,7 +204,7 @@
 
 - (void) enlarge {
     if(!enlarged) {
-        [_itemView setFrame:CGRectMake(0, 0,                       [UIScreen mainScreen].bounds.size.width,                       [UIScreen mainScreen].bounds.size.height)];
+        [_itemView setFrame:CGRectMake(0, 0,                       [UIScreen mainScreen].bounds.size.width,                       [UIScreen mainScreen].bounds.size.width)];
         enlarged = TRUE;
     }
     else {
