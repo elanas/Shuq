@@ -212,6 +212,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
 /**
  * Helper function used to determine whether 2 zip codes are considered 'in range' of each other.
  * This function is used to ensure matches are only made between users in range of each other.
+ * Currently, zips are in range if the first 2 digits match
  * @param zip1 the zipcode string of one of the users
  * @param zip2 the zipcode string of the other user
  * @return true if the zips are in range, false otherwise
@@ -238,7 +239,6 @@ CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants)
   var totalMatches = otherHas.length + otherWants.length;
   var int1 = parseInt(zip1);
   var int2 = parseInt(zip2);
-  //TAKE VALUES INTO ACCOUNT??????????????????????
   return ((10000-(Math.abs(int1 - int2))) + (1000*totalMatches));
 };
 
