@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionText;
 @property (weak, nonatomic) IBOutlet UILabel *valueText;
+@property (weak, nonatomic) IBOutlet UILabel *nameText;
 @property Item* item;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;

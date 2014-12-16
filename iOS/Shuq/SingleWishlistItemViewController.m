@@ -17,9 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _descriptionText.text = [@"Tags: " stringByAppendingString:[_item getTagsStrings]];
-    _valueText.text = [[_item getValue] stringValue];
-    _navigationBar.title = @"";
+//    _descriptionText.text = [@"Tags: " stringByAppendingString:[_item getTagsStrings]];
+    _descriptionText.text = [_item getTagsStrings];
+    _descriptionText.numberOfLines = 4;
+    _valueText.text = [@"Value: $" stringByAppendingString:[[_item getValue] stringValue]];
+    _navigationBar.title = @"Wishlist Item";
+    _nameText.text = [_item getName];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -37,8 +37,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[self navigationItem] setTitle:@"helllllo"];
-    
     _itemIndex = 0;
     _itemDesc.textColor = [UIColor whiteColor];
     

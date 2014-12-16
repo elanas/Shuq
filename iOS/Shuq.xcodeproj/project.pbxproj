@@ -18,6 +18,8 @@
 		0B6823711A3FC53200D1C12D /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823701A3FC53200D1C12D /* app-icon.png */; };
 		0B6823741A3FE22300D1C12D /* SaveLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6823731A3FE22300D1C12D /* SaveLocationViewController.m */; };
 		0B6823761A4000A000D1C12D /* no-matches.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823751A4000A000D1C12D /* no-matches.png */; };
+		0B6823781A401C7300D1C12D /* no-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823771A401C7300D1C12D /* no-pic.png */; };
+		0B68237A1A401E0300D1C12D /* wishlist-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6823791A401E0300D1C12D /* wishlist-pic.png */; };
 		0B6D84261A01E272004F3F26 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6D84251A01E272004F3F26 /* menu.png */; };
 		0B77744619FD856B00D2A696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744519FD856B00D2A696 /* Foundation.framework */; };
 		0B77744819FD856B00D2A696 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B77744719FD856B00D2A696 /* CoreGraphics.framework */; };
@@ -116,6 +118,8 @@
 		0B6823721A3FE22300D1C12D /* SaveLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveLocationViewController.h; sourceTree = "<group>"; };
 		0B6823731A3FE22300D1C12D /* SaveLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveLocationViewController.m; sourceTree = "<group>"; };
 		0B6823751A4000A000D1C12D /* no-matches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-matches.png"; sourceTree = "<group>"; };
+		0B6823771A401C7300D1C12D /* no-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-pic.png"; sourceTree = "<group>"; };
+		0B6823791A401E0300D1C12D /* wishlist-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wishlist-pic.png"; sourceTree = "<group>"; };
 		0B6D84251A01E272004F3F26 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = images/menu.png; sourceTree = "<group>"; };
 		0B77744219FD856B00D2A696 /* Shuq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shuq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77744519FD856B00D2A696 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -392,7 +396,9 @@
 		0BA0B0D71A0149BA0087DDA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0B6823791A401E0300D1C12D /* wishlist-pic.png */,
 				0B6823751A4000A000D1C12D /* no-matches.png */,
+				0B6823771A401C7300D1C12D /* no-pic.png */,
 				0B6823701A3FC53200D1C12D /* app-icon.png */,
 				0B8E54821A3D6545005EB072 /* circles.png */,
 				0B8E54801A3D6519005EB072 /* menubutton.png */,
@@ -545,6 +551,7 @@
 				0B942EFB1A3B52AC00F26B1A /* shuq12.png in Resources */,
 				0BA0B0E21A0159C60087DDA5 /* bike.png in Resources */,
 				0B942F0F1A3B587A00F26B1A /* shuq22.png in Resources */,
+				0B68237A1A401E0300D1C12D /* wishlist-pic.png in Resources */,
 				0B24CB221A3D049600855025 /* splash-screen.png in Resources */,
 				0B942F041A3B54D200F26B1A /* shuq16.png in Resources */,
 				0B942F061A3B555A00F26B1A /* shuq17.png in Resources */,
@@ -565,6 +572,7 @@
 				0B942F111A3B58BD00F26B1A /* shuq23.png in Resources */,
 				0B942F1B1A3CB87800F26B1A /* shuq35.png in Resources */,
 				0B1A3DFA1A3CDB1C009E34FF /* shuq37.png in Resources */,
+				0B6823781A401C7300D1C12D /* no-pic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
