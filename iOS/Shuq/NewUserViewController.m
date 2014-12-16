@@ -122,7 +122,11 @@
 -(void)addLocation {
     NSString *loc = _locationField.text;
     
-    
+    if(_locationField.text.length != 5) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid Location" message:@"Zipcode must be 5-digits longs." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    NSLog(@"halllelujah");
     [[model getPrimaryUser] setLocation:loc];
     [model updateUser:[model getPrimaryUser]];
 }
