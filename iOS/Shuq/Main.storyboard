@@ -597,6 +597,13 @@
                                 <rect key="frame" x="51" y="345" width="219" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rld-tf-4Gw">
+                                <rect key="frame" x="98" y="237" width="10" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -722,6 +729,13 @@
                                     <segue destination="4kY-hb-PhD" kind="modal" identifier="backToWishlist" id="79p-94-rNJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YvK-rC-mYX">
+                                <rect key="frame" x="98" y="237" width="10" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -883,10 +897,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ppo-Dl-Jzy"/>
+        <segue reference="cSG-OH-O7d"/>
+        <segue reference="DyM-0b-ia2"/>
         <segue reference="7CO-YD-a87"/>
         <segue reference="zio-dR-h1s"/>
-        <segue reference="XVg-38-SA2"/>
-        <segue reference="DyM-0b-ia2"/>
+        <segue reference="KQA-JK-hdH"/>
     </inferredMetricsTieBreakers>
 </document>
