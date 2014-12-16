@@ -80,12 +80,12 @@ app.get('/:collection', function(req, res) {
     	  if (error) { res.send(400, error); }
 	      else {
 	          if (req.accepts('html')) {
-    	          res.render('data',{objects: objs, collection: req.params.collection}); // use data.jade format
-              } else {
-	          res.set('Content-Type','application/json');
-                  res.send(200, objs);
-              }
-         }
+    	        res.render('data',{objects: objs, collection: req.params.collection}); // use data.jade format
+            } else {
+	            res.set('Content-Type','application/json');
+              res.send(200, objs);
+            }
+        }
    	});
 });
 
