@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Communicator.h"
 /** This is local model for the application that will run on the iphone. It will handle setting up the connection to the server. It will allow user to login or signup into a local user object. It will also contain a list of Users that have been matched to the local user via an active or passive search.
  
  */
@@ -21,6 +22,8 @@
     NSMutableArray* contacts;
     
     BOOL _isValid;
+    /**Communicator to talk with the server*/
+    Communicator *com;
 }
 
 /**
