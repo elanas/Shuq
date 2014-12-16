@@ -262,7 +262,7 @@ CollectionDriver.prototype.check = function(collectionName, user, callback) {
       });
     }
   });
-}
+};
 
 /**
  * Grabs a specific object from a collection
