@@ -254,11 +254,9 @@ CollectionDriver.prototype.checkMatch = function(a, b) {
 CollectionDriver.prototype.stringCompare = function(a, b) {
   var a_post = a.toLowerCase().trim();
   var b_post = b.toLowerCase().trim();
-  console.log(a_post + "   " + b_post);
   if ((a_post == "") || (b_post == "")) {
     return false;
   }
-  console.log(a_post == b_post);
   return a_post == b_post;
 }
 
