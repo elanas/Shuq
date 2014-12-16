@@ -149,10 +149,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
         var othersItem = otherUser.inventory.items[k];
 
         var thisStrength = this.checkMatch(userToMatch.wishlist.items[j], othersItem);
-        console.log(thisStrength + userToMatch.wishlist.items[j].name +  "   -----");
         if (thisStrength == 0){
-          console.log(thisStrength + "\n");
-          console.log("in if");
           continue;
         }
         strength = strength + thisStrength;
@@ -179,7 +176,6 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
           continue;
         }*/
         var thisStrength = this.checkMatch(myItem, otherUser.wishlist.items[k]);
-        console.log(thisStrength + " +++++++");
         if (thisStrength < 0)
         {
           continue;
@@ -284,8 +280,6 @@ CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants,
 
 
 CollectionDriver.prototype.tagHelper = function(usernameToMatch, zip, tags, arrayOfUsers) {
-  console.log("taghelperCalled with " + tags);
-  console.log("tags at 1 is " + tags[1]);
   var tagMatchesArray = [];
 
   // for every user in arrayOfUsers
@@ -296,15 +290,11 @@ CollectionDriver.prototype.tagHelper = function(usernameToMatch, zip, tags, arra
     if (otherUser.username == usernameToMatch) {
       continue;
     }
-    console.log(otherUser.username + " being examined");
 
     //don't match users that are too far
     if (!(this.testZip(otherUser.location, zip))) {
-        console.log("failed zip test");
         continue;
     }
-
-    console.log("zip matched");
 
     var otherHas = [];
 
@@ -312,15 +302,12 @@ CollectionDriver.prototype.tagHelper = function(usernameToMatch, zip, tags, arra
     // for every tag provided
     for (var j=0; j<tags.length; ++j) {
       var currentTag = tags[j];
-      console.log(currentTag + "is the searched tag being checked");
       //for every item in user i's inventory
       for (var k=0; k<otherUser.inventory.items.length; ++k) {
         var othersItem = otherUser.inventory.items[k];
         //for every tag of that item
         for (var l=0; l<othersItem.taglist.length; ++l) {
           var otherTag = othersItem.taglist[l].tagname;
-
-          console.log(currentTag + " and " + otherTag);
 
           if ((currentTag.toLowerCase().trim() != otherTag.toLowerCase().trim()) &&
             (currentTag.toLowerCase().trim() != otherTag.toLowerCase().trim())) {
@@ -540,6 +527,11 @@ CollectionDriver.prototype.delete = function(collectionName, entityId, callback)
     });
 };
 
+
+CollectionDriver.prototype.getXY = function(collection, x, y, callback) {
+
+};
+
 /**
  * Delete every entity from a collection
  * @param collectionName the name of the collection
@@ -552,7 +544,6 @@ CollectionDriver.prototype.deleteAll = function(collectionName, callback) {
           the_collection.remove({}, function(error,doc) {
             	if (error) callback(error)
               else {
-                console.log("deleting everything in " + collectionName);
                 callback(null, doc);
               }
           });

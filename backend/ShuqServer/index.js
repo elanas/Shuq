@@ -125,6 +125,7 @@ app.get('/:collection/:entity', function(req, res) {
        }
    }
 
+  // url to use for forcing matches to be made
   else if (collection == "demoMakeMatches") {
     collectionDriver.demoMakeMatches("user", entity, function(error, response) {
       if(error) {res.send(400, error);}
@@ -132,6 +133,7 @@ app.get('/:collection/:entity', function(req, res) {
     });
   }
 
+  // url to check if a user exists in the database
   else if (collection == "userCheck") {
     collectionDriver.check("user", entity, function(error, objs) {
       if (error) { res.send(400, error);}
@@ -150,6 +152,18 @@ app.get('/:collection/:entity', function(req, res) {
    } else {
       res.send(400, {error: 'bad url', url: req.url});
    }
+});
+
+app.get('/:collection/:x/:y', function(req, res) {
+   var params = req.params;
+   var x = params.x;
+   var y = params.y;
+   var collection = params.collection;
+
+  collectionDriver.getXY(collection, x, y function(err, docs) {
+    if (err) { res.send(400, err); }
+    else { res.send(200, docs); }
+  });
 });
 
 /**
@@ -186,6 +200,11 @@ app.put('/:collection/:entity', function(req, res) {
    }
 });
 
+/**
+ * This code is for put requests made to the special searchTags url.
+ * This is how to populate the collection "<username>Search" with
+ * results from active search.
+ */
 app.put('/searchTags/:name/:location', function(req, res) {
     var params = req.params;
     var name = params.name;
