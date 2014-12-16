@@ -73,8 +73,51 @@
 
 -(NSArray* )getMatchItems:(NSString*)username{
     NSString* userAuth = [username stringByAppendingString:@"Matches"];
-    NSArray* resp = [self getRequest:userAuth];
-    return resp;
+    
+    NSURL* url = [NSURL URLWithString:[server stringByAppendingPathComponent: userAuth]]; //1
+    NSLog(@"urls: %@", url);
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"GET"; //2
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    __block NSArray* responseArray = [NSArray alloc];
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        
+        if (error == nil) {
+            NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if([responseBody rangeOfString:@"error"].location!= NSNotFound ||[responseBody rangeOfString:@"Taken"].location!= NSNotFound  ) {
+                responseArray = nil;
+                NSLog(@"Taken");
+            }
+            else if([responseBody rangeOfString:@"Free"].location != NSNotFound ) {
+                responseArray = [NSArray alloc];
+            }
+            else {
+                NSError *e;
+                responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+            }
+            dispatch_semaphore_signal(semaphore);
+            
+        } else {
+            //error
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    
+    
+    [dataTask resume];
+    
+    //waiting for the call to be done
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    
+    return responseArray;
 }
 
 
