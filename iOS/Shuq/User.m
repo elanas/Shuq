@@ -85,10 +85,10 @@
     return unid;
 }
 
--(NSNumber*) getContact {
+-(NSString*) getContact {
     return contact;
 }
--(void) setContact: (NSNumber*) con {
+-(void) setContact: (NSString*) con {
     contact = con;
 }
 
