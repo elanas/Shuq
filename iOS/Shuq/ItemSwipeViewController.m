@@ -85,6 +85,10 @@
 -(void) setItem {
     ShuqModel *model = [ShuqModel getModel];
     if([model.items count] ==0){
+        UIImage *no_match = [UIImage imageNamed:@"no-matches.png"];
+        [_itemView setImage:no_match];
+        [itemName setText:@""];
+        [_itemDesc setText:@""];
         return;
     }
     Item *item =[model.items objectAtIndex:_itemIndex];
