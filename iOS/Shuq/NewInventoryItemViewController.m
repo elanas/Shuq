@@ -23,6 +23,8 @@
     
     textFields = [[NSMutableArray alloc]initWithObjects:_descriptionTextField, _nameTextField, _valueTextField, nil];
     
+    [_addItemButton addTarget:self action:@selector(addItem:) forControlEvents:UIControlEventTouchDown];
+    
     // Do any additional setup after loading the view.
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -42,10 +44,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) addItem:(id)sender {
+    if(_nameTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Item cannot have empty name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"backToInventory"]){
-         NSNumber* num = [NSNumber numberWithInteger:[_valueTextField.text integerValue]];
+        
+        NSNumber* num = [NSNumber numberWithInteger:[_valueTextField.text integerValue]];
         Item* newInventoryItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue:num];
 
         //Set item photo
@@ -95,6 +105,7 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.photo = chosenImage;
+    self.imageView.image = chosenImage;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     

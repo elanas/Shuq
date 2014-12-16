@@ -36,7 +36,8 @@
  */
 @property (weak, nonatomic) IBOutlet UITextField *valueTextField;
 
-//@property (weak, nonatomic) 
+@property (weak, nonatomic) IBOutlet UIButton *addItemButton;
+
 /**
  The method to get ready to go back to the inventory (soon it will send data back without having to use a segue)
  */
