@@ -173,7 +173,7 @@ CollectionDriver.prototype.matchesForOne = function(userToMatch, arrayOfUsers) {
         /*if (myItem.name.toLowerCase().trim() != otherUser.wishlist.items[k].name.toLowerCase().trim()) {
           continue;
         }*/
-        var thisStrength = checkMatch(myItem, otherUser.wishlist.items[k]);
+        var thisStrength = this.checkMatch(myItem, otherUser.wishlist.items[k]);
         if (thisStrength > 0);
         {
           strength = strength + thisStrength;
