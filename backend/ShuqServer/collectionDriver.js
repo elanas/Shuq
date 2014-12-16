@@ -530,6 +530,14 @@ CollectionDriver.prototype.delete = function(collectionName, entityId, callback)
 
 CollectionDriver.prototype.getXY = function(collection, x, y, callback) {
 
+  collection.find({'rank': {"$gte": x, "$lte":y}}, function(error, doc) {
+    if (error) callback(error);
+    doc.toArray(function(error, doc) {
+      if (error) callback(error);
+      callback(doc);
+    });
+  });
+
 };
 
 /**
