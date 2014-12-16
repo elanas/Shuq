@@ -237,7 +237,7 @@ CollectionDriver.prototype.genScore = function(zip1, zip2, otherHas, otherWants)
   var totalMatches = otherHas.length + otherWants.length;
   var int1 = parseInt(zip1);
   var int2 = parseInt(zip2);
-  return ((10000-(Math.abs(int1 - int2))) + (1000*totalMatches));
+  return ((1000-(Math.abs(int1 - int2))) + (1000*totalMatches));
 };
 
 
