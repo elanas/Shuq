@@ -63,6 +63,8 @@
         //Set item photo
         if(self.photo != nil) {
             [newInventoryItem setImage: self.photo];
+        } else {
+            [newInventoryItem setImage:[UIImage imageNamed:@"no-pic.png"]];
         }
         
         Inventory* inventory = [[[ShuqModel getModel] getPrimaryUser] getInventory];
