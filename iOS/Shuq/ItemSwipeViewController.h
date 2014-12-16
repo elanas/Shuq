@@ -44,6 +44,7 @@
  */
 @property (weak, nonatomic) IBOutlet UITextView* itemDesc;
 @property (weak, nonatomic) IBOutlet UILabel *numMatchesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *itemVal;
 
 /*Called to refresh the front page*/
 - (IBAction)refresh:(id)sender;

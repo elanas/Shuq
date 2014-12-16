@@ -355,7 +355,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" id="T5L-7f-j93">
-                                <rect key="frame" x="60" y="356" width="201" height="115"/>
+                                <rect key="frame" x="60" y="356" width="201" height="66"/>
                                 <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="This will describe an item briefly.">
@@ -368,7 +368,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vws-Yq-Wb2">
-                                <rect key="frame" x="16" y="430" width="288" height="52"/>
+                                <rect key="frame" x="16" y="451" width="288" height="52"/>
                                 <color key="backgroundColor" red="0.43824133209999999" green="0.46532846719999998" blue="0.66583029199999999" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Match">
                                     <color key="titleColor" white="1" alpha="0.95999999999999996" colorSpace="calibratedWhite"/>
@@ -390,6 +390,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iGJ-Z0-nlp">
+                                <rect key="frame" x="72" y="412" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4736899121" green="0.6686138506" blue="0.96326929210000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -398,6 +405,7 @@
                     <connections>
                         <outlet property="itemDesc" destination="T5L-7f-j93" id="mNX-j4-Exo"/>
                         <outlet property="itemName" destination="bSF-Sz-Y5H" id="qhy-XY-q1U"/>
+                        <outlet property="itemVal" destination="iGJ-Z0-nlp" id="c0s-50-5jX"/>
                         <outlet property="numMatchesLabel" destination="rAs-ej-arr" id="Lek-og-cra"/>
                     </connections>
                 </viewController>
