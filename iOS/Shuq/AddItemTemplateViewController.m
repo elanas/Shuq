@@ -7,6 +7,7 @@
 //
 
 #import "AddItemTemplateViewController.h"
+#import "Item.h"
 
 @interface AddItemTemplateViewController ()
 
@@ -22,6 +23,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) addTags: (NSString*) tags toItem: (Item*) i {
+    NSArray* t = [tags componentsSeparatedByString:@","];
+    for (int n=0; n<[t count]; n++) {
+        [i addTag: [t objectAtIndex:n]];
+    }
 }
 
 /*

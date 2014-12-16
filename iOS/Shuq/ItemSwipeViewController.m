@@ -47,7 +47,6 @@
     [self loadGestures];
     
     
-    
     [self.view addSubview:_itemView];
 }
 
@@ -78,6 +77,7 @@
 -(void) loadItemsArray {
     
     ShuqModel *model = [ShuqModel getModel];
+    [model runUserMatches:[[model getPrimaryUser] getUsername]];
     [model getMatchItems:[[model getPrimaryUser] getUsername]];
     
    }
@@ -92,7 +92,7 @@
     [_itemView setImage: [item getImage]];
     
     [itemName setText:[item getName]];
-    [_itemDesc setText:[item getDesc]];
+    [_itemDesc setText:[@"Tags: " stringByAppendingString:[item getTagsStrings]]];
 }
 
 -(void) loadItemsImageView {

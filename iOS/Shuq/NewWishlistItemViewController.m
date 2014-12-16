@@ -44,7 +44,9 @@
 {
     if([segue.identifier isEqualToString:@"backToWishlist"]) {
          NSNumber* num = [NSNumber numberWithInteger:[_valueTextField.text integerValue]];
-        Item* newWishlistItem = [[Item alloc] initWithName:_nameTextField.text andPath:@"" andDesc:_descriptionTextField.text andValue: num];
+        Item* newWishlistItem = [[Item alloc] initWithName:_nameTextField.text andValue: num];
+        [super addTags:_descriptionTextField.text toItem:newWishlistItem];
+        
         Wishlist* wishlist = [[[ShuqModel getModel] getPrimaryUser] getWishlist];
         [wishlist addItem:newWishlistItem];
         ShuqModel *model = [ShuqModel getModel];

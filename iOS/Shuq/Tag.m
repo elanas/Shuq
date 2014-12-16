@@ -20,24 +20,11 @@
     return self;
 }
 
-- (instancetype) initWithDictionary:(NSDictionary*)dictionary {
-    self = [super init];
-    if (self) {
-        name = dictionary[@"tagname"];
-    }
-    return self;
-}
 
 -(NSString*) getTagName {
     return name;
 }
-- (NSDictionary*) toDictionary
-{
-    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
-    safeSet(jsonable, @"tagname", name);
-    
-    return jsonable;
-}
+
 
 
 @end
