@@ -83,16 +83,31 @@
 }
 
 -(void)checkUsername {
-//    model = [ShuqModel getModel];
+    UIAlertView *alert;
     NSString* username = _newuserTextField.text;
     NSString* password = _newpassTextField.text;
-    NSNumber* num = [NSNumber numberWithInteger:[_newcontactTextField.text integerValue]];
     
-    //    NSLog(password);
+    NSString *trimContact = [_newcontactTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+
+    
+    username = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (username.length == 0) {
+        alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Cannot have a blank username" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+    if(trimContact.length != 10) {
+        alert = [[UIAlertView alloc]initWithTitle:@"Invalid Contact" message:@"Phone number must be 10 digits long." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    NSNumber* num = [NSNumber numberWithInteger:[trimContact integerValue]];
+    
     if ([model authenticateUser:username andPassword: password isNewUser:TRUE]) {
         [[model getPrimaryUser] setContact:num];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Username already exists. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        alert = [[UIAlertView alloc]initWithTitle:@"Invalid Username" message:@"Username already exists. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
     }
@@ -110,13 +125,36 @@
     
     [[model getPrimaryUser] setLocation:loc];
     [model updateUser:[model getPrimaryUser]];
-    
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newString = textField.text;
+    
+    if(textField.text.length == 3) {
+        newString =[textField.text stringByReplacingCharactersInRange:range withString:@"-"];
+
+    } else if(textField.text.length == 7) {
+        newString =[textField.text stringByReplacingCharactersInRange:range withString:@"-"];
+    }
+    [self updateTextLabelsWithText: newString];
+    
+    return YES;
+}
+
+-(void)updateTextLabelsWithText:(NSString *)string
+{
+    if([_newcontactTextField isEditing]) {
+        if(string.length > 11) {
+            string = [string substringToIndex:11];
+        }
+        [_newcontactTextField setText:string];
+    }
 }
 
 /*
