@@ -44,6 +44,9 @@
  */
 @property (weak, nonatomic) IBOutlet UITextView* itemDesc;
 
+/*Called to refresh the front page*/
+- (IBAction)refresh:(id)sender;
+
 /**
  Called when match button is pressed
  */

@@ -211,4 +211,9 @@
         enlarged = FALSE;
     }
 }
+- (IBAction)refresh:(id)sender {
+    _itemIndex = 0;
+    [self loadItemsArray];
+    [self setItem];
+}
 @end
