@@ -130,6 +130,20 @@ app.get('/:collection/:entity', function(req, res) {
   var username = entityArray[1];
   var password = entityArray[2];
 
+
+  // url to check if a user exists in the database
+  if (collection == "userCheck") {
+    collectionDriver.check("user", entity, function(error, objs) {
+      if (error) {
+        res.send(400, error);
+        return;
+      } else {
+        res.send(200,objs);
+        return;
+      }
+    });
+  }
+
   collectionDriver.authorize(username, password, function(error, objs) {
     console.log("error: " + error + " objs: " + objs);
     if (error) {
@@ -148,16 +162,6 @@ app.get('/:collection/:entity', function(req, res) {
         collectionDriver.demoMakeMatches("user", entity, function(error, response) {
           if(error) {res.send(400, error);}
           else {res.send(200, response);}
-        });
-      }
-
-      // url to check if a user exists in the database
-      else if (collection == "userCheck") {
-        collectionDriver.check("user", entity, function(error, objs) {
-          if (error) { res.send(400, error);}
-          else {
-            res.send(200,objs);
-          }
         });
       }
 
