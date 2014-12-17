@@ -91,6 +91,18 @@
 -(void) setContact: (NSString*) con {
     contact = con;
 }
+-(NSString*) getPassword {
+    return password;
+}
+- (NSDictionary*) toDictionarySimple
+{
+    NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
+    safeSet(jsonable, @"username", username);
+    safeSet(jsonable, @"password", password);
+    
+    return jsonable;
+
+}
 
 
 @end

@@ -97,6 +97,11 @@
  */
 -(NSString*) getUniqueID;
 /**
+ Returns the password of user
+ @return id
+ */
+-(NSString*) getPassword;
+/**
  Returns the contactinfo of user
  @return contact
  */
@@ -106,6 +111,9 @@
  @return contact
  */
 -(void) setContact: (NSString*) con;
-
+/**
+ Returns the JSON of just username and password
+ */
+- (NSDictionary*) toDictionarySimple;
 
 @end

@@ -38,14 +38,14 @@
  Makes a call to run the match algorith on the server.
  @param user the user to make matches for
  */
--(void)runUserMatches:(NSString*)user;
+-(void)runUserMatches:(User*)user;
 
 /**
  Calls the server to get the matched items JSON for the user
  @param username the user the get the item matches
  @return return JSON of opjects
 */
- -(NSArray*)getMatchItems:(NSString*)username;
+ -(NSArray*)getMatchItems:(User*)username;
 
 /** Post a new item image to the server
  @param item the item with an image to call
@@ -57,7 +57,7 @@
  Loads an image of an item from the server
  @param the item to load photos
  */
-- (void) loadImage:(Item*)item;
+- (void) loadImage:(Item*)item andUser: (User*) us;
 
 /**
  Checks to see if the username exists exists on the server

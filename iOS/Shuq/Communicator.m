@@ -69,18 +69,27 @@
     return responseArray;
 }
 
--(void)runUserMatches:(NSString*)user{
-    NSString* userAuth = [@"demoMakeMatches" stringByAppendingPathComponent:user];
+-(void)runUserMatches:(User*)user{
+    NSString* userAuth = [@"demoMakeMatches" stringByAppendingPathComponent:[user getUsername]];
+    userAuth = [userAuth stringByAppendingString:@":"];
+     userAuth = [userAuth stringByAppendingString:[user getUsername]];
+     userAuth = [userAuth stringByAppendingString:@":"];
+     userAuth = [userAuth stringByAppendingString:[user getPassword]];
+
     [self getRequest:userAuth];
 }
 
 
--(NSArray* )getMatchItems:(NSString*)username{
+-(NSArray* )getMatchItems:(User*)username{
     if(![self checkInternet]) {
         return nil;
     }
     
-    NSString* userAuth = [username stringByAppendingString:@"Matches"];
+    NSString* userAuth = [[username getUsername] stringByAppendingString:@"Matches"];
+    userAuth = [userAuth stringByAppendingString:@":"];
+    userAuth = [userAuth stringByAppendingString:[username getUsername]];
+    userAuth = [userAuth stringByAppendingString:@":"];
+    userAuth = [userAuth stringByAppendingString:[username getPassword]];
     
     NSURL* url = [NSURL URLWithString:[server stringByAppendingPathComponent: userAuth]]; //1
     NSLog(@"urls: %@", url);
@@ -157,12 +166,15 @@
 }
 
 
-- (void) loadImage:(Item*)item{
+- (void) loadImage:(Item*)item andUser: (User*) us{
     if(![self checkInternet]) {
         return;
     }
     
-    NSURL* url = [NSURL URLWithString:[[server stringByAppendingPathComponent:@"files"] stringByAppendingPathComponent:[item getImageID]]]; //1
+    NSString* userAuth = [[server stringByAppendingPathComponent:@"files"] stringByAppendingPathComponent:[item getImageID]];
+    
+    NSURL* url = [NSURL URLWithString:userAuth]; //1
+    
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
@@ -192,7 +204,15 @@
 
 -(BOOL) checkUsernameExists:(NSString*)username{
     NSString* userCheck = [@"userCheck" stringByAppendingPathComponent:username];
-    NSArray* resp = [self getRequest:userCheck];
+    
+    userCheck = [userCheck stringByAppendingString:@":"];
+    userCheck = [userCheck stringByAppendingString: username];
+    userCheck = [userCheck stringByAppendingString:@":"];
+    userCheck = [userCheck stringByAppendingString:@"pass"];
+
+    
+    
+    NSArray* resp = [self getRequest:userCheck ];
 
     return resp == nil;
 }
@@ -201,7 +221,11 @@
 -(NSArray*)getUserFromServerWithUsername:(NSString*)user andPassword:(NSString*)pass{
     NSString* userAuth = [@"auth" stringByAppendingPathComponent:user];
     userAuth = [userAuth stringByAppendingString:@":"];
+    userAuth = [userAuth stringByAppendingString:user];
+    userAuth = [userAuth stringByAppendingString:@":"];
     userAuth = [userAuth stringByAppendingString:pass];
+  
+    
     NSArray* resp = [self getRequest:userAuth];
     return resp;
 }
@@ -218,7 +242,7 @@
     return resp;
 }
 
-- (NSArray*)getRequest: (NSString*) URLLoc {
+- (NSArray*)getRequest: (NSString*) URLLoc{
     if(![self checkInternet]) {
         return nil;
     }
@@ -229,6 +253,7 @@
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"GET"; //2
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"]; //3
+    
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration]; //4
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config];

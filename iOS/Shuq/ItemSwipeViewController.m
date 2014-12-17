@@ -75,8 +75,8 @@
 -(void) loadItemsArray {
     
     ShuqModel *model = [ShuqModel getModel];
-    [model runUserMatches:[[model getPrimaryUser] getUsername]];
-    [model getMatchItems:[[model getPrimaryUser] getUsername]];
+    [model runUserMatches:[model getPrimaryUser] ];
+    [model getMatchItems:[model getPrimaryUser] ];
     
     NSString *numMatches = [NSString stringWithFormat:@"%d", (int)_itemIndex + 1];
     numMatches = [numMatches stringByAppendingString:@"/"];

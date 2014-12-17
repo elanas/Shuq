@@ -31,7 +31,7 @@
  */
 @property NSMutableArray* items;
 
--(void)getMatchItems:(NSString*)username;
+-(void)getMatchItems:(User*)username;
 
 
 /**
@@ -65,14 +65,12 @@
 /**
  Makes a call to run the match algorith on the server.
  */
--(void)runUserMatches:(NSString*)user;
+-(void)runUserMatches:(User*)user;
 
 /**
  Post a new item image to the server
  */
 - (void) saveNewItemImage:(Item*)item;
-
--(BOOL) checkUsernameExists:(NSString*)username;
 
 /**
  Loads an image of an item from the server
