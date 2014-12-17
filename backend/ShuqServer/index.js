@@ -103,55 +103,57 @@ app.get('/:collection/:entity', function(req, res) {
    var entity = params.entity;
    var collection = params.collection;
 
-   //  auth url path to verify username password (used "Port/auth/username:password)
-   if (collection == "auth") {
-       if (entity) {
-           var userAndPass = entity.split(":");
-           if (userAndPass.length != 2) {
-               res.send(400, {error: 'Illegal colon in username or password', url: req.url});
-               return;
-           }
-           collectionDriver.get("user", userAndPass[0], function(error, objs) {
-               if (error || objs == null || objs.username == null) {
-                   res.send(400, {error: 'Incorrect username/password combination.', url: req.url});
-               } else if (objs.password != userAndPass[1]) {
-                   res.send(3, {error: 'Incorrect username password combination', url: req.url});
-                   return;
-               } else {res.send(200, objs);}
-           });
-
-       } else {
-           res.send(400, {error: 'misuse of auth url', url: req.url});
-       }
-   }
-
-  // url to use for forcing matches to be made
-  else if (collection == "demoMakeMatches") {
-    collectionDriver.demoMakeMatches("user", entity, function(error, response) {
-      if(error) {res.send(400, error);}
-      else {res.send(200, response);}
-    });
+  var entityArray = entity.split(":");
+  if (entityArray.length != 3) {
+    res.send(400, {error: 'Username and password must be sent', url: req.url});
+    return;
   }
+  entity = entityArray[0];
+  var username = entityArray[1];
+  var password = entityArray[2];
 
-  // url to check if a user exists in the database
-  else if (collection == "userCheck") {
-    collectionDriver.check("user", entity, function(error, objs) {
-      if (error) { res.send(400, error);}
-      else {
-        res.send(200,objs);
+  collectionDriver.authorize(username, password, function(error, objs) {
+    console.log("error: " + error + " objs: " + objs);
+    if (error) {
+      console.log("the error " + error);
+      res.send(400, {error: 'Incorrect username/password combination.', url: req.url});
+      return;
+    }  else {
+
+      if (params.collection == "auth") {
+        res.send(200, objs);
+        return;
       }
-    });
-  }
 
-   // normal url path /collection/itemInCollection
-   else if (entity) {
-       collectionDriver.get(collection, entity, function(error, objs) {
-          if (error) { res.send(400, error); }
-          else { res.send(200, objs); }
-       });
-   } else {
-      res.send(400, {error: 'bad url', url: req.url});
-   }
+      // url to use for forcing matches to be made
+      else if (collection == "demoMakeMatches") {
+        collectionDriver.demoMakeMatches("user", entity, function(error, response) {
+          if(error) {res.send(400, error);}
+          else {res.send(200, response);}
+        });
+      }
+
+      // url to check if a user exists in the database
+      else if (collection == "userCheck") {
+        collectionDriver.check("user", entity, function(error, objs) {
+          if (error) { res.send(400, error);}
+          else {
+            res.send(200,objs);
+          }
+        });
+      }
+
+       // normal url path /collection/itemInCollection
+       else if (entity) {
+           collectionDriver.get(collection, entity, function(error, objs) {
+              if (error) { res.send(400, error); }
+              else { res.send(200, objs); }
+           });
+       } else {
+          res.send(400, {error: 'bad url', url: req.url});
+       }
+    }
+  });
 });
 
 app.get('/:collection/:x/:y', function(req, res) {

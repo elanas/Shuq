@@ -14,6 +14,18 @@ CollectionDriver = function(db) {
   cDriver = this;
 };
 
+CollectionDriver.prototype.authorize = function(username, password, callback) {
+  this.get("user", username, function(error, objs) {
+    if (error || objs == null || objs.username == null) {
+      console.log("user doesn't exist");
+      callback("error");
+    } else if (objs.password != password) {
+      console.log("password doesn't match");
+      callback("error");
+    } else callback(null, objs);
+  });
+};
+
 /**
  * The function that gets a collection
  * @param collectionName the name of the collection to get
