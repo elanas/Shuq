@@ -76,16 +76,34 @@ app.get('/files/:id', function(req, res) {fileDriver.handleGet(req,res);});
  */
 app.get('/:collection', function(req, res) {
    var params = req.params;
-   collectionDriver.findAll(req.params.collection, function(error, objs) {
-    	  if (error) { res.send(400, error); }
-	      else {
+   var entityArray = req.params.collection.split(":")
+   if (entityArray.length != 3) {
+    res.send(400, {error: 'Username and password must be sent', url: req.url});
+    return;
+  }
+  var collection = entityArray[0];
+  var username = entityArray[1];
+  var password = entityArray[2];
+
+  collectionDriver.authorize(username, password, function(error, objs) {
+    console.log("error: " + error + " objs: " + objs);
+    if (error) {
+      console.log("the error " + error);
+      res.send(400, {error: 'Incorrect username/password combination.', url: req.url});
+      return;
+    }  else {
+       collectionDriver.findAll(collection, function(error, objs) {
+    	   if (error) { res.send(400, error); }
+	       else {
 	          if (req.accepts('html')) {
     	        res.render('data',{objects: objs, collection: req.params.collection}); // use data.jade format
             } else {
 	            res.set('Content-Type','application/json');
               res.send(200, objs);
             }
-        }
+         }
+       });
+      }
    	});
 });
 
