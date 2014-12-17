@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Reachability.h"
 
 @interface Communicator : NSObject {
     /** URL of the server*/
@@ -16,6 +17,8 @@
     NSString* userLoc;
     /** Name of the collection that stores files*/
     NSString* files;
+    /** AppleAPI object that allows to check connection to the server*/
+    Reachability* reachability;
 }
 
 /** Contructor for a new commnicator
@@ -85,4 +88,8 @@
  */
 - (NSArray*) getRequest: (NSString*) URLLoc;
 
+/**
+ Checks the internet connection
+ @return true if there is an internet connection, false otherwise*/
+- (BOOL) checkInternet;
 @end

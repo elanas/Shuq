@@ -73,6 +73,7 @@
 		0BA0B0E71A017D310087DDA5 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA0B0E61A017D310087DDA5 /* iphone.png */; };
 		0BDC39901A3161F600122AA6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDC398F1A3161F600122AA6 /* MenuViewController.m */; };
 		302C75AF1A05AE2400572902 /* ShuqModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302C75AE1A05AE2400572902 /* ShuqModelTests.m */; };
+		3068C62D1A41CE1C0011434F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3068C62C1A41CE1C0011434F /* Reachability.m */; };
 		306A479B1A1807FA00F32C9F /* ShuqServerConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */; };
 		306B03061A3FC3230023F67A /* Communicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 306B03051A3FC3230023F67A /* Communicator.m */; };
 		30ABDAD31A3E9F5200C7A926 /* ItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 30ABDAD21A3E9F5200C7A926 /* ItemList.m */; };
@@ -182,6 +183,8 @@
 		0BDC398E1A3161F600122AA6 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0BDC398F1A3161F600122AA6 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		302C75AE1A05AE2400572902 /* ShuqModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqModelTests.m; sourceTree = "<group>"; };
+		3068C62B1A41CE1C0011434F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3068C62C1A41CE1C0011434F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		306A479A1A1807FA00F32C9F /* ShuqServerConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuqServerConnectionTest.m; sourceTree = "<group>"; };
 		306B03041A3FC3230023F67A /* Communicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communicator.h; sourceTree = "<group>"; };
 		306B03051A3FC3230023F67A /* Communicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communicator.m; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				0B77748619FDA26200D2A696 /* view controllers */,
 				32BE56FC1A02DB73000CDE5B /* ShuqModel */,
 				306B03071A3FC32E0023F67A /* ServerComminucation */,
+				3068C62E1A41CE240011434F /* ReachabilityAPI */,
 			);
 			path = Shuq;
 			sourceTree = "<group>";
@@ -415,6 +419,15 @@
 				0BA0B0E11A0159C60087DDA5 /* hat.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		3068C62E1A41CE240011434F /* ReachabilityAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3068C62B1A41CE1C0011434F /* Reachability.h */,
+				3068C62C1A41CE1C0011434F /* Reachability.m */,
+			);
+			name = ReachabilityAPI;
 			sourceTree = "<group>";
 		};
 		306B03071A3FC32E0023F67A /* ServerComminucation */ = {
@@ -601,6 +614,7 @@
 				321634171A184AB70092B785 /* NewInventoryItemViewController.m in Sources */,
 				3216340E1A17F41B0092B785 /* InventoryViewController.m in Sources */,
 				32BE56FA1A02DB6C000CDE5B /* User.m in Sources */,
+				3068C62D1A41CE1C0011434F /* Reachability.m in Sources */,
 				0B046F641A1816E40040CC9E /* NewUserViewController.m in Sources */,
 				0BA0B0701A00BF710087DDA5 /* Item.m in Sources */,
 				0B6823741A3FE22300D1C12D /* SaveLocationViewController.m in Sources */,

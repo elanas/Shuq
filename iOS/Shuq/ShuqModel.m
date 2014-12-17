@@ -11,9 +11,9 @@
 
 @implementation ShuqModel
 
-//static NSString* const kBaseURL = @"http://localhost:3000/";
+static NSString* const kBaseURL = @"http://localhost:3000/";
 //static NSString* const kBaseURL = @"http://Elanas-MacBook-Pro.local:3000";
-static NSString* const kBaseURL = @"http://ec2-54-149-148-179.us-west-2.compute.amazonaws.com:3000";
+//static NSString* const kBaseURL = @"http://ec2-54-149-148-179.us-west-2.compute.amazonaws.com:3000";
 static NSString* const kLocations = @"user";
 static NSString* const kFiles = @"files";
 
