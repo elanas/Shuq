@@ -96,7 +96,7 @@
         NSString *numMatches = [NSString stringWithFormat:@"%d", (int)_itemIndex];
         numMatches = [numMatches stringByAppendingString:@"/"];
         numMatches = [numMatches stringByAppendingString:[NSString stringWithFormat:@"%d", (int)[model.items count]]];
-        
+        [_itemVal setText:@""];
         [_numMatchesLabel setText:numMatches];
         return;
     }
@@ -110,6 +110,8 @@
     
     [itemName setText:[item getName]];
     [_itemDesc setText:[@"Tags: " stringByAppendingString:[item getTagsStrings]]];
+    [_itemVal setText:[@"$" stringByAppendingString:[[item getValue] stringValue]]];
+
     
     NSString *numMatches = [NSString stringWithFormat:@"%d", _itemIndex + 1];
     numMatches = [numMatches stringByAppendingString:@"/"];

@@ -18,11 +18,15 @@
         server = ser;
         userLoc = us;
         files= fil;
+        reachability = [Reachability reachabilityForInternetConnection];
     }
     return self;
 }
 
 -(NSArray*)updateUser:(User*)user{
+    if(![self checkInternet]) {
+        return nil;
+    }
     if (!user ) {
         return nil;
     }
@@ -72,6 +76,10 @@
 
 
 -(NSArray* )getMatchItems:(NSString*)username{
+    if(![self checkInternet]) {
+        return nil;
+    }
+    
     NSString* userAuth = [username stringByAppendingString:@"Matches"];
     
     NSURL* url = [NSURL URLWithString:[server stringByAppendingPathComponent: userAuth]]; //1
@@ -122,6 +130,9 @@
 
 
 - (void) saveNewItemImage:(Item*)item andUser: (User*) us {
+    if(![self checkInternet]) {
+        return;
+    }
     NSURL* url = [NSURL URLWithString:[server stringByAppendingPathComponent:@"files"]]; //1
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST"; //2
@@ -147,6 +158,10 @@
 
 
 - (void) loadImage:(Item*)item{
+    if(![self checkInternet]) {
+        return;
+    }
+    
     NSURL* url = [NSURL URLWithString:[[server stringByAppendingPathComponent:@"files"] stringByAppendingPathComponent:[item getImageID]]]; //1
     
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -204,6 +219,9 @@
 }
 
 - (NSArray*)getRequest: (NSString*) URLLoc {
+    if(![self checkInternet]) {
+        return nil;
+    }
     
     NSURL* url = [NSURL URLWithString:[server stringByAppendingPathComponent: URLLoc]]; //1
     NSLog(@"urls: %@", url);
@@ -249,6 +267,17 @@
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     
     return responseArray;
+}
+
+- (BOOL) checkInternet {
+    NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+    if (internetStatus != NotReachable) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+
 }
 
 @end

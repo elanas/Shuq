@@ -25,7 +25,6 @@
 /**
  the list of items that the user will be swiping through
  */
-//DELETE below
 @property NSMutableArray* items;
 /**
  Index of the item currently being displayed
@@ -44,6 +43,7 @@
  */
 @property (weak, nonatomic) IBOutlet UITextView* itemDesc;
 @property (weak, nonatomic) IBOutlet UILabel *numMatchesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *itemVal;
 
 /*Called to refresh the front page*/
 - (IBAction)refresh:(id)sender;
